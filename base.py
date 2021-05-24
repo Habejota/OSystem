@@ -15,8 +15,8 @@ class Tenaya:
         self.command()
    
     def welcome(self):
-        print(f"Welcome to Tardis {__version__}")
-        print(f"Build version Tardis https://github.com/TenayaOS/OSystem")
+        print(f"Welcome to Tardis Operational System {__version__}")
+        print(f"Build version Tardis {__version__}: https://github.com/TenayaOS/OSystem")
         print("")
     
     def command(self):
