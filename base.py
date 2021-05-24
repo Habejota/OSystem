@@ -47,7 +47,9 @@ class Tenaya:
                     elif cmd == "clear":
                         system("cls")
                     elif cmd == "vsafe":
+                        chdir("..")
                         system("vsafe.py")
+                        chdir("home")
                     elif cmd == "osav":
                         try:
                             arsxvtkl1yytrs = open("Vsafe\osav.py")
