@@ -2,27 +2,28 @@ from os import system, getcwd, chdir, makedirs, startfile
 from time import sleep as delay
 from socket import gethostname, gethostbyname
 from time import sleep
+from vsafe import *
 import glob
 
 __version__ = "1.0"
 __author__ = "Felipe Souza"
 
 system("cls")
-
+hostname = gethostname()
+ifconfig = gethostbyname(hostname)
 class Tenaya:
     def __init__(self):
-        print("[ ] Loading Himem-X Exetended memory.")
-        print("starting boot kernel is loading. . ."), sleep(4.68)
+        print("[x] Loading Himem-X Exetended memory.")
+        print("starting boot kernel is loading. . ."), sleep(1.68)
         print("Hardware drive Keyboard.sys and FD12SH.zip")
         print("mirror_1: https://github.com/TenayaOS/OSystem")
         print("mirror_2: https://github.com/TenayaOS/OSystem.git (Git Files)")
-        print("[ ] System kernel wmemory rom. . ."), sleep(3)
-        print("[ ] Install database github updates. . ."), sleep(2.999)
+        print("[x] System kernel wmemory rom. . ."), sleep(2)
+        print("[x] Install database github updates. . ."), sleep(2.999)
         print("[ ] Calling self.command( __version__)")
         print("")
         print("")
         self.prompt = "$ "
-        self.clear()
         self.welcome()
         self.command()
    
@@ -43,13 +44,18 @@ class Tenaya:
                 except FileNotFoundError:
                     if cmd == "exit":
                         break
-                    elif cmd == "reboot":
-                        system("b")
-                    elif cmd == "prompt":
-                        if self.prompt == "$ ":
-                            rds = True
+                    elif cmd == "clear":
+                        system("cls")
+                    elif cmd == "vsafe":
+                        system("vsafe.py")
+                    elif cmd == "osav":
+                        try:
+                            arsxvtkl1yytrs = open("Vsafe\osav.py")
+                        except FileNotFoundError:
+                            print("Vsafe is not installed.")
                         else:
-                            rds = False
+                            system("Vsafe\osav.py")
+                    
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
                         cmd = cmd.replace("mkdir ", "")
