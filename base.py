@@ -43,7 +43,8 @@ class Tenaya:
                 except FileNotFoundError:
                     if cmd == "exit":
                         break
-                    
+                    elif cmd == "reboot":
+                        system("b")
                     elif cmd == "prompt":
                         if self.prompt == "$ ":
                             rds = True
