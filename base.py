@@ -46,18 +46,7 @@ class Tenaya:
                         break
                     elif cmd == "clear":
                         system("cls")
-                    elif cmd == "vsafe":
-                        chdir("..")
-                        system("vsafe.py")
-                        chdir("home")
-                    elif cmd == "osav":
-                        try:
-                            arsxvtkl1yytrs = open("Vsafe\osav.py")
-                        except FileNotFoundError:
-                            print("Vsafe is not installed.")
-                        else:
-                            system("Vsafe\osav.py")
-                    
+                   
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
                         cmd = cmd.replace("mkdir ", "")
