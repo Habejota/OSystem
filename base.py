@@ -1,4 +1,4 @@
-from os import system, getcwd, chdir, makedirs
+from os import system, getcwd, chdir, makedirs, startfile
 from time import sleep as delay
 from socket import gethostname, gethostbyname
 
@@ -7,9 +7,11 @@ import glob
 __version__ = "1.0"
 __author__ = "Felipe Souza"
 
+system("cls")
 
 class Tenaya:
     def __init__(self):
+        self.prompt = "$ "
         self.clear()
         self.welcome()
         self.command()
@@ -21,33 +23,51 @@ class Tenaya:
     
     def command(self):
         chdir("home")
+        rds = False
         while True:
             try:
-                cmd: str = input("$ ").strip()
-                if cmd == "exit":
-                    break
-                elif cmd.startswith("mkdir"):
-                    cmd = cmd.replace("mkdir", "")
-                    cmd = cmd.replace("mkdir ", "")
-                    if cmd == "":
+                cmd: str = input(self.prompt).strip()
+                try:
+                    rss = open(cmd)
+                    rss.close()
+                except FileNotFoundError:
+                    if cmd == "exit":
+                        break
+                    elif cmd == "prompt":
+                        if self.prompt == "$ ":
+                            rds = True
+                        else:
+                            rds = False
+                    elif cmd.startswith("mkdir"):
+                        cmd = cmd.replace("mkdir", "")
+                        cmd = cmd.replace("mkdir ", "")
+                        if cmd == "":
+                            continue
+                        else:
+                            self.dir_name(cmd)
+                    elif cmd.startswith("cd"):
+                        cmd = cmd.replace("cd", "")
+                        cmd = cmd.replace("cd ", "")
+                        if cmd == "":
+                            continue
+                        elif cmd == "drive":
+                            chdir("..")
+                            chdir("..")
+                            chdir("drive")
+                        else:
+                            self.enter_in_dir(dir_name=cmd)
+                    elif cmd == "pwd":
+                        print(getcwd())
+                    elif cmd == "ls":
+                        self.dirs_os()
+                    elif cmd == "":
                         continue
                     else:
-                        self.dir_name(cmd)
-                elif cmd.startswith("cd"):
-                    cmd = cmd.replace("cd", "")
-                    cmd = cmd.replace("cd ", "")
-                    if cmd == "":
-                        continue
-                    else:
-                        self.enter_in_dir(dir_name=cmd)
-                elif cmd == "pwd":
-                    print(getcwd())
-                elif cmd == "ls":
-                    self.dirs_os()
-                elif cmd == "":
-                    continue
+                        self.cannot()
+                    if rds == True:
+                        self.prompt = getcwd()
                 else:
-                    self.cannot()
+                    system(cmd)
             except KeyboardInterrupt:
                 break
     def make_dir(self, dir_name):
