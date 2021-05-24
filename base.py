@@ -11,13 +11,23 @@ system("cls")
 
 class Tenaya:
     def __init__(self):
+        print("[ ] Loading Himem-X Exetended memory.")
+        print("starting boot kernel is loading. . ."), sleep(4.68)
+        print("Hardware drive Keyboard.sys and FD12SH.zip")
+        print("mirror_1: https://github.com/TenayaOS/OSystem")
+        print("mirror_2: https://github.com/TenayaOS/OSystem.git (Git Files)")
+        print("[ ] System kernel wmemory rom. . ."), sleep(3)
+        print("[ ] Install database github updates. . ."), sleep(2.999)
+        print("[ ] Calling self.command( __version__)")
+        print("")
+        print("")
         self.prompt = "$ "
         self.clear()
         self.welcome()
         self.command()
    
     def welcome(self):
-        print(f"Welcome to Tardis Operational System {__version__}")
+        print(f"\033[36mWelcome to Tardis Operational System {__version__}\033[m")
         print(f"Build version Tardis {__version__}: https://github.com/TenayaOS/OSystem")
         print("")
     
@@ -33,6 +43,7 @@ class Tenaya:
                 except FileNotFoundError:
                     if cmd == "exit":
                         break
+                    
                     elif cmd == "prompt":
                         if self.prompt == "$ ":
                             rds = True
@@ -65,7 +76,7 @@ class Tenaya:
                     else:
                         self.cannot()
                     if rds == True:
-                        self.prompt = getcwd()
+                        self.prompt = f"{getcwd()}:~$ "
                 else:
                     system(cmd)
             except KeyboardInterrupt:
