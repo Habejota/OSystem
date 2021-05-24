@@ -1,7 +1,7 @@
 from time import sleep
 from os import system, getcwd, chdir, makedirs, startfile
 
-diretory = chdir()
+diretory = getcwd()
 def start():
     mensage()
     install()
