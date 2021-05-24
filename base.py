@@ -1,7 +1,7 @@
 from os import system, getcwd, chdir, makedirs, startfile
 from time import sleep as delay
 from socket import gethostname, gethostbyname
-
+from time import sleep
 import glob
 
 __version__ = "1.0"
