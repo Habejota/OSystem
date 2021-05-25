@@ -50,7 +50,7 @@ class Tenaya:
                     elif cmd == "clear":
                         system("cls")
                     elif cmd == "ifconfig":
-                        print(f"IP: {ifconfig} (Hostname: {hostname}")
+                        print(f"IP: {ifconfig} (Hostname: {hostname})")
                     elif cmd == "hostname":
                         print(f"Hostname: {hostname}")
                     
