@@ -7,6 +7,11 @@ import glob
 __version__ = "1.0"
 __author__ = "Felipe Souza"
 
+def loadMemory(file, statment=0):
+    with open(file, "wt") as memory:
+        memory = memory.read()
+        memory.write(hostname, ifconfig, "logic.py", "python.exe", "os, time, socket, logic, glob")
+        
 system("cls")
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
@@ -45,8 +50,10 @@ class Tenaya:
                         break
                     elif cmd == "clear":
                         system("cls")
-                    elif cmd == "bpd":
-                        
+                    elif cmd == "ifconfig":
+                        print(f"IP: {ifconfig} (Hostname: {hostname}")
+                    elif cmd == "hostname":
+                        print(f"Hostname: {hostname}")
                     
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
