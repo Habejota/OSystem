@@ -1,7 +1,6 @@
 from os import system, getcwd, chdir, makedirs, startfile
 from time import sleep
 from socket import gethostname, gethostbyname
-from logic import *
 import glob
 
 __version__ = "1.0"
