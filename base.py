@@ -1,8 +1,7 @@
 from os import system, getcwd, chdir, makedirs, startfile
-from time import sleep as delay
-from socket import gethostname, gethostbyname
 from time import sleep
-from vsafe import *
+from socket import gethostname, gethostbyname
+from logic import *
 import glob
 
 __version__ = "1.0"
@@ -46,7 +45,9 @@ class Tenaya:
                         break
                     elif cmd == "clear":
                         system("cls")
-                   
+                    elif cmd == "bpd":
+                        
+                    
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
                         cmd = cmd.replace("mkdir ", "")
@@ -67,14 +68,12 @@ class Tenaya:
                             self.enter_in_dir(dir_name=cmd)
                     elif cmd == "pwd":
                         print(getcwd())
-                    elif cmd == "ls":
+                    elif cmd == "if":
                         self.dirs_os()
                     elif cmd == "":
                         continue
                     else:
-                        self.cannot()
-                    if rds == True:
-                        self.prompt = f"{getcwd()}:~$ "
+                        self.cannot()   
                 else:
                     system(cmd)
             except KeyboardInterrupt:
