@@ -66,10 +66,6 @@ class Tenaya:
                         cmd = cmd.replace("cd ", "")
                         if cmd == "":
                             continue
-                        elif cmd == "drive":
-                            chdir("..")
-                            chdir("..")
-                            chdir("drive")
                         else:
                             self.enter_in_dir(dir_name=cmd)
                     elif cmd == "pwd":
