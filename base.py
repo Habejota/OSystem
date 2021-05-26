@@ -28,8 +28,7 @@ class Tenaya:
         print("")
         self.prompt = "$ "
         self.welcome()
-        self.command()
-   
+        self.command()  
     def welcome(self):
         print(f"\033[36mWelcome to Tardis Operational System {__version__}\033[m")
         print(f"Build version Tardis {__version__}: https://github.com/TenayaOS/OSystem")
@@ -80,6 +79,7 @@ class Tenaya:
                     system(cmd)
             except KeyboardInterrupt:
                 break
+
     def make_dir(self, dir_name):
         makedirs(dir_name)
     def enter_in_dir(self, dir_name):
