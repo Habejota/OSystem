@@ -6,11 +6,6 @@ import glob
 __version__ = "1.0"
 __author__ = "Felipe Souza"
 
-def loadMemory(file, statment=0):
-    with open(file, "wt") as memory:
-        memory = memory.read()
-        memory.write(hostname, ifconfig, "logic.py", "python.exe", "os, time, socket, logic, glob")
-        
 system("cls")
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
@@ -26,16 +21,19 @@ class Tenaya:
         print("[ ] Calling self.command( __version__)")
         print("")
         print("")
-        self.prompt = "$ "
+        self.prompt = "\033[32m$\033[m "
         self.welcome()
         self.command()  
+        
     def welcome(self):
         print(f"\033[36mWelcome to Tardis Operational System {__version__}\033[m")
         print(f"Build version Tardis {__version__}: https://github.com/TenayaOS/OSystem")
         print("")
-    
+    def instance_name(self):
+        system(self.program_instance)   
     def command(self):
         chdir("home")
+        
         rds = False
         while True:
             try:
@@ -52,6 +50,17 @@ class Tenaya:
                         print(f"IP: {ifconfig} (Hostname: {hostname})")
                     elif cmd == "hostname":
                         print(f"Hostname: {hostname}")
+                    elif cmd.startswith("echo"):
+                        cmd = cmd.replace("echo ", "")
+                        cmd = cmd.replace("echo",  "")
+                        if cmd == "":
+                            print("Echo driver is loaded in memory 0x800-1x300")
+                        else:
+                            print(cmd)
+                        cmd = "ECHO DIRVER"
+                    elif cmd == "wmemory":
+                        wmemory()
+                        continue
                     
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
@@ -79,7 +88,6 @@ class Tenaya:
                     system(cmd)
             except KeyboardInterrupt:
                 break
-
     def make_dir(self, dir_name):
         makedirs(dir_name)
     def enter_in_dir(self, dir_name):
