@@ -1,4 +1,4 @@
-from os import system, getcwd, chdir, makedirs, startfile
+from os import system, getcwd, chdir, makedirs, startfile, removedirs
 from time import sleep
 from socket import gethostname, gethostbyname
 import glob
@@ -9,21 +9,7 @@ __author__ = "Felipe Souza"
 system("cls")
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
-class WMEMORY:
-    def __init__(self, Partition):
-        self.disk_partition = Partition
-        
-    def LoadMemory(self):
-        system("cls")
-        partition = self.disk_partition
-        if partition == "0x800":
-            print("This partition already loaded in memory!")
-        else:
-            self.ReadMemory()
-    def ReadMemory(self):
 
-    def WriteMemory(self):
-    
 class Tenaya:
     def __init__(self):
         print("[x] Loading Himem-X Exetended memory.")
@@ -48,8 +34,6 @@ class Tenaya:
         system(self.program_instance)   
     def command(self):
         chdir("home")
-        
-        rds = False
         while True:
             try:
                 cmd: str = input(self.prompt).strip()
@@ -73,9 +57,10 @@ class Tenaya:
                         else:
                             print(cmd)
                         cmd = "ECHO DIRVER"
-                    elif cmd == "wmemory":
-                        WMEMORY("x")
-                        continue
+                    elif cmd.startswith("rmdir"):
+                        cmd = cmd.replace("rmdir", "")
+                        cmd = cmd.replace("rmdir ", "")
+                        removedirs(cmd)
                     
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
