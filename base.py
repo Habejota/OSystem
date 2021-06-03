@@ -9,6 +9,21 @@ __author__ = "Felipe Souza"
 system("cls")
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
+class WMEMORY:
+    def __init__(self, Partition):
+        self.disk_partition = Partition
+        
+    def LoadMemory(self):
+        system("cls")
+        partition = self.disk_partition
+        if partition == "0x800":
+            print("This partition already loaded in memory!")
+        else:
+            self.ReadMemory()
+    def ReadMemory(self):
+
+    def WriteMemory(self):
+    
 class Tenaya:
     def __init__(self):
         print("[x] Loading Himem-X Exetended memory.")
@@ -59,7 +74,7 @@ class Tenaya:
                             print(cmd)
                         cmd = "ECHO DIRVER"
                     elif cmd == "wmemory":
-                        wmemory()
+                        WMEMORY("x")
                         continue
                     
                     elif cmd.startswith("mkdir"):
@@ -103,4 +118,5 @@ class Tenaya:
     def cannot(self):
         print("Sorry! Cannot execute this Command!")
         return True
-            
+
+# !END OF CODE!
