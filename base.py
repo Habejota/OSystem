@@ -13,7 +13,10 @@ ifconfig = gethostbyname(hostname)
 def mirror():
     print("This Operational System is hospeded in:")
     print("https://github.com/TenayaOS/OSystem.git (URL Github System)\n")
-    input("\033[34m\Press ENTER to close this software. . .033[m")
+    name: str = input("Commit NAME: ")
+    system("git add .")
+    system(f"git commit -m {name}")
+    system("git push origin master")
 
 
 class Tenaya:
