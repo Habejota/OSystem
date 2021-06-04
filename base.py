@@ -3,7 +3,7 @@ from time import sleep
 from socket import gethostname, gethostbyname
 import glob
 
-__version__ = "1.0"
+__version__ = "1.10.1"
 __author__ = "Felipe Souza"
 
 system("cls")
@@ -69,9 +69,7 @@ class Tenaya:
                         removedirs(cmd)
                     elif cmd == "mirror":
                         mirror()
-                    elif cmd == "sdk":
-                        system("python sdk.py")
-                    
+                    elif cmd == 
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
                         cmd = cmd.replace("mkdir ", "")
