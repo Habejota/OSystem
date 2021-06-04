@@ -10,6 +10,12 @@ system("cls")
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
 
+def mirror():
+    print("This Operational System is hospeded in:")
+    print("https://github.com/TenayaOS/OSystem.git (URL Github System)\n")
+    input("\033[34m\Press ENTER to close this software. . .033[m")
+
+
 class Tenaya:
     def __init__(self):
         print("[x] Loading Himem-X Exetended memory.")
@@ -61,6 +67,10 @@ class Tenaya:
                         cmd = cmd.replace("rmdir", "")
                         cmd = cmd.replace("rmdir ", "")
                         removedirs(cmd)
+                    elif cmd == "mirror":
+                        mirror()
+                    elif cmd == "sdk":
+                        system("python sdk.py")
                     
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
@@ -104,4 +114,3 @@ class Tenaya:
         print("Sorry! Cannot execute this Command!")
         return True
 
-# !END OF CODE!
