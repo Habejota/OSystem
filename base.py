@@ -69,7 +69,7 @@ class Tenaya:
                         removedirs(cmd)
                     elif cmd == "mirror":
                         mirror()
-                    elif cmd == 
+                    
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
                         cmd = cmd.replace("mkdir ", "")
