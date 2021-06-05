@@ -16,7 +16,10 @@ def mirror():
     name: str = input("Commit NAME: ")
     system(f'git commit -a -m "{name}"')
     system("git push origin main")
-
+def mirror_pull():
+    print("This Operational System is hospeded in:")
+    print("https://github.com/TenayaOS/OSystem.git (URL Github System)\n")
+    system("git pull")
 
 class Tenaya:
     def __init__(self):
@@ -71,6 +74,8 @@ class Tenaya:
                         removedirs(cmd)
                     elif cmd == "mirror":
                         mirror()
+                    elif cmd == "mirror -p":
+                        mirror_pull()
                     
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
