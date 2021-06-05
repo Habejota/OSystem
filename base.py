@@ -19,7 +19,7 @@ class mirror:
         system("git pull")
     def mirror_charge():
         system("git branch -a beta")
-        
+
 system("cls")
 
 msys = mirror
@@ -30,14 +30,14 @@ class sdk:
         self.file_name = self.get_sdkFIleNAME()
         self.text_File = self.openFileToSDK()
         self.Load_in_MEMORY(partition=self.file_name, rangeLoad=-312785364)
-        
+
     def get_sdkFIleNAME(self):
         return str(input("Filename to Open in Sdk: /"))
-    
+
     def openFileToSDK(self):
         with open(self.file_name) as arq:
             return arq
-    
+
     def Load_in_MEMORY(self, partition, rangeLoad):
         disk_partition = partition
         while_Value = rangeLoad
@@ -54,8 +54,8 @@ class sdk:
                 else:
                     print("[ ]This cicle was completed.")
                     break
-        
-    
+
+
 class Tenaya:
     def __init__(self):
         try:
@@ -68,7 +68,7 @@ class Tenaya:
             print("[x] Install database github updates. . ."), sleep(2.999)
             print("[ ] Calling self.command( __version__)")
             print("")
-            print("") 
+            print("")
         except KeyboardInterrupt:
             system("cls")
             print("Fail in Load Files in Memory: MemoryError")
@@ -77,25 +77,27 @@ class Tenaya:
             print("Clearing Ram partition disk: 0x800-1x300"), sleep(3.999)
         else:
             self.prompt = "\033[32m$\033[m "
-            self.welcome()
-            self.command() 
-        
-    def welcome(self):
+            Tenaya.welcome()
+            Tenaya.command()
+
+    def welcome():
         print(f"\033[36mWelcome to Tardis Operational System {__version__}\033[m")
         print(f"Build version Tardis {__version__}: https://github.com/TenayaOS/OSystem")
         print("")
     def instance_name(self):
-        system(self.program_instance)   
-    def command(self):
+        system(self.program_instance)
+    
+    def command():
         chdir("home")
         while True:
             try:
-                cmd: str = input(self.prompt).strip()
+                cmd: str = input("\033[32m$\033[m ").strip()
                 try:
                     rss = open(cmd)
                     rss.close()
                 except FileNotFoundError:
                     if cmd == "exit":
+                        print("Power off computer. . ."), sleep(4.069)
                         break
                     elif cmd == "clear":
                         system("cls")
@@ -136,7 +138,11 @@ class Tenaya:
                             print("The launcher was closed. . .")
                        else:
                             sdk()
-                    
+                    elif cmd == "command":
+                        chdir("..")
+                        system("python command.py")
+                        chdir("home")
+                        
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
                         cmd = cmd.replace("mkdir ", "")
@@ -158,7 +164,7 @@ class Tenaya:
                     elif cmd == "":
                         continue
                     else:
-                        self.cannot()   
+                        self.cannot()
                 else:
                     system(cmd)
             except KeyboardInterrupt:
@@ -166,15 +172,15 @@ class Tenaya:
     def make_dir(self, dir_name):
         makedirs(dir_name)
     def enter_in_dir(self, dir_name):
-        try:    
+        try:
             chdir(dir_name)
         except:
-            print("Sorry! Cannot open this diretory!")       
+            print("Sorry! Cannot open this diretory!")
     def dirs_os(self):
         for f in glob.glob('*.*'):
             print(f)
     def clear(self):
-        system('cls')     
+        system('cls')
     def cannot(self):
         print("Sorry! Cannot execute this Command in shell!")
         return True
