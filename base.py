@@ -20,7 +20,11 @@ def mirror_pull():
     print("This Operational System is hospeded in:")
     print("https://github.com/TenayaOS/OSystem.git (URL Github System)\n")
     system("git pull")
-
+def mirror_charge():
+    print("You will charge this version of branch (main)")
+    branch: str = str(input("Branch atual: (main) - New Branch: "))
+    system(f"git branch {branch}")
+    system("exit")
 class Tenaya:
     def __init__(self):
         print("[x] Loading Himem-X Exetended memory.")
