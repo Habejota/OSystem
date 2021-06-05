@@ -23,7 +23,7 @@ def mirror_pull():
 def mirror_charge():
     print("You will charge this version of branch (main)")
     branch: str = str(input("Branch atual: (main) - New Branch: "))
-    system(f"git checkout {branch}")
+    system(f"git branch {branch}")
     system("exit")
 class Tenaya:
     def __init__(self):
