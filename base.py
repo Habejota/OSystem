@@ -31,6 +31,8 @@ class Tenaya:
         print("starting boot kernel is loading. . ."), sleep(1.68)
         print("Hardware drive Keyboard.sys and FD12SH.zip")
         print("mirror_1: https://github.com/TenayaOS/OSystem")
+        print("BETA DRIVER BRANCH... STARTED!")
+        print("No charterch undefined%%%%#@#$%*@#!#¨&*(&)")
         print("mirror_2: https://github.com/TenayaOS/OSystem.git (Git Files)")
         print("[x] System kernel wmemory rom. . ."), sleep(2)
         print("[x] Install database github updates. . ."), sleep(2.999)
