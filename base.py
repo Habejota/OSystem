@@ -1,10 +1,11 @@
 from os import system, getcwd, chdir, makedirs, startfile, removedirs
 from time import sleep
 from socket import gethostname, gethostbyname
-import glob
+import glob, socket
 
 __version__ = "1.10.1"
 __author__ = "Felipe Souza"
+__license__ = open("LICENSE").read()
 
 class mirror:
     def mirror():
@@ -22,6 +23,10 @@ class mirror:
 
 system("cls")
 
+def python(args):
+    system(f"{args}")
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 msys = mirror
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
@@ -54,8 +59,7 @@ class sdk:
                 else:
                     print("[ ]This cicle was completed.")
                     break
-
-
+                    
 class Tenaya:
     def __init__(self):
         try:
@@ -84,9 +88,6 @@ class Tenaya:
         print(f"\033[36mWelcome to Tardis Operational System {__version__}\033[m")
         print(f"Build version Tardis {__version__}: https://github.com/TenayaOS/OSystem")
         print("")
-    def instance_name(self):
-        system(self.program_instance)
-    
     def command():
         chdir("home")
         while True:
@@ -105,6 +106,8 @@ class Tenaya:
                         print(f"IP: {ifconfig} (Hostname: {hostname})")
                     elif cmd == "hostname":
                         print(f"Hostname: {hostname}")
+                    elif cmd.startswith("python"):
+                        python(cmd)
                     elif cmd.startswith("echo"):
                         cmd = cmd.replace("echo ", "")
                         cmd = cmd.replace("echo",  "")
@@ -142,46 +145,44 @@ class Tenaya:
                         chdir("..")
                         system("python command.py")
                         chdir("home")
+                    elif cmd.startswith("mem"):
+                        print("Reading disk partitions. . ."), sleep(1.999)
+                        print("Writing strings in disk as 0x800-1x300. . .") 
+                        sleep(1.023)
                         
+                        cmd = cmd.replace("mem ", "")
+                        cmd = cmd.replace("mem", "")
+                        system(f"rem {cmd}")
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
                         cmd = cmd.replace("mkdir ", "")
                         if cmd == "":
                             continue
                         else:
-                            self.dir_name(cmd)
-                    elif cmd.startswith("cd"):
-                        cmd = cmd.replace("cd", "")
-                        cmd = cmd.replace("cd ", "")
-                        if cmd == "":
-                            continue
-                        else:
-                            self.enter_in_dir(dir_name=cmd)
+                            Tenaya.make_dir(cmd)
+                    elif cmd == "license":
+                        print(__license__)
+                    
                     elif cmd == "pwd":
                         print(getcwd())
-                    elif cmd == "if":
-                        self.dirs_os()
+                    elif cmd == "if" or cmd == "dir":
+                        Tenaya.dirs_os()
                     elif cmd == "":
                         continue
                     else:
-                        self.cannot()
+                        Tenaya.cannot()
                 else:
                     system(cmd)
             except KeyboardInterrupt:
                 break
-    def make_dir(self, dir_name):
+    def make_dir(dir_name):
         makedirs(dir_name)
-    def enter_in_dir(self, dir_name):
-        try:
-            chdir(dir_name)
-        except:
-            print("Sorry! Cannot open this diretory!")
-    def dirs_os(self):
+    def dirs_os():
         for f in glob.glob('*.*'):
             print(f)
-    def clear(self):
+    def clear():
         system('cls')
-    def cannot(self):
+    def cannot():
         print("Sorry! Cannot execute this Command in shell!")
         return True
 
