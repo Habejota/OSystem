@@ -14,9 +14,8 @@ def mirror():
     print("This Operational System is hospeded in:")
     print("https://github.com/TenayaOS/OSystem.git (URL Github System)\n")
     name: str = input("Commit NAME: ")
-    system("git add .")
-    system(f"git commit -m {name}")
-    system("git push origin master")
+    system(f"git commit -a -m {name}")
+    system("git push origin main")
 
 
 class Tenaya:
