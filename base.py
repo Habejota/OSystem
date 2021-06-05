@@ -80,7 +80,8 @@ class Tenaya:
                         mirror()
                     elif cmd == "mirror -p":
                         mirror_pull()
-                    
+                    elif cmd == "mirror -c":
+                        mirror_charge()
                     elif cmd.startswith("mkdir"):
                         cmd = cmd.replace("mkdir", "")
                         cmd = cmd.replace("mkdir ", "")
