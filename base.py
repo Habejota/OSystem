@@ -162,7 +162,7 @@ class Tenaya:
                             Tenaya.make_dir(cmd)
                     elif cmd == "license":
                         print(__license__)
-                    
+                       
                     elif cmd == "pwd":
                         print(getcwd())
                     elif cmd == "if" or cmd == "dir":
