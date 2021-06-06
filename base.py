@@ -200,6 +200,7 @@ class Tenaya:
                         Tenaya.cannot()
                 else:
                     system(cmd)
+                print("")
             except KeyboardInterrupt:
                 break
     def make_dir(dir_name):
