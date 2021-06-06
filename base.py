@@ -25,7 +25,9 @@ system("cls")
 
 def python(args):
     system(f"{args}")
-    
+
+def 
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 msys = mirror
 hostname = gethostname()
