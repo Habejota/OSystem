@@ -62,7 +62,7 @@ class Tenaya:
         print(f"Build version Tardis {__version__}: https://github.com/TenayaOS/OSystem")
         print("")
     def command():
-        for i in range(0, 10):
+        for i in range(0, 3):
             system(fr"root\bin\beep.exe")
         while True:
             try:
@@ -155,7 +155,9 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system(fr"root\bin\{cmd}")
                 elif cmd == "login":
                      system(fr"root\bin\login.exe")
-                
+                elif cmd.startswith("balance"):
+                    system(fr"root\bin\{cmd}")
+                    
                 elif cmd == "pwd":
                         print(getcwd())
                 elif cmd == "":
