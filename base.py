@@ -96,47 +96,45 @@ class Tenaya:
         while True:
             try:
                 cmd: str = input("\033[32m$\033[m ").strip()
-                for i in range(0,1):
-                    if cmd == "exit":
-                        print("Power off computer. . ."), sleep(4.069)
-                        break
-                    elif cmd == "clear" or cmd == "cls":
-                        system("cls")
-                    elif cmd == "ifconfig":
-                        print(f"""
-                                    Software Loopback Interface 1
-                                            Link encap: Local loopback
-                                            inet addr:{ifconfig} Mask: 255.0.0.0
-                                            MTU: 1500 Speed:1073,74 Mbps
-                                            Admin status:UP Oper status:OPERATIONAL
-                                            RX packets:0 dropped:0 errors:0 unkown:0
-                                            TX packets:0 dropped:0 errors:0 txqueuelen:0
+                if cmd == "exit":
+                    break
+                elif cmd == "clear" or cmd == "cls":
+                    system("cls")
+                elif cmd == "ifconfig":
+                    print(f"""
+Software Loopback Interface 1
+    Link encap: Local loopback
+    inet addr:{ifconfig} Mask: 255.0.0.0
+    MTU: 1500 Speed:1073,74 Mbps
+    Admin status:UP Oper status:OPERATIONAL
+    RX packets:0 dropped:0 errors:0 unkown:0
+    TX packets:0 dropped:0 errors:0 txqueuelen:0
 
-                                    Qualcomm Atheros QCA9377 Wireless Network Adapter
-                                            Link encap: IEEE 802.11 HWaddr: 5C-C9-D3-8D-23-9D
-                                            inet addr:{ifconfig} Mask: 255.255.255.0
-                                            MTU: 1500 Speed:108,30 Mbps
-                                            Admin status:UP Oper status:OPERATIONAL
-                                            RX packets:154204 dropped:0 errors:0 unkown:0
-                                            TX packets:106105 dropped:0 errors:0 txqueuelen:0
+Qualcomm Atheros QCA9377 Wireless Network Adapter
+    Link encap: IEEE 802.11 HWaddr: 5C-C9-D3-8D-23-9D
+    inet addr:{ifconfig} Mask: 255.255.255.0
+    MTU: 1500 Speed:108,30 Mbps
+    Admin status:UP Oper status:OPERATIONAL
+    RX packets:154204 dropped:0 errors:0 unkown:0
+    TX packets:106105 dropped:0 errors:0 txqueuelen:0
                                     """)
-                    elif cmd == "hostname":
-                        print(f"Hostname: {hostname}")
-                    elif cmd.startswith("python"):
-                        python(cmd)
-                    elif cmd.startswith("echo"):
-                        cmd = cmd.replace("echo ", "")
-                        cmd = cmd.replace("echo",  "")
-                        if cmd == "":
-                            print("Echo driver is loaded in memory 0x800-1x300")
-                        else:
-                            print(cmd)
+                elif cmd == "hostname":
+                    print(f"Hostname: {hostname}")
+                elif cmd.startswith("python"):
+                    python(cmd)
+                elif cmd.startswith("echo"):
+                    cmd = cmd.replace("echo ", "")
+                    cmd = cmd.replace("echo",  "")
+                    if cmd == "":
+                        print("Echo driver is loaded in memory 0x800-1x300")
+                    else:
                         cmd = "ECHO DIRVER"
-                    elif cmd.startswith("rmdir"):
-                        cmd = cmd.replace("rmdir", "")
-                        cmd = cmd.replace("rmdir ", "")
-                        removedirs(cmd)
-                    elif cmd.startswith("mirror"):
+                        print(cmd)
+                elif cmd.startswith("rmdir"):
+                    cmd = cmd.replace("rmdir", "")
+                    cmd = cmd.replace("rmdir ", "")
+                    removedirs(cmd)
+                elif cmd.startswith("mirror"):
                         if cmd == "mirror":
                             msys.mirror()
                         elif cmd == "mirror -p":
@@ -148,20 +146,20 @@ class Tenaya:
                             print("mirror:")
                             print("  mirror -p: Pull and update code")
                             print("  mirror -c: Charge branch of System")
-                    elif cmd == "sdk":
-                       print("Starting SDK Api - Python SDK OSystem")
-                       print("If your computer have few ram memory press CTRL+C")
-                       try:
-                            input("PRESS ENTER TO OPEN SDK. . .")
-                       except KeyboardInterrupt:
-                            print("The launcher was closed. . .")
-                       else:
-                            sdk()
-                    elif cmd == "command":
+                elif cmd == "sdk":
+                    print("Starting SDK Api - Python SDK OSystem")
+                    print("If your computer have few ram memory press CTRL+C")
+                    try:
+                       input("PRESS ENTER TO OPEN SDK. . .")
+                    except KeyboardInterrupt:
+                       print("The launcher was closed. . .")
+                    else:
+                       sdk()
+                elif cmd == "command":
                         chdir("..")
                         system("python command.py")
                         chdir("home")
-                    elif cmd.startswith("mem"):
+                elif cmd.startswith("mem"):
                         print("Reading disk partitions. . ."), sleep(1.999)
                         print("Writing strings in disk as 0x800-1x300. . .") 
                         sleep(1.023)
@@ -169,52 +167,40 @@ class Tenaya:
                         cmd = cmd.replace("mem ", "")
                         cmd = cmd.replace("mem", "")
                         system(f"rem {cmd}")
-                    elif cmd.startswith("mkdir"):
-                        cmd = cmd.replace("mkdir", "")
-                        cmd = cmd.replace("mkdir ", "")
-                        if cmd == "":
-                            continue
-                        else:
-                            Tenaya.make_dir(cmd)
-                    elif cmd == "license":
+                elif cmd == "license":
                         print(__license__)
-                    elif cmd.startswith("banner"):
+                elif cmd.startswith("banner"):
                         cmd = cmd.replace("banner",  "")
                         cmd = cmd.replace("banner ", "")
                         system(fr"root\bin\banner.exe {cmd}")
-                    elif cmd.startswith("nano"):
+                elif cmd.startswith("nano"):
                         cmd = cmd.replace("nano ", "")
                         cmd = cmd.replace("nano",  "")
                         system(fr"root\bin\nano.exe {cmd}")
-                    elif cmd == "nimesweeper":
+                elif cmd == "nimesweeper":
                         system(fr"root\bin\nimesweeper.exe")
-                    elif cmd.startswith("nc"):
+                elif cmd.startswith("nc"):
                         system(fr"root\bin\{cmd}")
-                    elif cmd == "sudoku":
+                elif cmd == "sudoku":
                         system(fr"root\bin\sudoku.exe")
-                    elif cmd.startswith("telnet"):
-                         system(fr"root\bin\{cmd}")
-                    elif cmd.startswith("wget"):
+                elif cmd.startswith("telnet"):
                         system(fr"root\bin\{cmd}")
-                    elif cmd.startswith("scp"):
+                elif cmd.startswith("wget"):
                         system(fr"root\bin\{cmd}")
-                        
-                    elif cmd == "pwd":
+                elif cmd.startswith("scp"):
+                        system(fr"root\bin\{cmd}")
+                elif cmd == "login":
+                     system(fr"root\bin\login.exe")
+                
+                elif cmd == "pwd":
                         print(getcwd())
-                    elif cmd == "if" or cmd == "dir":
-                        Tenaya.dirs_os()
-                    elif cmd == "":
+                elif cmd == "":
                         print()
                         continue
-                    else:
+                else:
                         Tenaya.cannot()
             except KeyboardInterrupt:
                 break
-    def make_dir(dir_name):
-        makedirs(dir_name)
-    def dirs_os():
-        for f in glob.glob('*.*'):
-            print(f)
     def clear():
         system('cls')
     def cannot():
