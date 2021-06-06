@@ -96,7 +96,7 @@ class Tenaya:
         while True:
             try:
                 cmd: str = input("\033[32m$\033[m ").strip()
-                if cmd is str:
+                for i in range(0,1):
                     if cmd == "exit":
                         print("Power off computer. . ."), sleep(4.069)
                         break
