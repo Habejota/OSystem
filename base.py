@@ -96,12 +96,7 @@ class Tenaya:
         while True:
             try:
                 cmd: str = input("\033[32m$\033[m ").strip()
-                try:
-                    """
-                    rss = open(cmd)
-                    rss.close()"""
-                    pass
-                except FileNotFoundError:
+                if cmd is str:
                     if cmd == "exit":
                         print("Power off computer. . ."), sleep(4.069)
                         break
@@ -199,9 +194,6 @@ class Tenaya:
                         continue
                     else:
                         Tenaya.cannot()
-                else:
-                    Tenaya.cannot()
-                print("")
             except KeyboardInterrupt:
                 break
     def make_dir(dir_name):
