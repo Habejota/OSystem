@@ -1,0 +1,3 @@
+#!/bin/zsh.exe
+export SHELL="/bin/zsh.exe"
+. /etc/profile

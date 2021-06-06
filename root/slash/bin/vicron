@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/bin/vim -C -c "set syntax=crontab" -c "set compatible" "$@"

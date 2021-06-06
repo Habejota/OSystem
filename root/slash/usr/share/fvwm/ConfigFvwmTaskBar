@@ -1,0 +1,27 @@
+Style "FvwmTaskBar" NoTitle, BorderWidth 0, HandleWidth 0, Sticky
+Style "FvwmTaskBar" StaysOnTop, WindowListSkip, CirculateSkip
+
+DestroyModuleConfig FvwmTaskBar: *
+*FvwmTaskBar: Back #c3c3c3
+*FvwmTaskBar: Fore black
+*FvwmTaskBar: TipsBack bisque
+*FvwmTaskBar: TipsFore black
+*FvwmTaskBar: Geometry +0-0
+*FvwmTaskBar: Font lucidasans-bold-18
+*FvwmTaskBar: StatusFont lucidasans-bold-18
+
+*FvwmTaskBar: Action Click1 Iconify false, Raise
+*FvwmTaskBar: Action Click2 Iconify true,  Lower
+*FvwmTaskBar: Action Click3 Iconify false, Raise
+
+*FvwmTaskBar: UseSkipList
+*FvwmTaskBar: UseIconNames
+*FvwmTaskBar: AutoStick
+*FvwmTaskBar: ShowTips
+
+*FvwmTaskBar: ButtonWidth 200
+*FvwmTaskBar: BellVolume 20
+*FvwmTaskBar: ClockFormat %H:%M  %Y-%m-%d
+
+*FvwmTaskBar: StartName Start
+*FvwmTaskBar: StartMenu MenuFvwmRoot

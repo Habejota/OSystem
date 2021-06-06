@@ -1,0 +1,66 @@
+#!/bin/bash
+
+
+unset LASTMIRROR
+unset CYGPORTS
+unset APTLOCALREPO
+
+
+if [ "$1" == "install" ] || [ "$2" == "install" ] || [ "$3" == "install" ] || [ "$1" == "remove" ] || [ "$2" == "remove" ] || [ "$3" == "remove" ] || [ "$1" == "update" ] || [ "$2" == "update" ] || [ "$1" == "show" ] || [ "$2" == "show" ] || [ "$1" == "find" ] || [ "$2" == "find" ] || [ "$1" == "packageof" ] || [ "$2" == "packageof" ] || [ "$1" == "describe" ] || [ "$2" == "describe" ] || [ "$1" == "rebase" ] || [ "$2" == "rebase" ]; then
+  /bin/apt-cyg "$@"
+  exit 0
+fi
+
+if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "-h" ]; then
+  echo "MobApt package manager for MobaXterm"
+  echo ""
+  echo "You can start \"MobApt\" without any parameter in order to launch the graphical package manager, or use \"MobApt install <mytool>\" in order to install \"mytool\" from commandline."
+  echo ""
+  exit 0
+fi
+builtin echo
+builtin echo -e "\033[32mUpdating packages list, please wait...\033[0m"
+builtin echo
+apt-cyg $1 $2 $3 $4 update
+apt-cyg $1 $2 $3 $4 -p update
+
+rm -f /tmp/.mobapt.$$
+rm -f /tmp/.mobaptres.$$
+rm -f /tmp/.mobaptremres.$$
+
+/bin/MobaSendMsg.exe MobaXterm "-mobapt|$$"
+
+if [ ! -e "/tmp/.mobaptres.$$" ] && [ ! -e "/tmp/.mobaptremres.$$" ]; then
+  exit 0
+fi
+
+pkg=""
+rempkg=""
+for i in `cat /tmp/.mobaptres.$$ 2>/dev/null`; do
+  pkg="$pkg $i"
+done
+for i in `cat /tmp/.mobaptremres.$$ 2>/dev/null`; do
+  rempkg="$rempkg $i"
+done
+
+rm -f /tmp/.mobapt.$$
+rm -f /tmp/.mobaptres.$$
+rm -f /tmp/.mobaptremres.$$
+
+if [ "$pkg" != "" ]; then
+  builtin echo
+  builtin echo -e "\033[32mInstalling $pkg\033[0m"
+  builtin echo
+  builtin echo "/bin/apt-cyg $1 $2 install $pkg"
+  /bin/apt-cyg $1 $2 $3 $4 install $pkg
+fi
+
+if [ "$rempkg" != "" ]; then
+  builtin echo
+  builtin echo -e "\033[32mUninstalling $rempkg\033[0m"
+  builtin echo
+  builtin echo "/bin/apt-cyg $1 $2 remove $rempkg"
+  /bin/apt-cyg $1 $2 $3 $4 remove $rempkg
+fi
+
+MobaSendMsg MobaXterm "-showmsg|MobApt package manager exited successfully."

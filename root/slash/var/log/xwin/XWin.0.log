@@ -1,0 +1,70 @@
+Welcome to the XWin X Server
+Vendor: Moba/X
+Release: 1.20.4.0
+OS: Windows 10  [Windows NT 10.0 build 18362] (WoW64)
+Package: version  built 2019-03-16
+
+XWin was started with the following command line:
+
+E:\OSystem\root\slash\bin\XWin_MobaX.exe -silent-dup-error 
+ -notrayicon -nolisten inet6 -hostintitle +bs -clipboard -nowgl 
+ -multiwindow -noreset :0 
+
+ddxProcessArgument - Initializing default screens
+winInitializeScreenDefaults - primary monitor w 1280 h 720
+winInitializeScreenDefaults - native DPI x 96 y 96
+(==) FontPath set to /usr/share/fonts/misc/
+(==) FontPath set to E:\OSystem\root\slash/usr/share/fonts/misc/
+(==) FontPath set to /usr/share/fonts/TTF/
+(==) FontPath set to E:\OSystem\root\slash/usr/share/fonts/TTF/
+(==) FontPath set to /usr/share/fonts/OTF/
+(==) FontPath set to E:\OSystem\root\slash/usr/share/fonts/OTF/
+(==) FontPath set to /usr/share/fonts/Type1/
+(==) FontPath set to E:\OSystem\root\slash/usr/share/fonts/Type1/
+(==) FontPath set to /usr/share/fonts/100dpi/
+(==) FontPath set to E:\OSystem\root\slash/usr/share/fonts/100dpi/
+(==) FontPath set to /usr/share/fonts/75dpi/
+(==) FontPath set to E:\OSystem\root\slash/usr/share/fonts/75dpi/
+(==) FontPath set to "E:\OSystem\root\slash/usr/share/fonts/misc/,E:\OSystem\root\slash/usr/share/fonts/TTF/,E:\OSystem\root\slash/usr/share/fonts/OTF/,E:\OSystem\root\slash/usr/share/fonts/Type1/,E:\OSystem\root\slash/usr/share/fonts/100dpi/,E:\OSystem\root\slash/usr/share/fonts/75dpi/"
+(==) Setting XKEYSYMDB path to XKEYSYMDB=E:\OSystem\root\slash\usr\share\X11\XKeysymDB
+(==) Setting XERRORDB path to XERRORDB=E:\OSystem\root\slash\usr\share\X11\XErrorDB
+(==) Setting XLOCALEDIR path to XLOCALEDIR=E:\OSystem\root\slash\usr\share\X11\locale
+(==) Logfile set to "E:\OSystem\root\slash\var\log\xwin\XWin.0.log"
+(==) Setting XKB path to E:\OSystem\root\slash\usr\share\X11\xkb
+[342354.171] winDetectSupportedEngines - RemoteSession: no
+[342354.187] winDetectSupportedEngines - DirectDraw4 installed, allowing ShadowDDNL
+[342354.203] winDetectSupportedEngines - Returning, supported engines 00000005
+[342354.203] winSetEngine - Multi Window or Rootless => ShadowGDI
+[342354.203] winScreenInit - Using Windows display depth of 32 bits per pixel
+[342354.203] winAllocateFBShadowGDI - Creating DIB with width: 1280 height: 720 depth: 32
+[342354.203] winFinishScreenInitFB - Masks: 00ff0000 0000ff00 000000ff
+[342354.203] winInitVisualsShadowGDI - Masks 00ff0000 0000ff00 000000ff BPRGB 8 d 24 bpp 32
+[342354.218] (II) IGLX: Loaded and initialized swrast
+[342354.218] (II) GLX: Initialized DRISWRAST GL provider for screen 0
+[342354.281] (II) [XKB]  "E:\OSystem\root\slash\var\log\xwin\xkb_a08592" file successfully created.
+[342354.281] (II) [XKB]  Launching xkbcomp.exe with the following command:
+[342354.281] (II) [XKB]  "E:\OSystem\root\slash\bin\xkbcomp_w32.exe" -w 1 "-RE:\OSystem\root\slash\usr\share\X11\xkb" -xkm "E:\OSystem\root\slash\var\log\xwin\xkb_a08592" -em1 "The XKEYBOARD keymap compiler (xkbcomp) reports:" -emp "> " -eml "Errors from xkbcomp are not fatal to the X server" "E:\OSystem\root\slash\var\log\xwin\server-0.xkm"
+[342354.281] (II) [XKB]  LaunchXkbComp(II) :  succeeded
+[342354.546] (II) [XKB]  Successfully created keyboard mapping file "E:\OSystem\root\slash\var\log\xwin\xkb_a08592"
+[342354.546] winPointerWarpCursor - Discarding first warp: 640 360
+[342354.546] (--) 16 mouse buttons found
+[342354.546] (--) Setting autorepeat to delay=500, rate=31
+[342354.546] (--) Windows keyboard layout: "00010416" (00010416) "Portuguese (Brazilian ABNT2)", type 7
+[342354.546] (--) Found matching XKB configuration "Portuguese (Brazil,ABNT2)"
+[342354.546] (--) Model = "abnt2" Layout = "br" Variant = "none" Options = "none"
+[342354.546] Rules = "base" Model = "abnt2" Layout = "br" Variant = "none" Options = "none"
+[342354.546] (II) [XKB]  "E:\OSystem\root\slash\var\log\xwin\xkb_a08592" file successfully created.
+[342354.546] (II) [XKB]  Launching xkbcomp.exe with the following command:
+[342354.546] (II) [XKB]  "E:\OSystem\root\slash\bin\xkbcomp_w32.exe" -w 1 "-RE:\OSystem\root\slash\usr\share\X11\xkb" -xkm "E:\OSystem\root\slash\var\log\xwin\xkb_a08592" -em1 "The XKEYBOARD keymap compiler (xkbcomp) reports:" -emp "> " -eml "Errors from xkbcomp are not fatal to the X server" "E:\OSystem\root\slash\var\log\xwin\server-0.xkm"
+[342354.546] (II) [XKB]  LaunchXkbComp(II) :  succeeded
+[342354.625] (II) [XKB]  Successfully created keyboard mapping file "E:\OSystem\root\slash\var\log\xwin\xkb_a08592"
+[342354.625] winInitMultiWindowWM - DISPLAY=127.0.0.1:0.0
+[342354.625] winMultiWindowXMsgProc - DISPLAY=127.0.0.1:0.0
+[342354.640] winMultiWindowXMsgProc - xcb_connect() returned and successfully opened the display.
+[342354.640] winProcEstablishConnection - winInitClipboard returned.
+[342354.640] winClipboardThreadProc - DISPLAY=127.0.0.1:0.0
+[342354.640] winInitMultiWindowWM - xcb_connect () returned and successfully opened the display.
+[342354,640] Using Composite redirection
+[342354.640] OS maintains clipboard viewer chain: yes
+[342354.656] winClipboardProc - XOpenDisplay () returned and successfully opened the display.
+[342357.812] winWindowProc - WM_EXITSIZEMOVE
