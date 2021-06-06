@@ -1,0 +1,3 @@
+#!/bin/bash
+
+for j in `find /bin -type f -name "*.exe" -or -name "*.dll"`; do for i in `objdump.exe -p "$j" | grep "DLL Name" | awk '{print $3}' | grep -i cyg`; do if ! ls /bin/$i >/dev/null 2>&1; then echo "$j --> $i"; fi; done; done
