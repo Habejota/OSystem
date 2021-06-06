@@ -195,6 +195,7 @@ class Tenaya:
                     elif cmd == "if" or cmd == "dir":
                         Tenaya.dirs_os()
                     elif cmd == "":
+                        print()
                         continue
                     else:
                         Tenaya.cannot()
