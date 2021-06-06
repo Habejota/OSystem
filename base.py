@@ -199,7 +199,7 @@ class Tenaya:
                     else:
                         Tenaya.cannot()
                 else:
-                    system(cmd)
+                    Tenaya.cannot()
                 print("")
             except KeyboardInterrupt:
                 break
