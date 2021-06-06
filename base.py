@@ -3,7 +3,7 @@ from time import sleep
 from socket import gethostname, gethostbyname
 import glob, socket
 
-__version__ = "1.10.1"
+__version__ = "1.10.2"
 __author__ = "Felipe Souza"
 __license__ = open("LICENSE").read()
 
@@ -26,7 +26,7 @@ system("cls")
 def python(args):
     system(f"{args}")
 
-def 
+
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 msys = mirror
@@ -91,18 +91,21 @@ class Tenaya:
         print(f"Build version Tardis {__version__}: https://github.com/TenayaOS/OSystem")
         print("")
     def command():
-        chdir("home")
+        for i in range(0, 10):
+            system(fr"root\bin\beep.exe")
         while True:
             try:
                 cmd: str = input("\033[32m$\033[m ").strip()
                 try:
+                    """
                     rss = open(cmd)
-                    rss.close()
+                    rss.close()"""
+                    pass
                 except FileNotFoundError:
                     if cmd == "exit":
                         print("Power off computer. . ."), sleep(4.069)
                         break
-                    elif cmd == "clear":
+                    elif cmd == "clear" or cmd == "cls":
                         system("cls")
                     elif cmd == "ifconfig":
                         print(f"IP: {ifconfig} (Hostname: {hostname})")
@@ -164,7 +167,29 @@ class Tenaya:
                             Tenaya.make_dir(cmd)
                     elif cmd == "license":
                         print(__license__)
-                       
+                    elif cmd.startswith("banner"):
+                        cmd = cmd.replace("banner",  "")
+                        cmd = cmd.replace("banner ", "")
+                        system(fr"root\bin\banner.exe {cmd}")
+                    elif cmd == "ctris":
+                        system("root\bin\ctris.exe")
+                    elif cmd.startswith("nano"):
+                        cmd = cmd.replace("nano ", "")
+                        cmd = cmd.replace("nano",  "")
+                        system(fr"root\bin\nano.exe {cmd}")
+                    elif cmd == "nimesweeper":
+                        system(fr"root\bin\nimesweeper.exe")
+                    elif cmd.startswith("nc"):
+                        system(fr"root\bin\{cmd}")
+                    elif cmd == "sudoku":
+                        system(fr"root\bin\sudoku.exe")
+                    elif cmd.startswith("telnet"):
+                         system(fr"root\bin\{cmd}")
+                    elif cmd.startswith("wget"):
+                        system(fr"root\bin\{cmd}")
+                    elif cmd.startswith("scp"):
+                        system(fr"root\bin\{cmd}")
+                        
                     elif cmd == "pwd":
                         print(getcwd())
                     elif cmd == "if" or cmd == "dir":
