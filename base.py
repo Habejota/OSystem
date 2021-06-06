@@ -32,36 +32,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 msys = mirror
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
-class sdk:
-    def __init__(self):
-        self.file_name = self.get_sdkFIleNAME()
-        self.text_File = self.openFileToSDK()
-        self.Load_in_MEMORY(partition=self.file_name, rangeLoad=-312785364)
-
-    def get_sdkFIleNAME(self):
-        return str(input("Filename to Open in Sdk: /"))
-
-    def openFileToSDK(self):
-        with open(self.file_name) as arq:
-            return arq
-
-    def Load_in_MEMORY(self, partition, rangeLoad):
-        disk_partition = partition
-        while_Value = rangeLoad
-        asp = 0
-        while asp != 20:
-            asp =+1
-            for i in range(0, 2):
-                try:
-                    spt = open(disk_partition, "rt")
-                    spt = spt.read()
-                except FileNotFoundError:
-                    print("Dont have a instance_name on this partition readed")
-                    print("Please Load a new partition on 0x800-1x300")
-                else:
-                    print("[ ]This cicle was completed.")
-                    break
-                    
+          
 class Tenaya:
     def __init__(self):
         try:
@@ -146,15 +117,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             print("mirror:")
                             print("  mirror -p: Pull and update code")
                             print("  mirror -c: Charge branch of System")
-                elif cmd == "sdk":
-                    print("Starting SDK Api - Python SDK OSystem")
-                    print("If your computer have few ram memory press CTRL+C")
-                    try:
-                       input("PRESS ENTER TO OPEN SDK. . .")
-                    except KeyboardInterrupt:
-                       print("The launcher was closed. . .")
-                    else:
-                       sdk()
+                elif cmd == "ssh-cli":
+                    system(fr"root\ssh\SshClient.exe")
                 elif cmd == "command":
                         chdir("..")
                         system("python command.py")
