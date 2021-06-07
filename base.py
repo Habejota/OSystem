@@ -95,7 +95,8 @@ class Tenaya:
                         print(source)
                     elif cmd == "disk":
                         print(disk_partition)
-                    
+                    elif cmd.startswith("lynx"):
+                        system(fr"root\bin\{cmd}")
                     elif cmd == "distribuition":
                         print(distibuition)
                     elif cmd == "language":
