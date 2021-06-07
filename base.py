@@ -27,8 +27,6 @@ def python(args):
     system(f"{args}")
 
 
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 msys = mirror
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
@@ -62,8 +60,7 @@ class Tenaya:
         print(f"Build version Tardis {__version__}: https://github.com/TenayaOS/OSystem")
         print("")
     def command():
-        for i in range(0, 3):
-            system(fr"root\bin\beep.exe")
+        system(fr"root\bin\beep.exe")
         while True:
             try:
                 cmd: str = input("\033[32m$\033[m ").strip()
@@ -163,6 +160,15 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     cmd = cmd.replace("pip",  "")
                     cmd = cmd.replace("pip ", "")
                     system(f"python.exe pip\__main__.py {cmd}")
+                elif cmd.startswith("connect"):
+                    system(fr"root\bin\{cmd}")
+                elif cmd.startswith("./"):
+                    cmd=cmd.replace("./", "")
+                    system(fr"{cmd}")
+                elif cmd.startswith("network"):
+                    if cmd == "network-history":
+                        system("ipconfig /displaydns")
+                        
                 
                 elif cmd == "pwd":
                         print(getcwd())
