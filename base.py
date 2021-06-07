@@ -157,7 +157,13 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                      system(fr"root\bin\login.exe")
                 elif cmd.startswith("balance"):
                     system(fr"root\bin\{cmd}")
-                    
+                elif cmd == "2048":
+                    system(fr"root\bin\{cmd}.exe")
+                elif cmd.startswith("pip"):
+                    cmd = cmd.replace("pip",  "")
+                    cmd = cmd.replace("pip ", "")
+                    system(f"python.exe pip\__main__.py {cmd}")
+                
                 elif cmd == "pwd":
                         print(getcwd())
                 elif cmd == "":
