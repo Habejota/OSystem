@@ -63,7 +63,7 @@ class Tenaya:
         system("cls")
         print("")
         print("_"*64)
-        system(fr"root\bin\banner.exe OSYSTEM")        
+        system(fr"bin\banner.exe OSYSTEM")        
         print("_"*64)
         print(f"\n\033[36mWelcome to Tardis Operational System {__version__}\033[m")
         print(f"Build version Tardis {__version__}: https://github.com/TenayaOS/OSystem")
@@ -248,3 +248,5 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
         print("Sorry! Cannot execute this Command in shell!")
         return True
 
+
+Tenaya()
