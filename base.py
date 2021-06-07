@@ -25,7 +25,6 @@ system("cls")
 
 def python(args):
     system(f"{args}")
-
 def beep():
     system(fr"root\bin\beep.exe")
 
@@ -35,12 +34,9 @@ ifconfig = gethostbyname(hostname)
 distibuition = fr"OSystem Distuibuition {__version__}" 
 source = fr"https://github.com/TenayaOS/OSystem (Free Source Code)"
 language = fr"Englesh (United States of America"
-execute_cmd = fr"python kernel.py"
-cmd = None
-root_dir = r"root\bin" 
 disk_partition = "0x800-1x300"
-libraries = "%actual_path%/Lib"
-    
+error_msg = """Sorry! This is a internal error in main code!"""
+
 class Tenaya:
     def __init__(self):
         try:
@@ -95,6 +91,15 @@ class Tenaya:
                 except UnboundLocalError:
                     if cmd == "exit":
                         break
+                    elif cmd == "source":
+                        print(source)
+                    elif cmd == "disk":
+                        print(disk_partition)
+                    
+                    elif cmd == "distribuition":
+                        print(distibuition)
+                    elif cmd == "language":
+                        print(language)
                     elif cmd == "clear" or cmd == "cls":
                         system("cls")
                     elif cmd == "ifconfig":
@@ -156,6 +161,21 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             cmd = cmd.replace("mem ", "")
                             cmd = cmd.replace("mem", "")
                             system(f"rem {cmd}")
+                            beep()
+                            beep()
+                            beep()
+                            beep()
+                            beep()
+                            beep()
+                            beep()
+                            beep()
+                            beep()
+                            beep()
+                            beep()
+                            beep()
+                            beep()
+                            beep()
+                            beep()
                     elif cmd == "license":
                             print(__license__)
                     elif cmd.startswith("banner"):
@@ -202,7 +222,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         chdir("..")
                     elif cmd.startswith("ping"):
                         system(cmd)
-                    
                     elif cmd == "manager-repo":
                         chdir("home")
                         saanybredyubtfgyucrvunyvynug = str(input("Git Repository: "))
@@ -221,7 +240,13 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     else:
                         Tenaya.cannot()            
             except KeyboardInterrupt:
-                break
+                print("~~~~ KeyboardInterrupt: ^C")
+            except TypeError:
+                print(error_msg)
+            except OSError:
+                print("This is A Poblem of System incompatibility")
+            except EOFError:
+                continue
     def clear():
         system('cls')
     def cannot():
