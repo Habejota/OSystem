@@ -202,7 +202,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd.startswith("pip"):
                         cmd = cmd.replace("pip",  "")
                         cmd = cmd.replace("pip ", "")
-                        system(f"var\python.exe pip\__main__.py {cmd}")
+                        system(f"var\python.exe var\pip\__main__.py {cmd}")
                     elif cmd.startswith("connect"):
                         system(fr"bin\{cmd}")
                     elif cmd.startswith("./"):
