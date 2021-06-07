@@ -24,9 +24,9 @@ class mirror:
 system("cls")
 
 def python(args):
-    system(f"{args}")
+    system(fr"var\{args}")
 def beep():
-    system(fr"root\bin\beep.exe")
+    system(fr"bin\beep.exe")
 
 msys = mirror
 hostname = gethostname()
@@ -95,8 +95,6 @@ class Tenaya:
                         print(source)
                     elif cmd == "disk":
                         print(disk_partition)
-                    elif cmd.startswith("lynx"):
-                        system(fr"root\Lynx\{cmd}")
                     elif cmd == "distribuition":
                         print(distibuition)
                     elif cmd == "language":
@@ -132,10 +130,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             print("Echo driver is loaded in memory 0x800-1x300")
                         else:
                             print(cmd)
-                    elif cmd.startswith("rmdir"):
-                        cmd = cmd.replace("rmdir", "")
-                        cmd = cmd.replace("rmdir ", "")
-                        removedirs(cmd)
                     elif cmd.startswith("mirror"):
                             if cmd == "mirror":
                                 msys.mirror()
@@ -152,7 +146,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system(fr"root\ssh\SshClient.exe")
                     elif cmd == "command":
                             chdir("..")
-                            system("python command.py")
+                            system("var\python.exe command.py")
                             chdir("home")
                     elif cmd.startswith("mem"):
                             print("Reading disk partitions. . ."), sleep(1.999)
@@ -182,35 +176,35 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd.startswith("banner"):
                             cmd = cmd.replace("banner",  "")
                             cmd = cmd.replace("banner ", "")
-                            system(fr"root\bin\banner.exe {cmd}")
+                            system(fr"bin\banner.exe {cmd}")
                     elif cmd.startswith("nano"):
                             cmd = cmd.replace("nano ", "")
                             cmd = cmd.replace("nano",  "")
-                            system(fr"root\bin\nano.exe {cmd}")
+                            system(fr"bin\nano.exe {cmd}")
                     elif cmd == "nimesweeper":
-                            system(fr"root\bin\nimesweeper.exe")
+                            system(fr"bin\nimesweeper.exe")
                     elif cmd.startswith("nc"):
-                            system(fr"root\bin\{cmd}")
+                            system(fr"bin\{cmd}")
                     elif cmd == "sudoku":
-                            system(fr"root\bin\sudoku.exe")
+                            system(fr"bin\sudoku.exe")
                     elif cmd.startswith("telnet"):
-                            system(fr"root\bin\{cmd}")
+                            system(fr"bin\{cmd}")
                     elif cmd.startswith("wget"):
-                            system(fr"root\bin\{cmd}")
+                            system(fr"bin\{cmd}")
                     elif cmd.startswith("scp"):
-                            system(fr"root\bin\{cmd}")
+                            system(fr"bin\{cmd}")
                     elif cmd == "login":
-                         system(fr"root\bin\login.exe")
+                         system(fr"bin\login.exe")
                     elif cmd.startswith("balance"):
                         system(fr"root\bin\{cmd}")
                     elif cmd == "2048":
-                        system(fr"root\bin\{cmd}.exe")
+                        system(fr"bin\{cmd}.exe")
                     elif cmd.startswith("pip"):
                         cmd = cmd.replace("pip",  "")
                         cmd = cmd.replace("pip ", "")
-                        system(f"python.exe pip\__main__.py {cmd}")
+                        system(f"var\python.exe pip\__main__.py {cmd}")
                     elif cmd.startswith("connect"):
-                        system(fr"root\bin\{cmd}")
+                        system(fr"bin\{cmd}")
                     elif cmd.startswith("./"):
                         cmd=cmd.replace("./", "")
                         system(fr"{cmd}")
@@ -230,7 +224,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             chdir(saanybredyubtfgyucrvunyvynug)
                         except:
                             print("Sorry! Cannot open this diretory file!")
-                            system(fr"root\bin\beep.exe")
+                            system(fr"bin\beep.exe")
                         else:
                             git=True
                     elif cmd == "pwd":
