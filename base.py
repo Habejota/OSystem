@@ -28,12 +28,19 @@ def python(args):
 
 def beep():
     system(fr"root\bin\beep.exe")
-    
-git = False
+
 msys = mirror
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
-          
+distibuition = fr"OSystem Distuibuition {__version__}" 
+source = fr"https://github.com/TenayaOS/OSystem (Free Source Code)"
+language = fr"Englesh (United States of America"
+execute_cmd = fr"python kernel.py"
+cmd = None
+root_dir = r"root\bin" 
+disk_partition = "0x800-1x300"
+libraries = "%actual_path%/Lib"
+    
 class Tenaya:
     def __init__(self):
         try:
