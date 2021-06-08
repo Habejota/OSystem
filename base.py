@@ -130,9 +130,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                 print("  mirror -p: Pull and update code")
                                 print("  mirror -c: Charge branch of System")
                     elif cmd == "command":
-                            chdir("..")
                             system("var\python.exe command.py")
-                            chdir("home")
                     elif cmd.startswith("mem"):
                             print("Reading disk partitions. . ."), sleep(1.999)
                             print("Writing strings in disk as 0x800-1x300. . .") 
@@ -181,7 +179,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd == "ctrl":
                          system(fr"bin\login.exe")
                     elif cmd.startswith("balance"):
-                        system(fr"root\bin\{cmd}")
+                        system(fr"bin\{cmd}")
                     elif cmd == "2048":
                         system(fr"bin\{cmd}.exe")
                     elif cmd.startswith("pip"):
@@ -219,18 +217,17 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system(fr"bin\{cmd}")
                     
                     
-                    
                     elif cmd == "":
                             print()
                             continue
                     else:
                         Tenaya.cannot() 
+                
             except KeyboardInterrupt:
                 print("~~~~ KeyboardInterrupt: ^C")
+                break
             except TypeError:
                 print(error_msg)
-            except OSError:
-                print("This is A Poblem of System incompatibility")
             except EOFError:
                 continue
     def clear():
