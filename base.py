@@ -22,6 +22,7 @@ class mirror:
         system("git branch -a beta")
 
 system("cls")
+system(fr"PATH=%path%;{getcwd()}\bin")
 
 def python(args):
     system(fr"var\{args}")
@@ -128,8 +129,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                 print("mirror:")
                                 print("  mirror -p: Pull and update code")
                                 print("  mirror -c: Charge branch of System")
-                    elif cmd == "ssh-cli":
-                        system(fr"root\ssh\SshClient.exe")
                     elif cmd == "command":
                             chdir("..")
                             system("var\python.exe command.py")
@@ -203,16 +202,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         chdir("..")
                     elif cmd.startswith("ping"):
                         system(cmd)
-                    elif cmd == "manager-repo":
-                        chdir("home")
-                        saanybredyubtfgyucrvunyvynug = str(input("Git Repository: "))
-                        try:
-                            chdir(saanybredyubtfgyucrvunyvynug)
-                        except:
-                            print("Sorry! Cannot open this diretory file!")
-                            system(fr"bin\beep.exe")
-                        else:
-                            git=True
                     elif cmd == "pwd":
                             print(getcwd())
                     elif cmd.startswith("root"):
