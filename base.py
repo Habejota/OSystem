@@ -1,4 +1,4 @@
-from os import system, getcwd, chdir, makedirs, startfile, removedirs
+from os import system, getcwd, chdir, makedirs, startfile
 from time import sleep
 from socket import gethostname, gethostbyname
 import glob, socket
@@ -73,22 +73,8 @@ class Tenaya:
             beep()
         while True:
             try:
-                cmd: str = input("\033[32m$\033[m ").strip()                
-                try:
-                    if git == True:
-                        if cmd == "pwd":
-                            print(getcwd())
-                        elif cmd.startswith("cd"):
-                            cmd=cmd.replace("cd",  "")
-                            cmd=cmd.replace("cd ", "")
-                            try:   
-                                chdir(cmd)
-                            except:
-                                print("IT's not a diretory!")
-                            else:
-                                pass  
-                                
-                except UnboundLocalError:
+                cmd: str = input("\033[32m$\033[m ").strip()    
+                if __name__ == "__main__":
                     if cmd == "exit":
                         break
                     elif cmd == "source":
@@ -193,7 +179,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             system(fr"bin\{cmd}")
                     elif cmd.startswith("scp"):
                             system(fr"bin\{cmd}")
-                    elif cmd == "login":
+                    elif cmd == "ctrl":
                          system(fr"bin\login.exe")
                     elif cmd.startswith("balance"):
                         system(fr"root\bin\{cmd}")
@@ -249,7 +235,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             print()
                             continue
                     else:
-                        Tenaya.cannot()            
+                        Tenaya.cannot() 
             except KeyboardInterrupt:
                 print("~~~~ KeyboardInterrupt: ^C")
             except TypeError:
