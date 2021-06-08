@@ -1,3 +1,3 @@
 from os import system
-
-system("var\python.exe base.py")
+ 
+system("var\python.exe kernel.py")
