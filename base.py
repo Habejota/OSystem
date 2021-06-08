@@ -224,8 +224,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         Tenaya.cannot() 
                 
             except KeyboardInterrupt:
-                print("~~~~ KeyboardInterrupt: ^C")
-                break
+                continue
             except TypeError:
                 print(error_msg)
             except EOFError:
