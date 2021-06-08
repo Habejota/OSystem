@@ -1,6 +1,3 @@
-from base import *
-from os import chdir
+from os import system
 
-
-Tenaya.welcome()
-Tenaya.command()
+system("var\python.exe base.py")
