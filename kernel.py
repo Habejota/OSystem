@@ -29,7 +29,26 @@ def python(args):
 def beep():
     system(fr"bin\beep.exe")
 
+start_msg = """ 
+┌───────────────────────────────────────────────────────────────────────┐
+│                    ∙OSystem Dostribuition 1.10.6  ∙                   │
+│        (TENAYA CONTROL, Interatives Interfaces with USB Ports)        │
+│                                                                       │
+│ ➤ Your can acess bash using command: (root)                           │
+│ ➤ Your DISPLAY is set to 192.168.0.104:0.0                            │
+│ ➤ For use beta version use This git repo use git branch: (beta)       │
+│ ➤ This is OSystem version oficial:                                    │          
+│                                                                       │
+│ ∙ Important:                                                          │
+│ This Software is based in Linux/UNIX Operational Systems, You         │
+│ have a applications and a varietes of Tools. The Free source code     │
+│ being in: (https://github.com/TenayaOS/OSystem), You can see          │
+│ informations and codes, distribuitions and new updates and versions.  │
+└───────────────────────────────────────────────────────────────────────┘
+"""
 msys = mirror
+correct_simbol = "✔"
+error_simbol = "✘"
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
 distibuition = fr"OSystem Distuibuition {__version__}" 
@@ -43,13 +62,10 @@ class Tenaya:
         try:
             print("Starting kernel propieties. . ."), sleep(1)
             beep()
-            beep()
             print("[ ] Loading System code libraries. . ."), sleep(2)
             beep()
             beep()
-            beep()
             print("[ ] DISK Configuration: USB COM Port"), sleep(3)
-            beep()
             beep()
             beep()
             beep()
@@ -62,13 +78,7 @@ class Tenaya:
 
     def welcome():
         system("cls")
-        print("")
-        print("_"*64)
-        system(fr"bin\banner.exe OSYSTEM")        
-        print("_"*64)
-        print(f"\n\033[36mWelcome to Tardis Operational System {__version__}\033[m")
-        print(f"Build version Tardis {__version__}: https://github.com/TenayaOS/OSystem")
-        print(" ")
+        print(start_msg)
     def command():
         for i in range(0, 6):
             beep()
@@ -176,8 +186,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             system(fr"bin\{cmd}")
                     elif cmd.startswith("scp"):
                             system(fr"bin\{cmd}")
-                    elif cmd == "ctrl":
-                         system(fr"bin\login.exe")
                     elif cmd.startswith("balance"):
                         system(fr"bin\{cmd}")
                     elif cmd == "2048":
@@ -196,8 +204,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd == "pwd":
                             print(getcwd())
                     elif cmd.startswith("root"):
-                        if cmd == "root-cli":
-                            system(r"bin\_rxvt.exe")
+                        if cmd == "root":
+                             system(fr"bin\login.exe")
                         elif cmd == "root-tell":
                             system(r"bin\passwd.exe")
                         else:
@@ -227,6 +235,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
     def cannot():
         print("Sorry! Cannot execute this Command in shell!")
         return True
+
 
 
 
