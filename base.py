@@ -229,6 +229,22 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             git=True
                     elif cmd == "pwd":
                             print(getcwd())
+                    elif cmd.startswith("root"):
+                        if cmd == "root-cli":
+                            system(r"bin\_rxvt.exe")
+                        elif cmd == "root-tell":
+                            system(r"bin\passwd.exe")
+                        else:
+                            print("Usage: root-[application]")
+                    elif cmd == "greed":
+                        system(fr"bin\{cmd}.exe")
+                    elif cmd.startswith("httping"):
+                        system(fr"bin\{cmd}")
+                    elif cmd.startswith("locate"):
+                        system(fr"bin\{cmd}")
+                    
+                    
+                    
                     elif cmd == "":
                             print()
                             continue
@@ -247,6 +263,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
     def cannot():
         print("Sorry! Cannot execute this Command in shell!")
         return True
+
 
 
 Tenaya()
