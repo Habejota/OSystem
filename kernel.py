@@ -3,7 +3,7 @@ from time import sleep
 from socket import gethostname, gethostbyname
 import glob, socket
 
-__version__ = "1.10.6"
+__version__ = "1.10.6 (Beta Version)"
 __author__ = "Felipe Souza"
 __license__ = open("LICENSE").read()
 
