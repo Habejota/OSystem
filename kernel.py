@@ -103,7 +103,7 @@ class Tenaya:
                         system(fr"root\lua\{cmd}")
                     elif cmd == "setting":
                         try:
-                            startfile(fr"root\Arduino\arduino.exe")
+                            startfile(fr"root\arduino-1.8.15\arduino.exe")
                         except FileNotFoundError:
                             print("File Not Found: Reinstall to repair!")
                     
