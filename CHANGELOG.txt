@@ -1,0 +1,16 @@
+CHANGELOG VERSION 1.10.7
+======================================
+
+	Version 1.10.7 have many bug fix of kernel system to startup
+in TenayaOS, the new tools added facility your usage and now have
+interfaces of network and a shell bash inplemented.
+	
+
+UPDATES IMPLEMENTEDS AND TOOLS
+======================================
+
+∙ Tree of files implemented in "root" and "home"
+∙ Kernel responses advanced
+
+	During this version implement will came new codes and will be inplement
+the CONFIG. a bot in framework to setting bash and configurations in package.

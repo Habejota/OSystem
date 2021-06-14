@@ -3,9 +3,11 @@ from time import sleep
 from socket import gethostname, gethostbyname
 import glob, socket
 
-__version__ = "1.10.6 (Beta Version)"
+__version__ = "1.10.6 (Beta Version) - Source root"
 __author__ = "Felipe Souza"
 __license__ = open("LICENSE").read()
+__changelog__ = open("CHANGELOG.txt").read()
+
 
 class mirror:
     def mirror():
@@ -94,6 +96,9 @@ class Tenaya:
                     if cmd == "exit":
                         print("logout")
                         break
+                    elif cmd == "changelog":
+                        print(__changelog__)
+                    
                     elif cmd == "source":
                         print(source)
                     elif cmd == "disk":
