@@ -55,7 +55,12 @@ distibuition = fr"OSystem Distuibuition {__version__}"
 source = fr"https://github.com/TenayaOS/OSystem (Free Source Code)"
 language = fr"Englesh (United States of America"
 disk_partition = "0x800-1x300"
-error_msg = """Sorry! This is a internal error in main code!"""
+error_msg = """Sorry! This is a internal error in main code!
+try:
+    mirror -p 
+or:
+    git pull
+"""
 
 class Tenaya:
     def __init__(self):

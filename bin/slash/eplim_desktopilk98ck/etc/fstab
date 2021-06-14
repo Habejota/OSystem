@@ -1,0 +1,6 @@
+C:/Users/eplim/OneDrive/DOCUME~1/GitHub/OSystem/bin/slash/EPLIM_~1/bin   /usr/bin    ntfs        binary,auto,user,posix=0           0   0
+C:/Users/eplim/OneDrive/DOCUME~1/GitHub/OSystem/bin/slash/EPLIM_~1/lib   /usr/lib    ntfs        binary,auto,user,posix=0           0   0
+C:/Users/eplim/OneDrive/DOCUME~1/GitHub/OSystem/bin/slash/EPLIM_~1       /           ntfs        override,binary,auto,user,posix=0  0   0
+none            /drives   cygdrive    binary,auto,user,posix=0   0   0
+C:/Users/eplim/OneDrive/DOCUME~1/GitHub/OSystem/home            /home/mobaxterm   ntfs    binary,auto,user,posix=0           0   0
+C:/Users/eplim/OneDrive/DOCUME~1/GitHub/OSystem/home            /home/eplim   ntfs    binary,auto,user,posix=0           0   0

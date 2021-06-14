@@ -1,0 +1,71 @@
+Welcome to the XWin X Server
+Vendor: Moba/X
+Release: 1.20.4.0
+OS: Windows 10  [Windows NT 10.0 build 18362] (WoW64)
+Package: version  built 2019-03-16
+
+XWin was started with the following command line:
+
+
+ C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\bin\XWin_MobaX.exe 
+ -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs 
+ -clipboard -nowgl -multiwindow -noreset :0 
+
+ddxProcessArgument - Initializing default screens
+winInitializeScreenDefaults - primary monitor w 1280 h 720
+winInitializeScreenDefaults - native DPI x 96 y 96
+(==) FontPath set to /usr/share/fonts/misc/
+(==) FontPath set to C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck/usr/share/fonts/misc/
+(==) FontPath set to /usr/share/fonts/TTF/
+(==) FontPath set to C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck/usr/share/fonts/TTF/
+(==) FontPath set to /usr/share/fonts/OTF/
+(==) FontPath set to C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck/usr/share/fonts/OTF/
+(==) FontPath set to /usr/share/fonts/Type1/
+(==) FontPath set to C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck/usr/share/fonts/Type1/
+(==) FontPath set to /usr/share/fonts/100dpi/
+(==) FontPath set to C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck/usr/share/fonts/100dpi/
+(==) FontPath set to /usr/share/fonts/75dpi/
+(==) FontPath set to C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck/usr/share/fonts/75dpi/
+(==) FontPath set to "C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck/usr/share/fonts/misc/,C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck/usr/share/fonts/TTF/,C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck/usr/share/fonts/OTF/,C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck/usr/share/fonts/Type1/,C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck/usr/share/fonts/100dpi/,C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck/usr/share/fonts/75dpi/"
+(==) Setting XKEYSYMDB path to XKEYSYMDB=C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\usr\share\X11\XKeysymDB
+(==) Setting XERRORDB path to XERRORDB=C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\usr\share\X11\XErrorDB
+(==) Setting XLOCALEDIR path to XLOCALEDIR=C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\usr\share\X11\locale
+(==) Logfile set to "C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\var\log\xwin\XWin.0.log"
+(==) Setting XKB path to C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\usr\share\X11\xkb
+[ 31356.046] winDetectSupportedEngines - RemoteSession: no
+[ 31356.187] winDetectSupportedEngines - DirectDraw4 installed, allowing ShadowDDNL
+[ 31356.265] winDetectSupportedEngines - Returning, supported engines 00000005
+[ 31356.281] winSetEngine - Multi Window or Rootless => ShadowGDI
+[ 31356.281] winScreenInit - Using Windows display depth of 32 bits per pixel
+[ 31356.281] winAllocateFBShadowGDI - Creating DIB with width: 1280 height: 720 depth: 32
+[ 31356.281] winFinishScreenInitFB - Masks: 00ff0000 0000ff00 000000ff
+[ 31356.281] winInitVisualsShadowGDI - Masks 00ff0000 0000ff00 000000ff BPRGB 8 d 24 bpp 32
+[ 31356.500] (II) IGLX: Loaded and initialized swrast
+[ 31356.500] (II) GLX: Initialized DRISWRAST GL provider for screen 0
+[ 31356.625] (II) [XKB]  "C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\var\log\xwin\xkb_a02944" file successfully created.
+[ 31356.625] (II) [XKB]  Launching xkbcomp.exe with the following command:
+[ 31356.625] (II) [XKB]  "C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\bin\xkbcomp_w32.exe" -w 1 "-RC:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\usr\share\X11\xkb" -xkm "C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\var\log\xwin\xkb_a02944" -em1 "The XKEYBOARD keymap compiler (xkbcomp) reports:" -emp "> " -eml "Errors from xkbcomp are not fatal to the X server" "C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\var\log\xwin\server-0.xkm"
+[ 31356.625] (II) [XKB]  LaunchXkbComp(II) :  succeeded
+[ 31356.843] (II) [XKB]  Successfully created keyboard mapping file "C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\var\log\xwin\xkb_a02944"
+[ 31356.843] winPointerWarpCursor - Discarding first warp: 640 360
+[ 31356.859] (--) 16 mouse buttons found
+[ 31356.859] (--) Setting autorepeat to delay=500, rate=31
+[ 31356.859] (--) Windows keyboard layout: "00000416" (00000416) "Portuguese (Brazilian ABNT)", type 7
+[ 31356.859] (--) Found matching XKB configuration "Portuguese (Brazil,ABNT)"
+[ 31356.859] (--) Model = "pc105" Layout = "br" Variant = "none" Options = "none"
+[ 31356.859] Rules = "base" Model = "pc105" Layout = "br" Variant = "none" Options = "none"
+[ 31356.859] (II) [XKB]  "C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\var\log\xwin\xkb_a02944" file successfully created.
+[ 31356.859] (II) [XKB]  Launching xkbcomp.exe with the following command:
+[ 31356.859] (II) [XKB]  "C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\bin\xkbcomp_w32.exe" -w 1 "-RC:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\usr\share\X11\xkb" -xkm "C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\var\log\xwin\xkb_a02944" -em1 "The XKEYBOARD keymap compiler (xkbcomp) reports:" -emp "> " -eml "Errors from xkbcomp are not fatal to the X server" "C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\var\log\xwin\server-0.xkm"
+[ 31356.859] (II) [XKB]  LaunchXkbComp(II) :  succeeded
+[ 31356.984] (II) [XKB]  Successfully created keyboard mapping file "C:\Users\eplim\OneDrive\DOCUME~1\GitHub\OSystem\bin\slash\eplim_desktopilk98ck\var\log\xwin\xkb_a02944"
+[ 31357.031] winInitMultiWindowWM - DISPLAY=127.0.0.1:0.0
+[ 31357.031] winMultiWindowXMsgProc - DISPLAY=127.0.0.1:0.0
+[ 31357.031] winInitMultiWindowWM - xcb_connect () returned and successfully opened the display.
+[ 31357.031] winProcEstablishConnection - winInitClipboard returned.
+[ 31357.031] winClipboardThreadProc - DISPLAY=127.0.0.1:0.0
+[ 31357.046] winMultiWindowXMsgProc - xcb_connect() returned and successfully opened the display.
+[ 31357.046] Using Composite redirection
+[ 31357.062] OS maintains clipboard viewer chain: yes
+[ 31357.062] winClipboardProc - XOpenDisplay () returned and successfully opened the display.
+[ 31360.109] winWindowProc - WM_EXITSIZEMOVE
