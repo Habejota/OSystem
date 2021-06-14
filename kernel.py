@@ -39,9 +39,7 @@ distibuition = fr"OSystem Distuibuition {__version__}"
 source = fr"https://github.com/Habejota/OSystem (Free Source Code)"
 language = fr"Englesh (United States of America"
 disk_partition = "0x800-1x300"
-error_msg = "Sorry! This is a internal error in main code!"
-start_msg = fr""" 
-Installed PS/2 port.
+start_msg = fr"""Installed PS/2 port.
 Readed and Loaded files in: ({disk_partition})
 
 ┌───────────────────────────────────────────────────────────────────────┐
@@ -189,7 +187,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
             except KeyboardInterrupt:
                 continue
             except TypeError:
-                print(error_msg)
+                print("Sorry! This is a internal error in main code!")
             except EOFError:
                 continue
     def clear():
