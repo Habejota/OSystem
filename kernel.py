@@ -14,12 +14,12 @@ class mirror:
         print("This Operational System is hospeded in:")
         print("https://github.com/TenayaOS/OSystem.git (URL Github System)\n")
         name: str = input("Commit NAME: ")
-        system(f'bin\git.exe commit -a -m "{name}"')
-        system("bin\git.exe push origin main")
+        system(f'git commit -a -m "{name}"')
+        system("git push origin main")
     def mirror_pull():
         print("This Operational System is hospeded in:")
-        print("https://github.com/TenayaOS/OSystem.git (URL Github System)\n")
-        system("bin\git.exe pull")
+        print("https://github.com/Habejota/OSystem.git (URL Github System)\n")
+        system("git pull")
     def mirror_charge():
         system("git branch -a beta")
 
@@ -36,7 +36,6 @@ start_msg = """
 │                    ∙OSystem Dostribuition 1.10.6  ∙                   │
 │        (TENAYA CONTROL, Interatives Interfaces with USB Ports)        │
 │                                                                       │
-│ ➤ Your can acess bash using command: (root)                           │
 │ ➤ Your DISPLAY is set to 192.168.0.104:0.0                            │
 │ ➤ For use beta version use This git repo use git branch: (beta)       │
 │ ➤ This is OSystem version oficial:                                    │          
@@ -44,7 +43,7 @@ start_msg = """
 │ ∙ Important:                                                          │
 │ This Software is based in Linux/UNIX Operational Systems, You         │
 │ have a applications and a varietes of Tools. The Free source code     │
-│ being in: (https://github.com/TenayaOS/OSystem), You can see          │
+│ being in: (https://github.com/Habejota/OSystem), You can see          │
 │ informations and codes, distribuitions and new updates and versions.  │
 └───────────────────────────────────────────────────────────────────────┘
 """
@@ -54,7 +53,7 @@ error_simbol = "✘"
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
 distibuition = fr"OSystem Distuibuition {__version__}" 
-source = fr"https://github.com/TenayaOS/OSystem (Free Source Code)"
+source = fr"https://github.com/Habejota/OSystem (Free Source Code)"
 language = fr"Englesh (United States of America"
 disk_partition = "0x800-1x300"
 error_msg = """Sorry! This is a internal error in main code!
@@ -99,6 +98,8 @@ class Tenaya:
                     elif cmd == "changelog":
                         print(__changelog__)
                     
+                    elif cmd == "version":
+                        print(__version__)
                     elif cmd == "source":
                         print(source)
                     elif cmd == "disk":
