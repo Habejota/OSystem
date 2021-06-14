@@ -97,6 +97,15 @@ class Tenaya:
                         break
                     elif cmd == "changelog":
                         print(__changelog__)
+                    elif cmd == "node":
+                        system(fr"root\node.exe")
+                    elif cmd.startswith("lua"):
+                        system(fr"root\lua\{cmd}")
+                    elif cmd == "setting":
+                        try:
+                            startfile(fr"root\Arduino\arduino.exe")
+                        except FileNotFoundError:
+                            print("File Not Found: Reinstall to repair!")
                     
                     elif cmd == "version":
                         print(__version__)
