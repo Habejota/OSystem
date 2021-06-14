@@ -35,6 +35,7 @@ def Progressbar():
 msys = mirror
 correct_simbol = "✔"
 error_simbol = "✘"
+forge = None
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
 distibuition = fr"OSystem Distuibuition {__version__}" 
@@ -59,6 +60,12 @@ Readed and Loaded files in: ({disk_partition})
 │ informations and codes, distribuitions and new updates and versions.  │
 └───────────────────────────────────────────────────────────────────────┘
 """
+try:
+    forge = open(r"Forge\version.txt").read()
+except FileNotFoundError:
+    pass
+else:
+    forge_installed = True
 
 class Tenaya:
     def __init__(self):
@@ -82,6 +89,10 @@ class Tenaya:
     def welcome():
         system("cls")
         print(start_msg)
+        if forge == None:
+            pass
+        else:
+            print(forge)
     def command():
         for i in range(0, 6):
             beep()
@@ -190,7 +201,32 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd == "roaming":
                         Progressbar()
                         print("Network driver is update!")
-
+                    elif cmd.startswith("forge"):
+                        if cmd == "forge --install":
+                            print("Searching last versions of forge. . ."), sleep(1.983)
+                            print("\nDownload Started. . .")
+                            system("git clone https://github.com/Habejota/Forge.git")
+                            print("Loading Files to Installer. . ."), sleep(3.746)
+                            input("Press ENTER to install. . .")
+                            Progressbar()
+                            print("\n\nForge installed with sucess!")
+                            print("Is required reboot to apply updates!")
+                            input("Press ENTER to shutdown SYSTEM. . .")
+                            break
+                        elif cmd == "forge --update":
+                            try:
+                                chdir("Forge")
+                            except FileNotFoundError:
+                                print("Try first install Forge!")
+                            else:
+                                system("git pull")
+                                print("System will reboot. . ."), sleep(1.276)
+                                break
+                                
+                        else:
+                            print("OSystem Forge:")
+                            print(forge)
+                            
                     elif cmd.startswith("ping"):
                         system(cmd)
                     elif cmd == "":
