@@ -172,8 +172,18 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             cmd = cmd.replace("banner",  "")
                             cmd = cmd.replace("banner ", "")
                             system(fr"root\banner.exe {cmd}")
-                    
-
+                    elif cmd.startswith("winget"):
+                        if cmd == "winget install --update":
+                            startfile("root\winget.appxbundle")
+                        else:
+                            system(cmd)
+                    elif cmd == "far":
+                         system(fr"root\far\far.exe")
+                    elif cmd == "edit":
+                        system(fr"root\edit\edit.exe")
+                    elif cmd == "fdisk":
+                        system("diskpart")
+                        
                     elif cmd.startswith("ping"):
                         system(cmd)
                     elif cmd == "":
