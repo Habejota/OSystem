@@ -172,12 +172,10 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             cmd = cmd.replace("banner",  "")
                             cmd = cmd.replace("banner ", "")
                             system(fr"root\banner.exe {cmd}")
-
+                    
 
                     elif cmd.startswith("ping"):
                         system(cmd)
-                    elif cmd == "pwd":
-                            print(getcwd())
                     elif cmd == "":
                             print()
                             continue
