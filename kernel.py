@@ -1,203 +1,236 @@
-from os import system, getcwd, chdir, makedirs, startfile
-from time import sleep
-from socket import gethostname, gethostbyname
-import glob, socket
-
-__version__ = "1.10.6 (Beta Version) - Source root"
-__author__ = "Felipe Souza"
-__license__ = open("LICENSE").read()
-__changelog__ = open("CHANGELOG.txt").read()
-
-
-class mirror:
-    def mirror():
-        print("This Operational System is hospeded in:")
-        print("https://github.com/TenayaOS/OSystem.git (URL Github System)\n")
-        name: str = input("Commit NAME: ")
-        system(f'git commit -a -m "{name}"')
-        system("git push origin main")
-    def mirror_pull():
-        print("This Operational System is hospeded in:")
-        print("https://github.com/Habejota/OSystem.git (URL Github System)\n")
-        system("git pull")
-    def mirror_charge():
-        system("git branch -a beta")
-
-system("cls")
-system(fr"PATH=%path%;{getcwd()}\root")
-
-def beep():
-    system(fr"root\beep.exe")
-
-start_msg = """ 
-┌───────────────────────────────────────────────────────────────────────┐
-│                    ∙OSystem Dostribuition 1.10.6  ∙                   │
-│        (TENAYA CONTROL, Interatives Interfaces with USB Ports)        │
-│                                                                       │
-│ ➤ Your DISPLAY is set to 192.168.0.104:0.0                            │
-│ ➤ For use beta version use This git repo use git branch: (beta)       │
-│ ➤ This is OSystem version oficial:                                    │          
-│                                                                       │
-│ ∙ Important:                                                          │
-│ This Software is based in Linux/UNIX Operational Systems, You         │
-│ have a applications and a varietes of Tools. The Free source code     │
-│ being in: (https://github.com/Habejota/OSystem), You can see          │
-│ informations and codes, distribuitions and new updates and versions.  │
-└───────────────────────────────────────────────────────────────────────┘
-"""
-msys = mirror
-correct_simbol = "✔"
-error_simbol = "✘"
-hostname = gethostname()
-ifconfig = gethostbyname(hostname)
-distibuition = fr"OSystem Distuibuition {__version__}" 
-source = fr"https://github.com/Habejota/OSystem (Free Source Code)"
-language = fr"Englesh (United States of America"
-disk_partition = "0x800-1x300"
-error_msg = """Sorry! This is a internal error in main code!
 try:
-    mirror -p 
-or:
-    git pull
-"""
-
-class Tenaya:
-    def __init__(self):
-        try:
-            print("Starting kernel propieties. . ."), sleep(1)
-            beep()
-            print("[ ] Loading System code libraries. . ."), sleep(2)
-            beep()
-            beep()
-            print("[ ] DISK Configuration: USB COM Port"), sleep(3)
-            beep()
-            beep()
-            beep()
-        except KeyboardInterrupt:
-            print("")
-        else:
-            self.prompt = "\033[32m$\033[m "
-            Tenaya.welcome()
-            Tenaya.command()
-
-    def welcome():
-        system("cls")
-        print(start_msg)
-    def command():
-        for i in range(0, 6):
-            beep()
-        while True:
+    from os import system, getcwd, chdir, makedirs, startfile
+    from time import sleep
+    import pygame
+    from socket import gethostname, gethostbyname
+    import glob, socket
+except ModuleNotFoundError:
+    from time import sleep
+    from os import system
+    print("Starting Automatic Repair. . ."), sleep(4.28)
+    print("Loading files in disks partition (0x800-1x300)"), sleep(1.385)
+    print("\n\n")
+    print("You dont have requeries python modules!")
+    while True:
+        print("=====================================")
+        print("1 - Search Poblem")
+        print("2 - Install modules")
+        print("3 - restart OSystem")
+        print("")
+        print("4 - exit")
+        print("=====================================")
+        code: str = input(">>> ").strip()
+        if code == "1":
+            print("Starting debug. . ."), sleep(3.499)
             try:
-                cmd: str = input("\033[32m$\033[m ").strip()    
-                if __name__ == "__main__":
-                    if cmd == "exit":
-                        print("logout")
-                        break
-                    elif cmd == "changelog":
-                        print(__changelog__)
-
-                    elif cmd == "version":
-                        print(__version__)
-                    elif cmd == "source":
-                        print(source)
-                    elif cmd == "disk":
-                        print(disk_partition)
-                    elif cmd == "clear" or cmd == "cls":
-                        system("cls")
-                    elif cmd == "ifconfig":
-                        print(f"""
-Software Loopback Interface 1
-        Link encap: Local loopback
-        inet addr:{ifconfig} Mask: 255.0.0.0
-        MTU: 1500 Speed:1073,74 Mbps
-        Admin status:UP Oper status:OPERATIONAL
-        RX packets:0 dropped:0 errors:0 unkown:0
-        TX packets:0 dropped:0 errors:0 txqueuelen:0
-
-Qualcomm Atheros QCA9377 Wireless Network Adapter
-        Link encap: IEEE 802.11 HWaddr: 5C-C9-D3-8D-23-9D
-        inet addr:{ifconfig} Mask: 255.255.255.0
-        MTU: 1500 Speed:108,30 Mbps
-        Admin status:UP Oper status:OPERATIONAL
-        RX packets:154204 dropped:0 errors:0 unkown:0
-        TX packets:106105 dropped:0 errors:0 txqueuelen:0
-                                        """)
-                    elif cmd == "hostname":
-                        print(f"Hostname: {hostname}")
-
-                        python(cmd)
-                    elif cmd.startswith("echo"):
-                        cmd = cmd.replace("echo ", "")
-                        cmd = cmd.replace("echo",  "")
-                        if cmd == "":
-                            print("Echo driver is loaded in memory 0x800-1x300")
-                        else:
-                            print(cmd)
-                    elif cmd.startswith("mirror"):
-                            if cmd == "mirror":
-                                msys.mirror()
-                            elif cmd == "mirror -p":
-                                msys.mirror_pull()
-                            elif cmd == "mirror -c":
-                                msys.mirror_charge()
-                            else:
-                                print("Use: mirror [args][datas]")
-                                print("mirror:")
-                                print("  mirror -p: Pull and update code")
-                                print("  mirror -c: Charge branch of System")
-                    elif cmd == "command":
-                            Tenaya()
-                    elif cmd.startswith("mem"):
-                            print("Reading disk partitions. . ."), sleep(1.999)
-                            print("Writing strings in disk as 0x800-1x300. . .") 
-                            sleep(1.023)
-                            
-                            cmd = cmd.replace("mem ", "")
-                            cmd = cmd.replace("mem", "")
-                            system(f"rem {cmd}")
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                    elif cmd == "license":
-                            print(__license__)
-                    elif cmd.startswith("banner"):
-                            cmd = cmd.replace("banner",  "")
-                            cmd = cmd.replace("banner ", "")
-                            system(fr"root\banner.exe {cmd}")
+                import pygame
+            except ModuleNotFoundError:
+                print("ModuleNotFound: Cannot open python module (PYGAME)")
+            else:
+                print("All right in PYGAME")
+            try:
+                import rich
+            except ModuleNotFoundError:
+                print("ModuleNotFound: Cannot open python module (RICH)")
+            else:
+                print("All right in RICH")
+        elif code == "2":
+            system("pip install pygame")
+            system("pip install rich")
+        elif code == "3":
+            system("python kernel.py")
+            break
+        elif code == "4":
+            break
+else:
+    __version__ = "1.10.6 (Beta Version) - Source root"
+    __author__ = "Felipe Souza"
+    __license__ = open("LICENSE").read()
+    __changelog__ = open("CHANGELOG.txt").read()
 
 
-                    elif cmd.startswith("ping"):
-                        system(cmd)
-                    elif cmd == "pwd":
-                            print(getcwd())
-                    
-                    elif cmd == "":
-                            print()
-                            continue
-                    else:
-                        Tenaya.cannot() 
-                
+    class mirror:
+        def mirror():
+            print("This Operational System is hospeded in:")
+            print("https://github.com/TenayaOS/OSystem.git (URL Github System)\n")
+            name: str = input("Commit NAME: ")
+            system(f'git commit -a -m "{name}"')
+            system("git push origin main")
+        def mirror_pull():
+            print("This Operational System is hospeded in:")
+            print("https://github.com/Habejota/OSystem.git (URL Github System)\n")
+            system("git pull")
+        def mirror_charge():
+            system("git branch -a beta")
+
+    system("cls")
+    system(fr"PATH=%path%;{getcwd()}\root")
+
+    def beep():
+        system(fr"root\beep.exe")
+
+    msys = mirror
+    correct_simbol = "✔"
+    error_simbol = "✘"
+    hostname = gethostname()
+    ifconfig = gethostbyname(hostname)
+    distibuition = fr"OSystem Distuibuition {__version__}" 
+    source = fr"https://github.com/Habejota/OSystem (Free Source Code)"
+    language = fr"Englesh (United States of America"
+    disk_partition = "0x800-1x300"
+    error_msg = "Sorry! This is a internal error in main code!"
+
+    class Tenaya:
+        def __init__(self):
+            try:
+                print("Starting kernel propieties. . ."), sleep(1)
+                beep()
+                print("[ ] Loading System code libraries. . ."), sleep(2)
+                beep()
+                beep()
+                print("[ ] DISK Configuration: USB COM Port"), sleep(3)
+                beep()
+                beep()
+                beep()
             except KeyboardInterrupt:
-                continue
-            except TypeError:
-                print(error_msg)
-            except EOFError:
-                continue
-    def clear():
-        system('cls')
-    def cannot():
-        print("Sorry! Cannot execute this Command in shell!")
-        return True
-Tenaya()
+                print("")
+            else:
+                self.prompt = "\033[32m$\033[m "
+                Tenaya.welcome()
+                Tenaya.command()
+
+        def welcome():
+            system("cls")
+            print("Installed in Port/2S console.                                            ")
+            print("MEMORY\ Disk Partition: (0x800-1x300\Unit-1)                             ")
+            print("                                                                         ")
+            print("┌───────────────────────────────────────────────────────────────────────┐")
+            print("│                    ∙OSystem Dostribuition 1.10.6  ∙                   │")
+            print("│        (TENAYA CONTROL, Interatives Interfaces with USB Ports)        │")
+            print("│                                                                       │")
+            print("│ ➤ Your DISPLAY is set to 192.168.0.104:0.0                            │")
+            print("│ ➤ For use beta version use This git repo use git branch: (beta)       │")
+            print("│ ➤ This is OSystem version oficial                                     │")    
+            print("│                                                                       │")
+            print("│ ∙ Important:                                                          │")
+            print("│ This Software is based in Linux/UNIX Operational Systems, You         │")
+            print("│ have a applications and a varietes of Tools. The Free source code     │")
+            print("│ being in: (https://github.com/Habejota/OSystem), You can see          │")
+            print("│ informations and codes, distribuitions and new updates and versions.  │")
+            print("└───────────────────────────────────────────────────────────────────────┘")
+        def command():
+            for i in range(0, 6):
+                beep()
+            while True:
+                try:
+                    cmd: str = input("\033[32m$\033[m ").strip()    
+                    if __name__ == "__main__":
+                        if cmd == "exit":
+                            print("logout")
+                            break
+                        elif cmd == "changelog":
+                            print(__changelog__)
+                        elif cmd == "version":
+                            print(__version__)
+                        elif cmd == "source":
+                            print(source)
+                        elif cmd == "disk":
+                            print(disk_partition)
+                        elif cmd == "clear" or cmd == "cls":
+                            system("cls")
+                        elif cmd == "ifconfig":
+                            print(f"""
+    Software Loopback Interface 1
+            Link encap: Local loopback
+            inet addr:{ifconfig} Mask: 255.0.0.0
+            MTU: 1500 Speed:1073,74 Mbps
+            Admin status:UP Oper status:OPERATIONAL
+            RX packets:0 dropped:0 errors:0 unkown:0
+            TX packets:0 dropped:0 errors:0 txqueuelen:0
+
+    Qualcomm Atheros QCA9377 Wireless Network Adapter
+            Link encap: IEEE 802.11 HWaddr: 5C-C9-D3-8D-23-9D
+            inet addr:{ifconfig} Mask: 255.255.255.0
+            MTU: 1500 Speed:108,30 Mbps
+            Admin status:UP Oper status:OPERATIONAL
+            RX packets:154204 dropped:0 errors:0 unkown:0
+            TX packets:106105 dropped:0 errors:0 txqueuelen:0
+                                            """)
+                        elif cmd == "hostname":
+                            print(f"Hostname: {hostname}")
+
+                            python(cmd)
+                        elif cmd.startswith("echo"):
+                            cmd = cmd.replace("echo ", "")
+                            cmd = cmd.replace("echo",  "")
+                            if cmd == "":
+                                print("Echo driver is loaded in memory 0x800-1x300")
+                            else:
+                                print(cmd)
+                        elif cmd.startswith("mirror"):
+                                if cmd == "mirror":
+                                    msys.mirror()
+                                elif cmd == "mirror -p":
+                                    msys.mirror_pull()
+                                elif cmd == "mirror -c":
+                                    msys.mirror_charge()
+                                else:
+                                    print("Use: mirror [args][datas]")
+                                    print("mirror:")
+                                    print("  mirror -p: Pull and update code")
+                                    print("  mirror -c: Charge branch of System")
+                        elif cmd == "command":
+                            Tenaya()
+                        elif cmd.startswith("mem"):
+                                print("Reading disk partitions. . ."), sleep(1.999)
+                                print("Writing strings in disk as 0x800-1x300. . .") 
+                                sleep(1.023)
+                                
+                                cmd = cmd.replace("mem ", "")
+                                cmd = cmd.replace("mem", "")
+                                system(f"rem {cmd}")
+                                beep()
+                                beep()
+                                beep()
+                                beep()
+                                beep()
+                                beep()
+                                beep()
+                                beep()
+                                beep()
+                                beep()
+                                beep()
+                                beep()
+                                beep()
+                                beep()
+                                beep()
+                        elif cmd == "license":
+                                print(__license__)
+                        elif cmd.startswith("banner"):
+                                cmd = cmd.replace("banner",  "")
+                                cmd = cmd.replace("banner ", "")
+                                system(fr"root\banner.exe {cmd}")
+
+
+                        elif cmd.startswith("ping"):
+                            system(cmd)
+                        elif cmd == "pwd":
+                                print(getcwd())
+                        elif cmd == "":
+                                print()
+                                continue
+                        else:
+                            Tenaya.cannot() 
+                    
+                except KeyboardInterrupt:
+                    continue
+                except TypeError:
+                    print(error_msg)
+                except EOFError:
+                    continue
+        def clear():
+            system('cls')
+        def cannot():
+            print("Sorry! Cannot execute this Command in shell!")
+            return True
+    Tenaya()
