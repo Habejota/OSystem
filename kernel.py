@@ -22,12 +22,12 @@ class mirror:
         system("git branch -a beta")
 
 system("cls")
-system(fr"PATH=%path%;{getcwd()}\bin")
+system(fr"PATH=%path%;{getcwd()}\root")
 
 def python(args):
-    system(fr"var\{args}")
+    system(fr"root\var\{args}")
 def beep():
-    system(fr"bin\beep.exe")
+    system(fr"root\beep.exe")
 
 start_msg = """ 
 ┌───────────────────────────────────────────────────────────────────────┐
@@ -92,15 +92,12 @@ class Tenaya:
                 cmd: str = input("\033[32m$\033[m ").strip()    
                 if __name__ == "__main__":
                     if cmd == "exit":
+                        print("logout")
                         break
                     elif cmd == "source":
                         print(source)
                     elif cmd == "disk":
                         print(disk_partition)
-                    elif cmd == "distribuition":
-                        print(distibuition)
-                    elif cmd == "language":
-                        print(language)
                     elif cmd == "clear" or cmd == "cls":
                         system("cls")
                     elif cmd == "ifconfig":
@@ -145,7 +142,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                 print("  mirror -p: Pull and update code")
                                 print("  mirror -c: Charge branch of System")
                     elif cmd == "command":
-                            system("var\python.exe command.py")
+                            system("root\var\python.exe command.py")
                     elif cmd.startswith("mem"):
                             print("Reading disk partitions. . ."), sleep(1.999)
                             print("Writing strings in disk as 0x800-1x300. . .") 
@@ -174,33 +171,31 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd.startswith("banner"):
                             cmd = cmd.replace("banner",  "")
                             cmd = cmd.replace("banner ", "")
-                            system(fr"bin\banner.exe {cmd}")
+                            system(fr"root\banner.exe {cmd}")
                     elif cmd.startswith("nano"):
                             cmd = cmd.replace("nano ", "")
                             cmd = cmd.replace("nano",  "")
-                            system(fr"bin\nano.exe {cmd}")
+                            system(fr"root\nano.exe {cmd}")
                     elif cmd == "nimesweeper":
-                            system(fr"bin\nimesweeper.exe")
+                            system(fr"root\nimesweeper.exe")
                     elif cmd.startswith("nc"):
-                            system(fr"bin\{cmd}")
+                            system(fr"root\{cmd}")
                     elif cmd == "sudoku":
-                            system(fr"bin\sudoku.exe")
+                            system(fr"root\sudoku.exe")
                     elif cmd.startswith("telnet"):
-                            system(fr"bin\{cmd}")
+                            system(fr"root\{cmd}")
                     elif cmd.startswith("wget"):
-                            system(fr"bin\{cmd}")
+                            system(fr"root\{cmd}")
                     elif cmd.startswith("scp"):
-                            system(fr"bin\{cmd}")
-                    elif cmd.startswith("balance"):
-                        system(fr"bin\{cmd}")
+                            system(fr"root\{cmd}")
                     elif cmd == "2048":
-                        system(fr"bin\{cmd}.exe")
+                        system(fr"root\{cmd}.exe")
                     elif cmd.startswith("pip"):
                         cmd = cmd.replace("pip",  "")
                         cmd = cmd.replace("pip ", "")
                         system(f"root\var\python.exe var\pip\__main__.py {cmd}")
                     elif cmd.startswith("connect"):
-                        system(fr"bin\{cmd}")
+                        system(fr"root\{cmd}")
                     elif cmd.startswith("./"):
                         cmd=cmd.replace("./", "")
                         system(fr"{cmd}")
@@ -227,8 +222,4 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
     def cannot():
         print("Sorry! Cannot execute this Command in shell!")
         return True
-
-
-
-
 Tenaya()
