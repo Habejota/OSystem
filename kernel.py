@@ -183,7 +183,12 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system(fr"root\edit\edit.exe")
                     elif cmd == "fdisk":
                         system("diskpart")
-                        
+                    elif cmd == "osav":
+                        system(fr"python antivirus.py")
+
+
+
+
                     elif cmd.startswith("ping"):
                         system(cmd)
                     elif cmd == "":

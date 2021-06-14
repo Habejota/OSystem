@@ -1,0 +1,20 @@
+	Win32.Worm.Autorun.UB	
+Adware.NaviPromo.Gen.5	 
+Adware.FakeAntiVirus.K	
+Adware.NaviPromo.Gen.3	
+Adware.FakeAntiVirus.M	
+Adware.FakeAntiVirus.L	
+Adware.NaviPromo.Gen.2	
+Adware.PlayMP3z.B	
+Adware.Whenu.BSQ	
+Adware.NaviPromo.Gen.1	
+Adware.PlayMp3z.A	
+Adware.ZAS	MEDIUM	
+Trojan.AutoIt.TD	
+Adware.XPantivirus.A	
+Adware.Mywebsearch.DV	
+Adware.Mywebsearch.AV	
+Adware.Blinkator.A	
+Adware.Mywebsearch.DW	
+Win32.Almanahe.D	
+Adware.Mywebsearch.G	
