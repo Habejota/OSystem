@@ -1,4 +1,4 @@
-
+from tqdm import tqdm
 from os import system, getcwd, chdir, makedirs, startfile
 from time import sleep
 from socket import gethostname, gethostbyname
@@ -29,7 +29,9 @@ system(fr"PATH=%path%;{getcwd()}\root")
 
 def beep():
     system(fr"root\beep.exe")
-
+def Progressbar():
+    for i in tqdm(range(1000)):
+        sleep(0.001)
 msys = mirror
 correct_simbol = "✔"
 error_simbol = "✘"
@@ -185,9 +187,9 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system("diskpart")
                     elif cmd == "osav":
                         system(fr"python antivirus.py")
-
-
-
+                    elif cmd == "roaming":
+                        Progressbar()
+                        print("Network driver is update!")
 
                     elif cmd.startswith("ping"):
                         system(cmd)
