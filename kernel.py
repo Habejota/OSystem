@@ -26,8 +26,6 @@ class mirror:
 system("cls")
 system(fr"PATH=%path%;{getcwd()}\root")
 
-def python(args):
-    system(fr"root\var\{args}")
 def beep():
     system(fr"root\beep.exe")
 
@@ -97,16 +95,7 @@ class Tenaya:
                         break
                     elif cmd == "changelog":
                         print(__changelog__)
-                    elif cmd == "node":
-                        system(fr"root\node.exe")
-                    elif cmd.startswith("lua"):
-                        system(fr"root\lua\{cmd}")
-                    elif cmd == "setting":
-                        try:
-                            startfile(fr"root\arduino-1.8.15\arduino.exe")
-                        except FileNotFoundError:
-                            print("File Not Found: Reinstall to repair!")
-                    
+
                     elif cmd == "version":
                         print(__version__)
                     elif cmd == "source":
@@ -135,7 +124,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                         """)
                     elif cmd == "hostname":
                         print(f"Hostname: {hostname}")
-                    elif cmd.startswith("python"):
+
                         python(cmd)
                     elif cmd.startswith("echo"):
                         cmd = cmd.replace("echo ", "")
@@ -187,33 +176,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             cmd = cmd.replace("banner",  "")
                             cmd = cmd.replace("banner ", "")
                             system(fr"root\banner.exe {cmd}")
-                    elif cmd.startswith("nano"):
-                            cmd = cmd.replace("nano ", "")
-                            cmd = cmd.replace("nano",  "")
-                            system(fr"root\bin\nano.exe {cmd}")
-                    elif cmd == "nimesweeper":
-                            system(fr"root\nimesweeper.exe")
-                    elif cmd.startswith("nc"):
-                            system(fr"root\{cmd}")
-                    elif cmd == "sudoku":
-                            system(fr"root\sudoku.exe")
-                    elif cmd.startswith("telnet"):
-                            system(fr"root\{cmd}")
-                    elif cmd.startswith("wget"):
-                            system(fr"root\{cmd}")
-                    elif cmd.startswith("scp"):
-                            system(fr"root\{cmd}")
-                    elif cmd == "2048":
-                        system(fr"root\{cmd}.exe")
-                    elif cmd.startswith("pip"):
-                        cmd = cmd.replace("pip",  "")
-                        cmd = cmd.replace("pip ", "")
-                        system(f"root\var\python.exe var\pip\__main__.py {cmd}")
-                    elif cmd.startswith("connect"):
-                        system(fr"root\{cmd}")
-                    elif cmd.startswith("./"):
-                        cmd=cmd.replace("./", "")
-                        system(fr"{cmd}")
+
+
                     elif cmd.startswith("ping"):
                         system(cmd)
                     elif cmd == "pwd":
