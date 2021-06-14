@@ -1,6 +1,0 @@
-E:/OSystem/root/slash/bin   /usr/bin    ntfs        binary,auto,user,posix=0           0   0
-E:/OSystem/root/slash/lib   /usr/lib    ntfs        binary,auto,user,posix=0           0   0
-E:/OSystem/root/slash       /           ntfs        override,binary,auto,user,posix=0  0   0
-none            /drives   cygdrive    binary,auto,user,posix=0   0   0
-E:/OSystem/home            /home/mobaxterm   ntfs    binary,auto,user,posix=0           0   0
-E:/OSystem/home            /home/FelipeLima   ntfs    binary,auto,user,posix=0           0   0

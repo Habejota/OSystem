@@ -1,9 +1,0 @@
-Exception: STATUS_ACCESS_VIOLATION at eip=6116BB10
-eax=0060CBC4 ebx=00000008 ecx=0060CC30 edx=0060CBC4 esi=00000000 edi=0060CBC4
-ebp=0060CC18 esp=0060CB54 program=E:\moba\root\slash\bin\vnp.exe, pid 1964, thread main
-cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
-Stack trace:
-Frame     Function  Args
-0060CC18  6116BB10 (203C2099, 0060CC60, 0060CD18, 6100AAFA)
-0060CD18  6100AAFA (00000000, 0060CD74, 61009A90, 00000000)
-End of stack trace

@@ -204,7 +204,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd == "pwd":
                             print(getcwd())
                     
-                    
                     elif cmd == "":
                             print()
                             continue

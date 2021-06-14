@@ -1,7 +1,0 @@
-#!/bin/bash
-
-(
-  cd /bin
-  ls AnalyzeLogs DecompresserTout MobaTools AnalyzeProcessList EstCeQuIlManqueUneDll QuiUtiliseQuelleDll MobaVerifySSHAlgos
-)
-
