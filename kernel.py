@@ -198,7 +198,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd.startswith("pip"):
                         cmd = cmd.replace("pip",  "")
                         cmd = cmd.replace("pip ", "")
-                        system(f"var\python.exe var\pip\__main__.py {cmd}")
+                        system(f"root\var\python.exe var\pip\__main__.py {cmd}")
                     elif cmd.startswith("connect"):
                         system(fr"bin\{cmd}")
                     elif cmd.startswith("./"):
@@ -208,19 +208,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system(cmd)
                     elif cmd == "pwd":
                             print(getcwd())
-                    elif cmd.startswith("root"):
-                        if cmd == "root":
-                             system(fr"bin\login.exe")
-                        elif cmd == "root-tell":
-                            system(r"bin\passwd.exe")
-                        else:
-                            print("Usage: root-[application]")
-                    elif cmd == "greed":
-                        system(fr"bin\{cmd}.exe")
-                    elif cmd.startswith("httping"):
-                        system(fr"bin\{cmd}")
-                    elif cmd.startswith("locate"):
-                        system(fr"bin\{cmd}")
                     
                     
                     elif cmd == "":
