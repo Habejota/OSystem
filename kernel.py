@@ -147,7 +147,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                 print("  mirror -p: Pull and update code")
                                 print("  mirror -c: Charge branch of System")
                     elif cmd == "command":
-                            system("root\var\python.exe command.py")
+                            Tenaya()
                     elif cmd.startswith("mem"):
                             print("Reading disk partitions. . ."), sleep(1.999)
                             print("Writing strings in disk as 0x800-1x300. . .") 
