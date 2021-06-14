@@ -180,7 +180,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd.startswith("nano"):
                             cmd = cmd.replace("nano ", "")
                             cmd = cmd.replace("nano",  "")
-                            system(fr"root\nano.exe {cmd}")
+                            system(fr"root\bin\nano.exe {cmd}")
                     elif cmd == "nimesweeper":
                             system(fr"root\nimesweeper.exe")
                     elif cmd.startswith("nc"):
