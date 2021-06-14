@@ -69,22 +69,9 @@ else:
 
 class Tenaya:
     def __init__(self):
-        try:
-            print("Starting kernel propieties. . ."), sleep(1)
-            beep()
-            print("[ ] Loading System code libraries. . ."), sleep(2)
-            beep()
-            beep()
-            print("[ ] DISK Configuration: USB COM Port"), sleep(3)
-            beep()
-            beep()
-            beep()
-        except KeyboardInterrupt:
-            print("")
-        else:
-            self.prompt = "\033[32m$\033[m "
-            Tenaya.welcome()
-            Tenaya.command()
+        self.prompt = "\033[32m$\033[m "
+        Tenaya.welcome()
+        Tenaya.command()
 
     def welcome():
         system("cls")
