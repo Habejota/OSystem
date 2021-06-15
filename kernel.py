@@ -240,7 +240,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         else:
                             continue
                     else:
-                        print(fr"{cmd}: Is starting. . .")
+                        print(fr"{cmd_input}: Is starting. . .")
                         system(fr"python Forge\packs\{cmd_input}.py")
                 else:
                     s = cat_command(cmd_input)
