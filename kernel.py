@@ -4,7 +4,7 @@ from time import sleep
 from socket import gethostname, gethostbyname
 import glob, socket
 
-__version__ = "1.10.6 (Beta Version) - Source root"
+__version__ = "1.10.8"
 __author__ = "Felipe Souza"
 __license__ = open("LICENSE").read()
 __changelog__ = open("CHANGELOG.txt").read()
@@ -47,7 +47,7 @@ start_msg = fr"""Installed PS/2 port.
 Readed and Loaded files in: ({disk_partition})
 
 ┌───────────────────────────────────────────────────────────────────────┐
-│                    ∙OSystem Dostribuition 1.10.6  ∙                   │
+│                    ∙OSystem Dostribuition 1.10.8∙                     │
 │        (TENAYA CONTROL, Interatives Interfaces with USB Ports)        │
 │                                                                       │
 │ ➤ Your DISPLAY is set to 192.168.0.104:0.0                            │
@@ -66,6 +66,8 @@ try:
 except FileNotFoundError:
     pass
 else:
+    print("Loading FORGE. . ."), sleep(1.123)
+    Progressbar()
     forge_installed = True
 
 class Tenaya:
@@ -212,8 +214,11 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                 return True
                                 
                         else:
-                            print("OSystem Forge:")
-                            print(forge)
+                            if forge == None:
+                                print("You dont have FORGE installed!")
+                            else:
+                                print("OSystem Forge:")
+                                print(forge)
                             
                     elif cmd.startswith("ping"):
                         system(cmd)
