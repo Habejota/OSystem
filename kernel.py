@@ -26,6 +26,7 @@ class mirror:
 
 system("cls")
 system(fr"PATH=%path%;{getcwd()}\root")
+system("title OSystem {}".format(__version__))
 
 def beep():
     system(fr"root\beep.exe")
@@ -90,7 +91,7 @@ class Tenaya:
             try:
                 cmd_input: str = input("\033[32m$\033[m ").strip()  
                 def cat_command(cmd):
-                    if cmd == "exit":
+                    if cmd == "shutdown":
                         print("logout")
                         return True 
                     elif cmd == "changelog":
@@ -183,11 +184,11 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd == "far":
                          system(fr"root\far\far.exe")
                     elif cmd == "edit":
-                        system(fr"root\edit\edit.exe")
+                        system(fr"root\far\edit.exe")
                     elif cmd == "fdisk":
                         system("diskpart")
                     elif cmd == "osav":
-                        system(fr"python antivirus.py")
+                        system(fr"antivirus.exe")
                     elif cmd == "roaming":
                         Progressbar()
                         print("Network driver is update!")
@@ -221,7 +222,10 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                 print(forge)
                     elif cmd == "chdir":
                         print(getcwd())
-
+                    elif cmd == "reboot":
+                        Progressbar()
+                        system(fr"title {getcwd()}\boot.exe")
+                        return "REBOOT"
 
 
 
@@ -243,17 +247,25 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         s = cat_command(cmd_input)
                         if s == True:
                             break
+                        elif s == "REBOOT":
+                            chdir("..")
+                            system("boot.exe")
+                            break
                         else:
                             continue
                     else:
                         print(fr"{cmd_input}: Is starting. . .")
                         system(fr"python Forge\packs\{cmd_input}.py")
                 else:
-                    s = cat_command(cmd_input)
-                    if s == True:
-                        break
-                    else:
-                        continue
+                        s = cat_command(cmd_input)
+                        if s == True:
+                            break
+                        elif s == "REBOOT":
+                            chdir("..")
+                            system("boot.exe")
+                            break
+                        else:
+                            continue
             except KeyboardInterrupt:
                 continue
             except TypeError:
