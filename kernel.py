@@ -219,7 +219,13 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             else:
                                 print("OSystem Forge:")
                                 print(forge)
-                            
+                    elif cmd == "chdir":
+                        print(getcwd())
+
+
+
+
+                    
                     elif cmd.startswith("ping"):
                         system(cmd)
                     elif cmd == "":
