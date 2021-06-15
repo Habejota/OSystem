@@ -36,6 +36,7 @@ msys = mirror
 correct_simbol = "✔"
 error_simbol = "✘"
 forge = None
+forge_installed = None
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
 distibuition = fr"OSystem Distuibuition {__version__}" 
@@ -85,11 +86,11 @@ class Tenaya:
             beep()
         while True:
             try:
-                cmd: str = input("\033[32m$\033[m ").strip()    
-                if __name__ == "__main__":
+                cmd_input: str = input("\033[32m$\033[m ").strip()  
+                def cat_command(cmd):
                     if cmd == "exit":
                         print("logout")
-                        break
+                        return True 
                     elif cmd == "changelog":
                         print(__changelog__)
                     elif cmd == "version":
@@ -199,7 +200,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             print("\n\nForge installed with sucess!")
                             print("Is required reboot to apply updates!")
                             input("Press ENTER to shutdown SYSTEM. . .")
-                            break
+                            return True
                         elif cmd == "forge --update":
                             try:
                                 chdir("Forge")
@@ -208,7 +209,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             else:
                                 system("git pull")
                                 print("System will reboot. . ."), sleep(1.276)
-                                break
+                                return True
                                 
                         else:
                             print("OSystem Forge:")
@@ -217,11 +218,31 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd.startswith("ping"):
                         system(cmd)
                     elif cmd == "":
-                            print()
+                        print()
+                    else:
+                        if forge_installed == None:
+                            print("Sorry! Cannot execute this Command in shell!") 
+                        elif forge_installed == True:
+                            print("FORGE: {} Invalid Command or Package name!".format(cmd))
+                
+                if forge_installed == True:
+                    try:
+                        scr_file = open(fr"Forge\packs\{cmd_input}.py")
+                    except FileNotFoundError:
+                        s = cat_command(cmd_input)
+                        if s == True:
+                            break
+                        else:
                             continue
                     else:
-                        Tenaya.cannot() 
-                
+                        print(fr"{cmd}: Is starting. . .")
+                        system(fr"python Forge\packs\{cmd_input}.py")
+                else:
+                    s = cat_command(cmd_input)
+                    if s == True:
+                        break
+                    else:
+                        continue
             except KeyboardInterrupt:
                 continue
             except TypeError:
@@ -230,7 +251,4 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                 continue
     def clear():
         system('cls')
-    def cannot():
-        print("Sorry! Cannot execute this Command in shell!")
-        return True
 Tenaya()
