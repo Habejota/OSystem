@@ -221,6 +221,15 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print(getcwd())
                     elif cmd.startswith("ping"):
                         system(cmd)
+                    elif cmd == "help":
+                        print("shutdown        changelog        version")
+                        print("source          disk             clear")
+                        print("ifconfig        hostname         echo")
+                        print("mirror          command          mem")
+                        print("license         banner           winget")
+                        print("far             edit             fdisk")
+                        print("osav            roaming          forge")
+                        print("chdir           ping             help")
                     elif cmd == "":
                         print()
                     else:
