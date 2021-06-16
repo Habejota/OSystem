@@ -220,6 +220,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("System Hard disk        C9-D3-8D-23-9D     0x800-1x300")
                         print("CD-Rom Drive            DS-K9-X7-11-3D     0x800-2x300")
                     elif cmd == "graphics"    
+                        system("python graphics.py")    
+                            
                             
                     elif cmd == "roaming":
                         Progressbar()
