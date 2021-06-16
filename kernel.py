@@ -1,8 +1,13 @@
-from tqdm import tqdm
 from os import system, getcwd, chdir, makedirs, startfile
 from time import sleep
 from socket import gethostname, gethostbyname
 import glob, socket
+try:
+    from tqdm import tqdm
+except ModuleNotFoundError:
+    startShellKernelSetting = False
+else:
+    startShellKernelSetting = True
 
 __version__ = "1.10.8"
 __author__ = "Felipe Souza"
@@ -27,6 +32,7 @@ class mirror:
 system("cls")
 system(fr"PATH=%path%;{getcwd()}\root")
 system("title OSystem {}".format(__version__))
+system("color 07")
 
 def beep():
     system(fr"root\beep.exe")
@@ -67,8 +73,6 @@ try:
 except FileNotFoundError:
     pass
 else:
-    print("Loading FORGE. . ."), sleep(1.123)
-    Progressbar()
     forge_installed = True
 
 class Tenaya:
@@ -92,7 +96,6 @@ class Tenaya:
                 cmd_input: str = input("\033[32m$\033[m ").strip()  
                 def cat_command(cmd):
                     if cmd == "shutdown":
-                        print("logout")
                         return True 
                     elif cmd == "changelog":
                         print(__changelog__)
@@ -222,14 +225,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                 print(forge)
                     elif cmd == "chdir":
                         print(getcwd())
-                    elif cmd == "reboot":
-                        Progressbar()
-                        system(fr"title {getcwd()}\boot.exe")
-                        return "REBOOT"
-
-
-
-                    
                     elif cmd.startswith("ping"):
                         system(cmd)
                     elif cmd == "":
@@ -238,7 +233,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         if forge_installed == None:
                             print("Sorry! Cannot execute this Command in shell!") 
                         elif forge_installed == True:
-                            print("FORGE: {} Invalid Command or Package name!".format(cmd))
+                            print("FORGE: {} Invalid Command or Package name!".format(cmd))                
                 
                 if forge_installed == True:
                     try:
@@ -274,4 +269,22 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                 continue
     def clear():
         system('cls')
-Tenaya()
+
+
+try:
+    if startShellKernelSetting == True:
+        input("")
+        Tenaya()
+    else:
+        system("cls")
+        print(""), sleep(3.968)
+        system("color 17")
+        print("Kernel Python modules isn't installed!")
+        input("Kernel Setup will install dependences in your computer\nPress ENTER to install tqdm. . .")
+        system("pip install tqdm")
+        chdir("..")
+        system("color 07")
+        system("boot.exe")
+except KeyboardInterrupt:
+    chdir("..")
+    system("boot.exe")
