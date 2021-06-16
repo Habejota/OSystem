@@ -9,7 +9,7 @@ except ModuleNotFoundError:
 else:
     startShellKernelSetting = True
 
-__version__ = "1.10.8"
+__version__ = "1.12"
 __author__ = "Felipe Souza"
 __license__ = open("LICENSE").read()
 __changelog__ = open("CHANGELOG.txt").read()
@@ -26,8 +26,6 @@ class mirror:
         print("This Operational System is hospeded in:")
         print("https://github.com/Habejota/OSystem.git (URL Github System)\n")
         system("git pull")
-    def mirror_charge():
-        system("git branch -a beta")
 
 system("cls")
 system(fr"PATH=%path%;{getcwd()}\root")
@@ -40,8 +38,7 @@ def Progressbar():
     for i in tqdm(range(1000)):
         sleep(0.001)
 msys = mirror
-correct_simbol = "✔"
-error_simbol = "✘"
+correct_simbol = ["✔", "✘"]
 forge = None
 forge_installed = None
 hostname = gethostname()
@@ -54,7 +51,7 @@ start_msg = fr"""Installed PS/2 port.
 Readed and Loaded files in: ({disk_partition})
 
 ┌───────────────────────────────────────────────────────────────────────┐
-│                    ∙OSystem Dostribuition 1.10.8∙                     │
+│                     ∙OSystem Dostribuition 1.12∙                      │
 │        (TENAYA CONTROL, Interatives Interfaces with USB Ports)        │
 │                                                                       │
 │ ➤ Your DISPLAY is set to 192.168.0.104:0.0                            │
@@ -80,7 +77,6 @@ class Tenaya:
         self.prompt = "\033[32m$\033[m "
         Tenaya.welcome()
         Tenaya.command()
-
     def welcome():
         system("cls")
         print(start_msg)
@@ -88,6 +84,7 @@ class Tenaya:
             pass
         else:
             print(forge)
+            
     def command():
         for i in range(0, 6):
             beep()
@@ -96,6 +93,7 @@ class Tenaya:
                 cmd_input: str = input("\033[32m$\033[m ").strip()  
                 def cat_command(cmd):
                     if cmd == "shutdown":
+                        Progressbar()
                         return True 
                     elif cmd == "changelog":
                         print(__changelog__)
@@ -133,7 +131,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         cmd = cmd.replace("echo ", "")
                         cmd = cmd.replace("echo",  "")
                         if cmd == "":
-                            print("Echo driver is loaded in memory 0x800-1x300")
+                            print("Echo driver is loaded in memory {}".format(disk_partition))
                         else:
                             print(cmd)
                     elif cmd.startswith("mirror"):
@@ -141,15 +139,13 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                 msys.mirror()
                             elif cmd == "mirror -p":
                                 msys.mirror_pull()
-                            elif cmd == "mirror -c":
-                                msys.mirror_charge()
                             else:
                                 print("Use: mirror [args][datas]")
                                 print("mirror:")
                                 print("  mirror -p: Pull and update code")
-                                print("  mirror -c: Charge branch of System")
                     elif cmd == "command":
-                        Tenaya()
+                        Tenaya.welcome()
+                        Tenaya.command()
                     elif cmd.startswith("mem"):
                             print("Reading disk partitions. . ."), sleep(1.999)
                             print("Writing strings in disk as 0x800-1x300. . .") 
@@ -188,7 +184,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                          system(fr"root\far\far.exe")
                     elif cmd == "edit":
                         system(fr"root\far\edit.exe")
-                    elif cmd == "fdisk":
+                    elif cmd.startswith("fdisk"):
                         system("diskpart")
                     elif cmd == "osav":
                         system(fr"antivirus.exe")
@@ -200,8 +196,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             print("Searching last versions of forge. . ."), sleep(1.983)
                             print("\nDownload Started. . .")
                             system("git clone https://github.com/Habejota/Forge.git")
-                            print("Loading Files to Installer. . ."), sleep(3.746)
-                            input("Press ENTER to install. . .")
                             Progressbar()
                             print("\n\nForge installed with sucess!")
                             print("Is required reboot to apply updates!")
