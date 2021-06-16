@@ -219,9 +219,11 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("-------------           ---------------    ---------------")
                         print("System Hard disk        C9-D3-8D-23-9D     0x800-1x300")
                         print("CD-Rom Drive            DS-K9-X7-11-3D     0x800-2x300")
-                    elif cmd == "graphics"    
+                    elif cmd == "graphics":    
                         system("python graphics.py")    
-                            
+                    elif cmd == "connect":
+                        system("python connect.py")
+                    
                             
                     elif cmd == "roaming":
                         Progressbar()
@@ -265,7 +267,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("far             edit             fdisk")
                         print("osav            roaming          forge")
                         print("chdir           ping             help")
-                        print("assing          graphics")
+                        print("assing          graphics         connect")
                     elif cmd == "":
                         print()
                     else:
