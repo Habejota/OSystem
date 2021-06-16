@@ -32,11 +32,27 @@ system(fr"PATH=%path%;{getcwd()}\root")
 system("title OSystem {}".format(__version__))
 system("color 07")
 
+def choice(msg):
+    responce = str(input(fr"{msg} [Y/N]?")).upper()
+    if responce == "Y":
+        return True
+    elif responce == "N":
+        return False
 def beep():
     system(fr"root\beep.exe")
 def Progressbar():
     for i in tqdm(range(1000)):
         sleep(0.001)
+def main_function():
+    print("This is a main implemented function!")
+    print("You cannot acess this function if you dont tell for kernel main password:")
+    password_inputadonocudales: str = input("Kernel Password: ")
+    if password_inputadonocudales == "0x800-1x300":
+        return True
+    else:
+        print("Acess diened!")
+        return False
+                    
 msys = mirror
 correct_simbol = ["✔", "✘"]
 forge = None
@@ -188,6 +204,23 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system("diskpart")
                     elif cmd == "osav":
                         system(fr"antivirus.exe")
+                    elif cmd == "label":
+                        system("label")
+                    elif cmd == "kernel":
+                        if main_function() == True:
+                            system("cls")
+                            print("Kernel is building in 0x800-1x300. . .")
+                            Progressbar()
+                            chdir("..")
+                            system("boot.exe")
+                            return True
+                    elif cmd == "assing":
+                        print("Drive:                  Assing:            Partition:")
+                        print("-------------           ---------------    ---------------")
+                        print("System Hard disk        C9-D3-8D-23-9D     0x800-1x300")
+                        print("CD-Rom Drive            DS-K9-X7-11-3D     0x800-2x300")
+                    elif cmd == "graphics"    
+                            
                     elif cmd == "roaming":
                         Progressbar()
                         print("Network driver is update!")
@@ -230,6 +263,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("far             edit             fdisk")
                         print("osav            roaming          forge")
                         print("chdir           ping             help")
+                        print("assing          graphics")
                     elif cmd == "":
                         print()
                     else:
