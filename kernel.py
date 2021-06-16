@@ -223,7 +223,10 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system("python graphics.py")    
                     elif cmd == "connect":
                         system("python connect.py")
-                    
+                    elif cmd == "drivers":
+                        chdir("..")
+                        system(fr"os\root\far\far.exe drive os")
+                        chdir("os")
                             
                     elif cmd == "roaming":
                         Progressbar()
@@ -268,6 +271,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("osav            roaming          forge")
                         print("chdir           ping             help")
                         print("assing          graphics         connect")
+                        print("mirror          command          label")
+                        print("drivers")
                     elif cmd == "":
                         print()
                     else:
