@@ -10,7 +10,7 @@ except ModuleNotFoundError:
 else:
     startShellKernelSetting = True
 
-version = "1.12.2
+version = "1.12.2"
 author = "Felipe Souza"
 license_ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()

@@ -157,9 +157,10 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system(fr"title {prompt_titleWindowBoard}")
                     elif cmd == disk_partition:
                         print(fr"{disk_partition}: this is the disc signature!")
-                    elif cmd == "dowload --mirror":
+                    elif cmd == "download --mirror":
                         system("git clone https://github.com/Habejota/OSystem.git")
-                                            
+                    
+                    
                                             
                     elif cmd == "drivers":
                         chdir("..")
