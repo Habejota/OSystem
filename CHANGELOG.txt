@@ -1,7 +1,7 @@
-CHANGELOG VERSION 1.12
+CHANGELOG VERSION 1.12.2
 ======================================
 
-	Version 1.12 became this version because the graphics implements,
+	Version 1.12.2 became this version because the graphics implements,
 the server and client interfaces. The kernel begin advanced in OSystem.
 	In nexts releases versions and Pre-version the graphics will be update
 and You'll be send files, mensages and everythink for server! It's amazing, 
