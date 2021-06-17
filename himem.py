@@ -10,10 +10,10 @@ except ModuleNotFoundError:
 else:
     startShellKernelSetting = True
 
-__version__ = "1.12"
-__author__ = "Felipe Souza"
-__license__ = open("LICENSE").read()
-__changelog__ = open("CHANGELOG.txt").read()
+version = "1.12"
+author = "Felipe Souza"
+license_ = open("LICENSE").read()
+changelog = open("CHANGELOG.txt").read()
 
 def choice(msg):
     responce = str(input(fr"{msg} [Y/N]?")).upper()
@@ -56,8 +56,11 @@ source = fr"https://github.com/Habejota/OSystem (Free Source Code)"
 language = fr"Englesh (United States of America"
 disk_partition = "0x800-1x300"
 
-def testExtendedMemory(partition):
+def testExtendedMemory(partition_disk):
     print("HIMEM is testing extended memory.", end=""), sleep(1)
     print(".", end=""), sleep(1)
     print(".", end=""), sleep(1)
     print("done.")
+    
+def himem(partition, port):
+    print("")

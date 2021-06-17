@@ -1,5 +1,8 @@
 from himem import *
 from smartdrv import command_line
+from serial_oem import serial
+from config import *
+from oem import *
 
 __version__ = "1.12"
 __author__ = "Felipe Souza"
@@ -152,8 +155,15 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system("python graphics.py")    
                     elif cmd == "connect":
                         system("python connect.py")
-                    elif cmd == "himem":    
-                        h.himem()
+                    elif cmd == "himem":   
+                        himem(disk_partition, port_session)
+                    elif cmd == "serial":
+                        serial()
+                    elif cmd == "config" or cmd == "setup":
+                        setup_oem()
+                    elif cmd == "oem":    
+                        oem_system()
+                        
                         
                         
                     elif cmd == "drivers":
@@ -203,8 +213,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("osav            roaming          forge")
                         print("chdir           ping             help")
                         print("assing          graphics         connect")
-                        print("mirror          command          label")
-                        print("drivers         himem")
+                        print("drivers         himem            label")
+                        print("serial          config           oem")
                     elif cmd == "":
                         print()
                     else:
