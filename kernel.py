@@ -177,7 +177,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                             
                     elif cmd == "drivers":
                         chdir("..")
-                        system(fr"os\root\far\far.exe drive os")
+                        system(fr"os\root\far\far.exe drive os\home")
                         chdir("os")            
                     elif cmd == "roaming":
                         Progressbar()
