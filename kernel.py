@@ -1,8 +1,5 @@
 from himem import *
 from smartdrv import command_line
-from serial_oem import serial
-from config import *
-from oem import *
 
 version = "1.12"
 author = "Felipe Souza"
@@ -159,6 +156,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd == "prompt":
                         prompt_titleWindowBoard: str = input("Prompt wndows title name: ")
                         system(fr"title {prompt_titleWindowBoard}")
+                    
                     
                                             
                     elif cmd == "drivers":
