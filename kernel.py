@@ -2,6 +2,10 @@ from himem import *
 from smartdrv import command_line
 
 __version__ = "1.12"
+__author__ = "Felipe Souza"
+__license__ = open("LICENSE").read()
+__changelog__ = open("CHANGELOG.txt").read()
+
 
 system("cls")
 system(fr"PATH=%path%;{getcwd()}\root")
@@ -30,7 +34,7 @@ class Tenaya:
         testExtendedMemory(disk_partition)
     def command():
         print("")
-        print(fr"{command_line}{getcwd()}\os\smartdrv.py")
+        print(fr"{command_line}{getcwd()}\smartdrv.py")
         while True:
             try:
                 cmd_input: str = input(command_line).strip()  
@@ -68,8 +72,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                         """)
                     elif cmd == "hostname":
                         print(f"Hostname: {hostname}")
-
-                        python(cmd)
                     elif cmd.startswith("echo"):
                         cmd = cmd.replace("echo ", "")
                         cmd = cmd.replace("echo",  "")
