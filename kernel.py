@@ -6,6 +6,8 @@ author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
 
+SubVersionTAGS = "COMMIT TAG's UPDATE"
+
 system("cls")
 system(fr"title OSystem {version}")
 system("color 07")
@@ -44,6 +46,7 @@ class Tenaya:
                         print(__changelog__)
                     elif cmd == "version":
                         print(version)
+                        print(SubVersionTAGS)
                     elif cmd == "source":
                         print(source)
                     elif cmd == "disk":
