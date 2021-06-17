@@ -7,19 +7,15 @@ for subdir,dirs,files in os.walk(root_dir):
 	for file in files:
 		file_path=subdir + os.sep + file
 		
-		if(file_path.endswith(".exe") or file_path.endswith(".dll")):
+		if(file_path.endswith(".exe") or file_path.endswith(".dll") or file_path.endswith(".com")):
 			file_list.append(file_path)
 			
-def counts():
-	for x in range(5):
-		print(x+1)
-		time.sleep(1)
-counts()
+
 
 def scan():
 	infected_list=[]
 	for f in file_list:
-		virus_def=open("viruses.txt","r")
+		virus_def=open("viruses.txt","r").read()
 		file_not_read=False
 		print("\nScaning... : {}".format(f))
 		hasher=hashlib.md5()
@@ -30,17 +26,16 @@ def scan():
 					file_not_read=True
 					hasher.update(buf)
 					file_hashed=hasher.hexdigest()
-					print("file md5 Done:{}".format(file_hashed))
 					for line in virus_def:
-						if file_hashed== line.strip():
+						if file_hashed == line:
 							print("Malware Detected --> file name: {}".format(f))
 							infected_list.append(f)
-						else:
-							pass
+					print(f"file md5 Done: {file_hashed}")
 				except Exception as e:
-					print("Could not read the file Error: {}".format(e))
+					print("Malware Detected --> file name: {}".format(f))
+					infected_list.append(f)
 		except:
-			pass
+			print("jyghgfbaduiobuhngvuyijg hnuicmxhn")
 	print("Infected files found : {}".format(infected_list))
 	deleteOrnot=str(input("Would you like to delete the infected files y=yes n=no (y/n)"))
 	if deleteOrnot.upper()=="Y":
