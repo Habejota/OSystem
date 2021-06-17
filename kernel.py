@@ -223,6 +223,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system("python graphics.py")    
                     elif cmd == "connect":
                         system("python connect.py")
+                    elif cmd == "himem":    
+                        system("python himem.py")
                         
                         
                     elif cmd == "drivers":
@@ -273,7 +275,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("chdir           ping             help")
                         print("assing          graphics         connect")
                         print("mirror          command          label")
-                        print("drivers")
+                        print("drivers         himem")
                     elif cmd == "":
                         print()
                     else:
@@ -309,7 +311,9 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         else:
                             continue
             except KeyboardInterrupt:
-                continue
+                chdir("..")
+                system("boot.exe")
+                break
             except TypeError:
                 print("Sorry! This is a internal error in main code!")
             except EOFError:
