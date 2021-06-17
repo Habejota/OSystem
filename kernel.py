@@ -6,7 +6,7 @@ author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
 
-SubVersionTAGS = "Mirror update"
+SubVersionTAGS = "Tree File extructure"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -172,9 +172,11 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print(fr"{disk_partition}: this is the disc signature!")
                     elif cmd == "download --mirror":
                         system("git clone https://github.com/Habejota/OSystem.git")
-                    
-                    
-                                            
+                    elif cmd == "tree":
+                        system(fr"python Tree\tree.py")
+                     
+
+                     
                     elif cmd == "drivers":
                         chdir("..")
                         system(fr"os\root\far\far.exe drive os\home")
@@ -223,7 +225,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("chdir           ping             help")
                         print("assing          graphics         connect")
                         print("drivers         himem            label")
-                        print("prompt          ")
+                        print("prompt          tree")
                     elif cmd == "":
                         print()
                     else:
