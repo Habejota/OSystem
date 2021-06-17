@@ -6,7 +6,17 @@ author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
 
-SubVersionTAGS = "Deleting Desactived Files Archived"
+SubVersionTAGS = "Mirror update"
+class mirror:
+    def mirror():
+        print("This Operational System is hospeded in:")
+        print("https://github.com/TenayaOS/OSystem.git (URL Github System)\n")
+        system(f'git commit -a -m "{SubVersionTAGS}"')
+        system("git push origin main")
+    def mirror_pull():
+        print("This Operational System is hospeded in:")
+        print("https://github.com/Habejota/OSystem.git (URL Github System)\n")
+        system("git pull")
 
 system("cls")
 system(fr"title OSystem {version}")

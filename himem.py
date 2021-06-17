@@ -35,17 +35,6 @@ def main_function():
     else:
         print("Acess diened!")
         return False
-class mirror:
-    def mirror():
-        print("This Operational System is hospeded in:")
-        print("https://github.com/TenayaOS/OSystem.git (URL Github System)\n")
-        name: str = input("Commit NAME: ")
-        system(f'git commit -a -m "{name}"')
-        system("git push origin main")
-    def mirror_pull():
-        print("This Operational System is hospeded in:")
-        print("https://github.com/Habejota/OSystem.git (URL Github System)\n")
-        system("git pull")
 
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
