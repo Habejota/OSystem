@@ -4,15 +4,14 @@ from serial_oem import serial
 from config import *
 from oem import *
 
-__version__ = "1.12"
-__author__ = "Felipe Souza"
-__license__ = open("LICENSE").read()
-__changelog__ = open("CHANGELOG.txt").read()
-
+version = "1.12"
+author = "Felipe Souza"
+license__ = open("LICENSE").read()
+changelog = open("CHANGELOG.txt").read()
 
 system("cls")
 system(fr"PATH=%path%;{getcwd()}\root")
-system(fr"title OSystem {__version__}")
+system(fr"title OSystem {version}")
 system("color 07")
              
 msys = mirror
@@ -31,7 +30,7 @@ class Tenaya:
         Tenaya.command()
     def welcome():
         system("cls")
-        print(f"\033[1;37;40mStarting OSystem {__version__}. . ."), sleep(randint(2, 5))
+        print(f"\033[1;37;40mStarting OSystem {version}. . ."), sleep(randint(2, 5))
         print("")
         print("")
         testExtendedMemory(disk_partition)
@@ -48,7 +47,7 @@ class Tenaya:
                     elif cmd == "changelog":
                         print(__changelog__)
                     elif cmd == "version":
-                        print(__version__)
+                        print(version)
                     elif cmd == "source":
                         print(source)
                     elif cmd == "disk":
@@ -157,15 +156,11 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system("python connect.py")
                     elif cmd == "himem":   
                         himem(disk_partition, port_session)
-                    elif cmd == "serial":
-                        serial()
-                    elif cmd == "config" or cmd == "setup":
-                        setup_oem()
-                    elif cmd == "oem":    
-                        oem_system()
-                        
-                        
-                        
+                    elif cmd == "prompt":
+                        prompt_titleWindowBoard: str = input("Prompt wndows title name: ")
+                        system(fr"title {prompt_titleWindowBoard}")
+                    
+                                            
                     elif cmd == "drivers":
                         chdir("..")
                         system(fr"os\root\far\far.exe drive os")
@@ -214,7 +209,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("chdir           ping             help")
                         print("assing          graphics         connect")
                         print("drivers         himem            label")
-                        print("serial          config           oem")
+                        print("prompt")
                     elif cmd == "":
                         print()
                     else:
@@ -259,7 +254,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                 continue
     def clear():
         system('cls')
-
 
 try:
     if startShellKernelSetting == True:   
