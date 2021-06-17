@@ -251,7 +251,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
 
 try:
     if startShellKernelSetting == True:
-        input("")
         Tenaya()
     else:
         system("cls")
