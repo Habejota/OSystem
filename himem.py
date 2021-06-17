@@ -10,7 +10,7 @@ except ModuleNotFoundError:
 else:
     startShellKernelSetting = True
 
-version = "1.12"
+version = "1.12.2
 author = "Felipe Souza"
 license_ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
@@ -50,7 +50,6 @@ class mirror:
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
 port_session = randint(500, 65535)
-simbols = ["✔", "✘"]
 distibuition = fr"OSystem Distuibuition {version}" 
 source = fr"https://github.com/Habejota/OSystem (Free Source Code)"
 language = fr"Englesh (United States of America"

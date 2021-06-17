@@ -1,13 +1,12 @@
 from himem import *
 from smartdrv import command_line
 
-version = "1.12"
+version = "1.12.2"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
 
 system("cls")
-system(fr"PATH=%path%;{getcwd()}\root")
 system(fr"title OSystem {version}")
 system("color 07")
              
