@@ -223,11 +223,12 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system("python graphics.py")    
                     elif cmd == "connect":
                         system("python connect.py")
+                        
+                        
                     elif cmd == "drivers":
                         chdir("..")
                         system(fr"os\root\far\far.exe drive os")
-                        chdir("os")
-                            
+                        chdir("os")            
                     elif cmd == "roaming":
                         Progressbar()
                         print("Network driver is update!")
