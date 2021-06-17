@@ -6,7 +6,7 @@ author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
 
-SubVersionTAGS = "COMMIT TAG's UPDATE"
+SubVersionTAGS = "Deleting Desactived Files Archived"
 
 system("cls")
 system(fr"title OSystem {version}")
