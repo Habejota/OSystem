@@ -5,7 +5,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "version-1.12.4"
+SubVersionTAGS = "HELP ADD-ON"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -256,7 +256,9 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system("git status")
                     
                     
+                    
                     elif cmd == "help":
+                        print("OSystem {}. All Commands Supported:".format(version))
                         print("shutdown        changelog        version")
                         print("source          disk             clear")
                         print("ifconfig        hostname         echo")
@@ -269,7 +271,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("drivers         himem            label")
                         print("prompt          cd               mkdir")
                         print("rmdir           dir              git")
-                        print("python")
+                        print("python          status           ")
                     elif cmd == "":
                         print()
                     else:
