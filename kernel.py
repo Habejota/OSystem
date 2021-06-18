@@ -5,7 +5,7 @@ version = "1.12.2"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "DESKTOP UPDATE: System Navegation"
+SubVersionTAGS = "Git Implement"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -242,12 +242,11 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             print("Diretory removed with sucessfuly")
                     elif cmd == "ls" or cmd == "dir":
                         print(getcwd())
-                        print("==========================================")
                         dirs = listdir()
                         for file in dirs:
                             print(file)
-                        print("==========================================")    
-                    
+                    elif cmd.startswith("git"):
+                        system(cmd)
                     
                     
                     
@@ -263,7 +262,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("assing          graphics         connect")
                         print("drivers         himem            label")
                         print("prompt          cd               mkdir")
-                        print("rmdir           dir             ")
+                        print("rmdir           dir              git")
                     elif cmd == "":
                         print()
                     else:
