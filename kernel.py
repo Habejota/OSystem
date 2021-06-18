@@ -95,10 +95,13 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                 msys.mirror()
                             elif cmd == "mirror -p":
                                 msys.mirror_pull()
+                            elif cmd == "mirror -s":
+                                system("git status")
                             else:
                                 print("Use: mirror [args][datas]")
                                 print("mirror:")
                                 print("  mirror -p: Pull and update code")
+                                print("  mirror -s: Print OSystem git status")
                     elif cmd == "command":
                         Tenaya.welcome()
                         Tenaya.command()
@@ -249,8 +252,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system(cmd)
                     elif cmd.startswith("python"):
                         system(fr"{globalEnv}\root\{cmd}")
-                    
-                    
+                    elif cmd == "status":
+                        system("git status")
                     
                     
                     elif cmd == "help":
