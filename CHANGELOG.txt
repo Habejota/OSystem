@@ -1,8 +1,5 @@
-CHANGELOG VERSION 1.12.2
+CHANGELOG VERSION 1.12.4
 ======================================
 
-	Version 1.12.2 became this version because the graphics implements,
-the server and client interfaces. The kernel begin advanced in OSystem.
-	In nexts releases versions and Pre-version the graphics will be update
-and You'll be send files, mensages and everythink for server! It's amazing, 
-when graphics be complete all user can use without poblems in code.
+	Version 1.12.4 is the version that will saved as the version
+of HIMEM UPDATE, that update will come to OSystem to system independences

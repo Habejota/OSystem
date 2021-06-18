@@ -1,11 +1,11 @@
 from himem import *
 from smartdrv import command_line
 
-version = "1.12.2"
+version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Testing Mirror on Git IDE"
+SubVersionTAGS = "version-1.12.4"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -247,6 +247,9 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             print(file)
                     elif cmd.startswith("git"):
                         system(cmd)
+                    elif cmd.startswith("python"):
+                        system(fr"{globalEnv}\root\{cmd}")
+                    
                     
                     
                     
@@ -263,6 +266,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("drivers         himem            label")
                         print("prompt          cd               mkdir")
                         print("rmdir           dir              git")
+                        print("python")
                     elif cmd == "":
                         print()
                     else:
