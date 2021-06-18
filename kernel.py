@@ -5,7 +5,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "PYTHON Decrementation"
+SubVersionTAGS = "Code Pages Informations: PRE-HIMEM UPDATE"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
