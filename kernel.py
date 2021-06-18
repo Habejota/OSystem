@@ -6,7 +6,7 @@ author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
 
-SubVersionTAGS = "Tree File extructure"
+SubVersionTAGS = "Alocation Drive C9-D3-8D-23-9D: DESKTOP UDPDATE"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -172,11 +172,62 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print(fr"{disk_partition}: this is the disc signature!")
                     elif cmd == "download --mirror":
                         system("git clone https://github.com/Habejota/OSystem.git")
-                    elif cmd == "tree":
-                        system(fr"python Tree\tree.py")
-                     
-
-                     
+                    elif cmd == "desktop":
+                        try:
+                            username = open("username.lib").read()
+                            password = open("password.lib").read()
+                        except FileNotFoundError:
+                            with open("username.lib", "wt+") as userDataBase:
+                                print("To go to Desktop you need register a login!")
+                                username = str(input("Username: ")).strip()
+                                password = getpass("Password: ")
+                                passfile = open("password.lib", "wt+")
+                                passfile.write(passfile)
+                                userDataBase.write(username)
+                                print(fr"Now you as registred in OSystem!")
+                                print(fr"oem: {username}@{hostname}  {password}")
+                        else:
+                            username_inputed = str(input("Username: "))
+                            hostname_inputed = str(input("Hostname: "))
+                            password_inputed = getpass("Password: ")
+                            chdir("home")
+                            if username_inputed == username and hostname_inputed == hostname and password_inputed == password:
+                                while True:
+                                    try:
+                                        command = str(input("\033[35m{}\033[m ".format(getcwd()))).strip()
+                                        if command == "exit":
+                                            break
+                                        elif command.startswith("cd"):
+                                            command = command.replace("cd ", "")
+                                            command = command.replace("cd", "")
+                                            try:
+                                                chdir(command)
+                                            except FileNotFoundError:
+                                                print("bash: {}: Diretory not found".format(command))
+                                            else:
+                                                continue
+                                        elif command.startswith("mkdir"):
+                                            command = command.replace("mkdir", "")
+                                            command = command.replace("mkdir ", "")
+                                            try:
+                                                makedirs(command)
+                                            except:
+                                                print("Sorry! This diretory already exists!")
+                                        elif command.startswith("rmdir"):
+                                            command = command.replace("rmdir", "")
+                                            command = command.replace("rmdir ", "")
+                                            try:
+                                                removedirs()
+                                            except:
+                                                print("Sorry! This diretory not exists to remove!")
+                                        elif command == "far":
+                                            system(fr"root\far\far.exe")
+                                        elif command == "edit":
+                                            system(fr"root\far\edit.exe")
+                    
+                                                
+                                    except KeyboardInterrupt:
+                                        break
                     elif cmd == "drivers":
                         chdir("..")
                         system(fr"os\root\far\far.exe drive os\home")
@@ -225,7 +276,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("chdir           ping             help")
                         print("assing          graphics         connect")
                         print("drivers         himem            label")
-                        print("prompt          tree")
+                        print("prompt          desktop")
                     elif cmd == "":
                         print()
                     else:
@@ -233,7 +284,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             print("Sorry! Cannot execute this Command in shell!") 
                         elif forge_installed == True:
                             print("FORGE: {} Invalid Command or Package name!".format(cmd))                
-                
+
                 if forge_installed == True:
                     try:
                         scr_file = open(fr"Forge\packs\{cmd_input}.py")
