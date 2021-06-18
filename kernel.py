@@ -5,7 +5,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Bug fix: PRE-HIMEM UPDATE"
+SubVersionTAGS = "HIMEM UPDATE"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -261,7 +261,9 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("installed on your computer, but is loaded in Github, dont use")
                         print("mirror inside other git repositories or forge folder 'cause")
                         print("found OSError in OSystem git and others code!")
-                        
+                    elif cmd == "port":
+                        print("  OSystem System Pagination format Disk Partition:")
+                        print(fr"  {ifconfig}@{hostname}: {port_session}")
                     
                     
                     
@@ -278,7 +280,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("drivers         himem            label")
                         print("prompt          cd               mkdir")
                         print("rmdir           dir              branch")
-                        print("status           ")
+                        print("status          port")
                     elif cmd == "":
                         print()
                     else:
