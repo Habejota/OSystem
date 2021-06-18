@@ -5,7 +5,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Code Pages Informations: PRE-HIMEM UPDATE"
+SubVersionTAGS = "Bug fix: PRE-HIMEM UPDATE"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -148,7 +148,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd.startswith("fdisk"):
                         system("diskpart")
                     elif cmd == "osav":
-                        system(fr"antivirus.exe")
+                        system(fr"{globalEnv}\antivirus.exe")
                     elif cmd == "label":
                         system("label")
                     elif cmd == "kernel":
@@ -165,9 +165,9 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("System Hard disk        C9-D3-8D-23-9D     0x800-1x300")
                         print("CD-Rom Drive            DS-K9-X7-11-3D     0x800-2x300")
                     elif cmd == "graphics":    
-                        system("python graphics.py")    
+                        system("python {}\graphics.py".format(globalEnv))    
                     elif cmd == "connect":
-                        system("python connect.py")
+                        system("python {}\connect.py".format(globalEnv))
                     elif cmd == "himem":   
                         himem(disk_partition, port_session)
                     elif cmd == "prompt":
