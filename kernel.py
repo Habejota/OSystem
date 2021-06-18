@@ -5,8 +5,7 @@ version = "1.12.2"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-
-SubVersionTAGS = "Alocation Drive C9-D3-8D-23-9D: DESKTOP UDPDATE"
+SubVersionTAGS = "DESKTOP UPDATE: System Navegation"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -21,7 +20,7 @@ class mirror:
 system("cls")
 system(fr"title OSystem {version}")
 system("color 07")
-             
+globalEnv = getcwd()             
 msys = mirror
 forge = None
 forge_installed = None
@@ -44,7 +43,8 @@ class Tenaya:
         testExtendedMemory(disk_partition)
     def command():
         print("")
-        print(fr"{command_line}{getcwd()}\smartdrv.py")
+        chdir("home")
+        print(fr"{command_line}{globalEnv}\smartdrv.py")
         while True:
             try:
                 cmd_input: str = input(command_line).strip()  
@@ -137,9 +137,11 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         else:
                             system(cmd)
                     elif cmd == "far":
-                         system(fr"root\far\far.exe")
-                    elif cmd == "edit":
-                        system(fr"root\far\edit.exe")
+                         system(fr"{globalEnv}\root\Far\far.exe")
+                         system("cls")
+                    elif cmd.startswith("edit"):
+                         system(fr"{globalEnv}\root\Far\{cmd}")
+                         system("cls")
                     elif cmd.startswith("fdisk"):
                         system("diskpart")
                     elif cmd == "osav":
@@ -172,62 +174,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print(fr"{disk_partition}: this is the disc signature!")
                     elif cmd == "download --mirror":
                         system("git clone https://github.com/Habejota/OSystem.git")
-                    elif cmd == "desktop":
-                        try:
-                            username = open("username.lib").read()
-                            password = open("password.lib").read()
-                        except FileNotFoundError:
-                            with open("username.lib", "wt+") as userDataBase:
-                                print("To go to Desktop you need register a login!")
-                                username = str(input("Username: ")).strip()
-                                password = getpass("Password: ")
-                                passfile = open("password.lib", "wt+")
-                                passfile.write(passfile)
-                                userDataBase.write(username)
-                                print(fr"Now you as registred in OSystem!")
-                                print(fr"oem: {username}@{hostname}  {password}")
-                        else:
-                            username_inputed = str(input("Username: "))
-                            hostname_inputed = str(input("Hostname: "))
-                            password_inputed = getpass("Password: ")
-                            chdir("home")
-                            if username_inputed == username and hostname_inputed == hostname and password_inputed == password:
-                                while True:
-                                    try:
-                                        command = str(input("\033[35m{}\033[m ".format(getcwd()))).strip()
-                                        if command == "exit":
-                                            break
-                                        elif command.startswith("cd"):
-                                            command = command.replace("cd ", "")
-                                            command = command.replace("cd", "")
-                                            try:
-                                                chdir(command)
-                                            except FileNotFoundError:
-                                                print("bash: {}: Diretory not found".format(command))
-                                            else:
-                                                continue
-                                        elif command.startswith("mkdir"):
-                                            command = command.replace("mkdir", "")
-                                            command = command.replace("mkdir ", "")
-                                            try:
-                                                makedirs(command)
-                                            except:
-                                                print("Sorry! This diretory already exists!")
-                                        elif command.startswith("rmdir"):
-                                            command = command.replace("rmdir", "")
-                                            command = command.replace("rmdir ", "")
-                                            try:
-                                                removedirs()
-                                            except:
-                                                print("Sorry! This diretory not exists to remove!")
-                                        elif command == "far":
-                                            system(fr"root\far\far.exe")
-                                        elif command == "edit":
-                                            system(fr"root\far\edit.exe")
-                    
-                                                
-                                    except KeyboardInterrupt:
-                                        break
                     elif cmd == "drivers":
                         chdir("..")
                         system(fr"os\root\far\far.exe drive os\home")
@@ -261,10 +207,50 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             else:
                                 print("OSystem Forge:")
                                 print(forge)
-                    elif cmd == "chdir":
+                    elif cmd == "pwd":
                         print(getcwd())
                     elif cmd.startswith("ping"):
                         system(cmd)
+                    elif cmd.startswith("cd"):
+                        cmd = cmd.replace("cd ", "")
+                        cmd = cmd.replace("cd", "")
+                        cmd = cmd.strip()
+                        try:
+                            chdir(cmd)
+                        except OSError:
+                            print("bash: {}: Diretory not found".format(cmd))
+                        else:
+                            pass
+                    elif cmd.startswith("mkdir"):
+                        cmd = cmd.replace("mkdir", "")
+                        cmd = cmd.replace("mkdir ", "")
+                        cmd = cmd.strip()
+                        try:
+                            makedirs(cmd)
+                        except:
+                            print("Sorry! This diretory already exists!")
+                        else:
+                            print("Diretory created with sucessfuly!")
+                    elif cmd.startswith("rmdir"):
+                        cmd = cmd.replace("rmdir", "")
+                        cmd = cmd.replace("rmdir ", "")
+                        try:
+                            removedirs(cmd.strip())
+                        except:
+                            print("Sorry! This diretory not exists to remove!")
+                        else:
+                            print("Diretory removed with sucessfuly")
+                    elif cmd == "ls" or cmd == "dir":
+                        print(getcwd())
+                        print("==========================================")
+                        dirs = listdir()
+                        for file in dirs:
+                            print(file)
+                        print("==========================================")    
+                    
+                    
+                    
+                    
                     elif cmd == "help":
                         print("shutdown        changelog        version")
                         print("source          disk             clear")
@@ -273,10 +259,11 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("license         banner           winget")
                         print("far             edit             fdisk")
                         print("osav            roaming          forge")
-                        print("chdir           ping             help")
+                        print("pwd             ping             help")
                         print("assing          graphics         connect")
                         print("drivers         himem            label")
-                        print("prompt          desktop")
+                        print("prompt          cd               mkdir")
+                        print("rmdir           dir             ")
                     elif cmd == "":
                         print()
                     else:
