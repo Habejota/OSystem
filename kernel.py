@@ -5,7 +5,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "HIMEM UPDATE: Executable Packages Implement"
+SubVersionTAGS = "HIMEM UPDATE"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -20,6 +20,7 @@ class mirror:
 system("cls")
 system(fr"title OSystem {version}")
 system("color 07")
+
 globalEnv = getcwd()             
 msys = mirror
 forge = None
@@ -252,7 +253,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system(fr"{globalEnv}\root\{cmd}")
                     elif cmd == "status":
                         system("git status")
-                    elif cmd == "branch":
+                    elif cmd == "branch" or cmd == "cpi":
                         print("OSystem {}".format(version))
                         print("Github Repository: https://github.com/Habejota/OSystem")
                         print("Code Page Informations: ")
@@ -274,7 +275,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     
                     
                     
-                    
                     elif cmd == "help":
                         print("shutdown        changelog        version")
                         print("source          disk             clear")
@@ -288,7 +288,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("drivers         himem            label")
                         print("prompt          cd               mkdir")
                         print("rmdir           dir              branch")
-                        print("status          port")
+                        print("status          port             cpi")
                     elif cmd == "":
                         print()
                     else:

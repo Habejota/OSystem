@@ -41,8 +41,8 @@ hostname = gethostname()
 ifconfig = gethostbyname(hostname)
 port_session = randint(500, 65535)
 distibuition = fr"OSystem Distuibuition {version}" 
-source = fr"https://github.com/Habejota/OSystem (Free Source Code)"
-language = fr"Englesh (United States of America"
+source = "https://github.com/Habejota/OSystem (Free Source Code)"
+language = "Englesh (United States of America)"
 disk_partition = "0x800-1x300"
 
 def testExtendedMemory(partition_disk):
@@ -50,5 +50,15 @@ def testExtendedMemory(partition_disk):
     print(".", end=""), sleep(1)
     print(".", end=""), sleep(1)
     print("done.")  
+    return disk_partition, hostname
 def himem(partition, port):
+    depr, adress = testExtendedMemory(disk_partition)
+    list_adress = [hostname, port_session, disk_partition]
+    for s_config in list_adress:
+        if s_config == disk_partition:
+            return s_config, depr, port
+        else:
+            return None, None, None
     print("")
+    
+    
