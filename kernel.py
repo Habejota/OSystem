@@ -5,7 +5,7 @@ version = "1.12.2"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Git Implement"
+SubVersionTAGS = "Testing Mirror on Git IDE"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
