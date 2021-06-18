@@ -5,7 +5,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "HELP ADD-ON"
+SubVersionTAGS = "COMMAND ADD-ON: branch implement informations - CPI *Code Pages Informations*"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -254,11 +254,20 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system(fr"{globalEnv}\root\{cmd}")
                     elif cmd == "status":
                         system("git status")
+                    elif cmd == "branch":
+                        print("OSystem {}".format(version))
+                        print("Github Repository: https://github.com/Habejota/OSystem")
+                        print("Code Page Informations: ")
+                        print("")
+                        print("     To see if have updates on github that you dont have ")
+                        print("installed on your computer, but is loaded in Github, dont use")
+                        print("mirror inside other git repositories or forge folder 'cause")
+                        print("found OSError in OSystem git and others code!")
+                        
                     
                     
                     
                     elif cmd == "help":
-                        print("OSystem {}. All Commands Supported:".format(version))
                         print("shutdown        changelog        version")
                         print("source          disk             clear")
                         print("ifconfig        hostname         echo")
@@ -271,7 +280,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("drivers         himem            label")
                         print("prompt          cd               mkdir")
                         print("rmdir           dir              git")
-                        print("python          status           ")
+                        print("python          status           branch")
                     elif cmd == "":
                         print()
                     else:
