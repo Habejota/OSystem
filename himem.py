@@ -1,4 +1,4 @@
-from os import system, getcwd, chdir, makedirs, startfile, removedirs, listdir
+from os import system, getcwd, chdir, makedirs, startfile, removedirs, listdir, rename
 from time import sleep
 from socket import gethostname, gethostbyname
 from random import randint

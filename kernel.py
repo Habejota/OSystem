@@ -1,11 +1,12 @@
 from himem import *
 from smartdrv import command_line
+import shutil
 
 version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "HIMEM UPDATE"
+SubVersionTAGS = "Drivers Configuration"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -152,14 +153,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system(fr"{globalEnv}\antivirus.exe")
                     elif cmd == "label":
                         system("label")
-                    elif cmd == "kernel":
-                        if main_function() == True:
-                            system("cls")
-                            print("Kernel is building in 0x800-1x300. . .")
-                            Progressbar()
-                            chdir("..")
-                            system("boot.exe")
-                            return True
                     elif cmd == "assing":
                         print("Drive:                  Assing:            Partition:")
                         print("-------------           ---------------    ---------------")
@@ -249,8 +242,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         dirs = listdir()
                         for file in dirs:
                             print(file)
-                    elif cmd.startswith("python"):
-                        system(fr"{globalEnv}\root\{cmd}")
                     elif cmd == "status":
                         system("git status")
                     elif cmd == "branch" or cmd == "cpi":
@@ -273,8 +264,11 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         else:
                             print("It's Amazing! The {} Executable Package was started!".format(cmd))
                     
-                    
-                    
+          
+                             
+                                                        
+                                                        
+                                                        
                     elif cmd == "help":
                         print("shutdown        changelog        version")
                         print("source          disk             clear")
@@ -289,6 +283,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("prompt          cd               mkdir")
                         print("rmdir           dir              branch")
                         print("status          port             cpi")
+                        print("")
                     elif cmd == "":
                         print()
                     else:
