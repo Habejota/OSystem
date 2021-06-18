@@ -5,7 +5,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "COMMAND ADD-ON: branch implement informations - CPI *Code Pages Informations*"
+SubVersionTAGS = "PYTHON Decrementation"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -248,8 +248,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         dirs = listdir()
                         for file in dirs:
                             print(file)
-                    elif cmd.startswith("git"):
-                        system(cmd)
                     elif cmd.startswith("python"):
                         system(fr"{globalEnv}\root\{cmd}")
                     elif cmd == "status":
@@ -279,8 +277,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("assing          graphics         connect")
                         print("drivers         himem            label")
                         print("prompt          cd               mkdir")
-                        print("rmdir           dir              git")
-                        print("python          status           branch")
+                        print("rmdir           dir              branch")
+                        print("status           ")
                     elif cmd == "":
                         print()
                     else:
