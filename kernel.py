@@ -8,7 +8,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Bug fix"
+SubVersionTAGS = "Lua Rocks implement on Git"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
