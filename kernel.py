@@ -175,9 +175,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd == "download --mirror":
                         system("git clone https://github.com/Habejota/OSystem.git")
                     elif cmd == "drivers":
-                        chdir("..")
-                        system(fr"os\root\far\far.exe drive os\home")
-                        chdir("os")            
+                        chdir(globalEnv)
+                        system(fr"{globalEnv}\root\far\far.exe drive home")    
                     elif cmd == "roaming":
                         Progressbar()
                         print("Network driver is update!")
