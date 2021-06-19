@@ -1,6 +1,6 @@
 from himem import *
 from smartdrv import command_line
-import shutil, sys
+import shutil
 
 globalEnv = getcwd()  
 
@@ -8,7 +8,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Shutdown increment"
+SubVersionTAGS = "Bug fix"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -51,7 +51,6 @@ class Tenaya:
             try:
                 cmd_input: str = input(command_line).strip()  
                 def cat_command(cmd):
-                    print(r"{}\root\lua.exe".format(globalEnv))
                     if cmd.startswith("shutdown"):
                         if cmd == "shutdown":
                             Progressbar()
@@ -59,7 +58,7 @@ class Tenaya:
                         elif cmd == "shutdown -c":
                             system("shutdown -s")
                     elif cmd == "changelog":
-                        print(__changelog__)
+                        print(changelog)
                     elif cmd == "version":
                         print(version)
                         print(SubVersionTAGS)
@@ -276,8 +275,10 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             system(fr"{globalEnv}\root\lua.exe {cmd}")
                     elif cmd == "lib":
                         system(r"{}\root\lua.exe".format(globalEnv))
-                        
-                                                        
+                    elif cmd.startswith("luarocks"):
+                        system(fr"{globalEnv}\root\{cmd}")
+                                 
+                                 
                                                         
                     elif cmd == "help":
                         print("shutdown        changelog        version")
@@ -293,7 +294,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("prompt          cd               mkdir")
                         print("rmdir           dir              branch")
                         print("status          port             cpi")
-                        print("lib             ")
+                        print("lib             luarocks")
                     elif cmd == "":
                         print()
                     else:
@@ -329,8 +330,9 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         else:
                             continue
             except KeyboardInterrupt:
+                chdir(globalEnv)
                 chdir("..")
-                system("boot.exe")
+                system("Executer.exe")
                 break
             except TypeError:
                 print("Sorry! This is a internal error in main code!")
