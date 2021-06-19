@@ -1,12 +1,12 @@
 from himem import *
 from smartdrv import command_line
-import shutil
+import shutil, sys
 
 version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Drivers Configuration"
+SubVersionTAGS = "Lib iExecuter"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -17,7 +17,7 @@ class mirror:
         print("This Operational System is hospeded in:")
         print("https://github.com/Habejota/OSystem.git (URL Github System)\n")
         system("git pull")
-
+chdir("home")
 system("cls")
 system(fr"title OSystem {version}")
 system("color 07")
@@ -45,7 +45,6 @@ class Tenaya:
         testExtendedMemory(disk_partition)
     def command():
         print("")
-        chdir("home")
         print(fr"{command_line}{globalEnv}\smartdrv.py")
         while True:
             try:
@@ -192,7 +191,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             try:
                                 chdir("Forge")
                             except FileNotFoundError:
-                                print("Try first install Forge!")
+                                print("Try first install Forge to update him!")
                             else:
                                 system("git pull")
                                 print("System will reboot. . ."), sleep(1.276)
@@ -263,10 +262,16 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             print("Sorry! Cannot Execute this Executable Package")
                         else:
                             print("It's Amazing! The {} Executable Package was started!".format(cmd))
-                    
-          
-                             
-                                                        
+                    elif cmd.endswith(".lib"):
+                        try:
+                            open(cmd)
+                        except:
+                            print("This System Package is invalid!")
+                        else:
+                            system("{}\lib\lua.exe {}".format(globalEnv, cmd))
+                    elif cmd == "lib":
+                        system(r"{}\lib\lua.exe".format(globalEnv))
+                        
                                                         
                                                         
                     elif cmd == "help":
@@ -283,7 +288,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("prompt          cd               mkdir")
                         print("rmdir           dir              branch")
                         print("status          port             cpi")
-                        print("")
+                        print("lib             ")
                     elif cmd == "":
                         print()
                     else:
@@ -341,7 +346,7 @@ try:
         system("pip install tqdm")
         chdir("..")
         system("color 07")
-        system("boot.exe")
+        system("Executer.exe")
 except KeyboardInterrupt:
     chdir("..")
-    system("boot.exe")
+    system("Executer.exe")
