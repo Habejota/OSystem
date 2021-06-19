@@ -8,7 +8,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Lua Rocks implement on Git"
+SubVersionTAGS = "Loading Advanced System"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -276,8 +276,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system(r"{}\root\lua.exe".format(globalEnv))
                     elif cmd.startswith("luarocks"):
                         system(fr"{globalEnv}\root\{cmd}")
-                                 
-                                 
+                    
                                                         
                     elif cmd == "help":
                         print("shutdown        changelog        version")
@@ -293,7 +292,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("prompt          cd               mkdir")
                         print("rmdir           dir              branch")
                         print("status          port             cpi")
-                        print("lib             luarocks")
+                        print("lib             luarocks         ")
                     elif cmd == "":
                         print()
                     else:
