@@ -6,7 +6,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Lib iExecuter"
+SubVersionTAGS = "Shutdown increment"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -50,9 +50,12 @@ class Tenaya:
             try:
                 cmd_input: str = input(command_line).strip()  
                 def cat_command(cmd):
-                    if cmd == "shutdown":
-                        Progressbar()
-                        return True 
+                    if cmd.startswith("shutdown"):
+                        if cmd == "shutdown":
+                            Progressbar()
+                            return True 
+                        elif cmd == "shutdown -c":
+                            system("shutdown -s")
                     elif cmd == "changelog":
                         print(__changelog__)
                     elif cmd == "version":
