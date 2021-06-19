@@ -2,6 +2,8 @@ from himem import *
 from smartdrv import command_line
 import shutil, sys
 
+globalEnv = getcwd()  
+
 version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
@@ -21,8 +23,7 @@ chdir("home")
 system("cls")
 system(fr"title OSystem {version}")
 system("color 07")
-
-globalEnv = getcwd()             
+           
 msys = mirror
 forge = None
 forge_installed = None
@@ -50,6 +51,7 @@ class Tenaya:
             try:
                 cmd_input: str = input(command_line).strip()  
                 def cat_command(cmd):
+                    print(r"{}\root\lua.exe".format(globalEnv))
                     if cmd.startswith("shutdown"):
                         if cmd == "shutdown":
                             Progressbar()
@@ -271,9 +273,9 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         except:
                             print("This System Package is invalid!")
                         else:
-                            system("{}\lib\lua.exe {}".format(globalEnv, cmd))
+                            system(fr"{globalEnv}\root\lua.exe {cmd}")
                     elif cmd == "lib":
-                        system(r"{}\lib\lua.exe".format(globalEnv))
+                        system(r"{}\root\lua.exe".format(globalEnv))
                         
                                                         
                                                         
