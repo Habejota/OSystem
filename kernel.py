@@ -11,7 +11,7 @@ version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "New Libraries"
+SubVersionTAGS = "C9-D3-8D-23-9D"
 
 # Mirror Functions
 class mirror:
@@ -311,6 +311,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                                                         
                     elif cmd == "help":
                         print(f"OSystem v{version} - Command List:")
+                        print("=============================================")
                         print("shutdown        changelog        version")
                         print("source          disk             clear")
                         print("ifconfig        hostname         echo")
@@ -325,6 +326,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("rmdir           dir              branch")
                         print("status          port             cpi")
                         print("lib             luarocks         display")
+                        print("")
+                        print("=============================================")
                     elif cmd == "":
                         print()
                     else:

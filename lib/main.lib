@@ -1,0 +1,20 @@
+#io.flush("menu.lib") assert menu
+#io.flush("system.lib") assert system
+#io.flush("display.lib") assert display
+#io.flush("sound.lib") assert sound
+#io.flush("network.lib") assert network
+#io.flush("date.lib") assert date
+
+adrr, sync = native.getSync((menu, ads.hide()))
+physics.start()
+analytics.init()
+analytics.logEvent("logfile.txt")
+while analytics.hide():
+	print("logEvent: " ..tostring(adrr))
+	
+	assert sync
+	assert io.input(system.getInfo())
+	
+	if date.timeout(20):
+		break
+end
