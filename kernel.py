@@ -9,11 +9,11 @@ setup = open(r"lib\setup.lib").read()
 system_lib = open(r"lib\system.lib").read()
 display = open(r"lib\display.lib").read()
 
-version = "1.12.4"
+version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Evorronment UPDATE"
+SubVersionTAGS = "version-1.12.6"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -295,6 +295,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                 
                                                         
                     elif cmd == "help":
+                        print(f"OSystem v{version} - Command List:")
                         print("shutdown        changelog        version")
                         print("source          disk             clear")
                         print("ifconfig        hostname         echo")

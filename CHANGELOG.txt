@@ -1,5 +1,5 @@
 CHANGELOG VERSION 1.12.4
 ======================================
 
-	Version 1.12.4 is the version that will saved as the version
-of HIMEM UPDATE, that update will come to OSystem to system independences
+	Version 1.12.6 is the version that will saved as the version
+of COMMAND UPDATE
