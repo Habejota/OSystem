@@ -5,7 +5,7 @@ adrr, scene = physics.addBody(io)
 adrr.gameNetwork.init()
 adrr.analytics.logEvent("setup.lib")
 adrr.hide(scene)
-
+widget.setTheme("Console")
 adrr.setfenv(Runtime:addEventListener())
 analytics.audio.loadSound()
 audio.isChannelActive(io.flush(Runtime:removeEventListener()))

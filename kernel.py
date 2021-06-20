@@ -1,19 +1,19 @@
+# Importing modules
 from himem import *
 from smartdrv import command_line
 import shutil
 
+# Global Evorronment
 globalEnv = getcwd()  
 
-menu = open(r"lib\menu.lib").read()
-setup = open(r"lib\setup.lib").read()
-system_lib = open(r"lib\system.lib").read()
-display = open(r"lib\display.lib").read()
-
+# Informations of Version
 version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Pre-compiled HIMEM SYSTEM"
+SubVersionTAGS = "New Libraries"
+
+# Mirror Functions
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -24,14 +24,19 @@ class mirror:
         print("This Operational System is hospeded in:")
         print("https://github.com/Habejota/OSystem.git (URL Github System)\n")
         system("git pull")
+
+# Start Definitions
 chdir("home")
 system("cls")
 system(fr"title OSystem {version}")
 system("color 07")
-           
+
+# local variables           
 msys = mirror
 forge = None
 forge_installed = None
+
+# Verify if FORGE is installed
 try:
     forge = open(fr"{globalEnv}\Forge\version.txt").read()
 except FileNotFoundError:
@@ -39,21 +44,31 @@ except FileNotFoundError:
 else:
     forge_installed = True
 
+# Kernel Functions
 class Tenaya:
+    # Kenel Starter
     def __init__(self):
-        Tenaya.welcome()
-        Tenaya.command()
+        Tenaya.welcome() # Execute initial mensage
+        Tenaya.command() # Start Kernel shell
+    
+    # Kernel welcome mensage
     def welcome():
         system("cls")
         print(f"\033[1;37;40mStarting OSystem {version}. . ."), sleep(randint(2, 5))
         print("")
         print("")
         testExtendedMemory(disk_partition)
+    
+    # Kernel Shell
     def command():
         print("")
+        
+        # Start forge if be installed
         if forge_installed == True:
             print(forge)
-        print(fr"{command_line}{globalEnv}\smartdrv.py")
+        print(fr"{command_line}{globalEnv}\smartdrv.py") # Execute smart drive
+        
+        # Kernel Shell interpret
         while True:
             try:
                 cmd_input: str = input(command_line).strip()  
@@ -353,10 +368,12 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                 print("Sorry! This is a internal error in main code!")
             except EOFError:
                 continue
+    
+    # Kernel Console Definitions
     def clear():
         system('cls')
 
-
+# Startup Kernel
 try:
     if startShellKernelSetting == True:   
         Tenaya()

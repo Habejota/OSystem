@@ -1,3 +1,4 @@
+# Python Modules
 from os import system, getcwd, chdir, makedirs, startfile, removedirs, listdir, rename
 from time import sleep
 from socket import gethostname, gethostbyname
@@ -11,11 +12,13 @@ except ModuleNotFoundError:
 else:
     startShellKernelSetting = True
 
+# Informations
 version = "1.12.6"
 author = "Felipe Souza"
 license_ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
 
+# Functions
 def choice(msg):
     responce = str(input(fr"{msg} [Y/N]?")).upper()
     if responce == "Y":
@@ -37,6 +40,16 @@ def main_function():
         print("Acess diened!")
         return False
 
+#Kernel Modules
+menu = open(r"lib\menu.lib").read()
+setup = open(r"lib\setup.lib").read()
+system_lib = open(r"lib\system.lib").read()
+display = open(r"lib\display.lib").read()
+sound_driver = open(r"lib\sound.lib")
+network_lib = open(r"lib\network.lib")
+date_lib = open(r"lib\date.lib")
+
+# Global WMEMORY
 hostname = gethostname()
 ifconfig = gethostbyname(hostname)
 port_session = randint(500, 65535)
@@ -45,6 +58,7 @@ source = "https://github.com/Habejota/OSystem (Free Source Code)"
 language = "Englesh (United States of America)"
 disk_partition = "0x800-1x300"
 
+# Himem Modules
 def testExtendedMemory(partition_disk):
     print("HIMEM is testing extended memory.", end=""), sleep(1)
     print(".", end=""), sleep(1)
