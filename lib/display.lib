@@ -8,5 +8,5 @@ setPositionIterations(config.Template(adrr))
 physics.setScale((180, 65320))
 physics.start()
 
-if adrr == None:
+if adrr == native.getSync():
 	physics.stop()

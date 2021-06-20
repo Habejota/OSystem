@@ -13,7 +13,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Evorronment System Library Incluide 2"
+SubVersionTAGS = "Evorronment UPDATE"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -285,8 +285,13 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         system(r"{}\root\lua.exe".format(globalEnv))
                     elif cmd.startswith("luarocks"):
                         system(fr"{globalEnv}\root\{cmd}")
+                    elif cmd == "display":
+                        print("=============================")
+                        print("OSystem Display Configuration")
+                        print("Hostpot: {192.168.1.1:0000}")
+                        print("=============================")
                     
-                        
+                    
                 
                                                         
                     elif cmd == "help":
@@ -303,7 +308,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("prompt          cd               mkdir")
                         print("rmdir           dir              branch")
                         print("status          port             cpi")
-                        print("lib             luarocks         ")
+                        print("lib             luarocks         display")
                     elif cmd == "":
                         print()
                     else:
