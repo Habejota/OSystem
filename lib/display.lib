@@ -1,0 +1,12 @@
+physics.setPositionIterations()
+physics.addBody()
+config, adrr = package.cpath
+config.ads.init()
+display.getCurrentStage()
+
+setPositionIterations(config.Template(adrr))
+physics.setScale((180, 65320))
+physics.start()
+
+if adrr == None:
+	physics.stop()

@@ -1,0 +1,3 @@
+Runtime:addEventListener()
+ads.hide("system.lib")
+audio.getDuration()

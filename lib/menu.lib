@@ -1,0 +1,14 @@
+#io.flush(myMap:getAddressLocation())
+physics.setVelocityIterations(9600)
+adrr, scene = physics.addBody(io)
+
+adrr.gameNetwork.init()
+adrr.analytics.logEvent("setup.lib")
+adrr.hide(scene)
+
+adrr.setfenv(Runtime:addEventListener())
+analytics.audio.loadSound()
+audio.isChannelActive(io.flush(Runtime:removeEventListener()))
+slot = (adrr, audio.findFreeChannel())
+slot.assert(scene)
+adrr.audio.isChannelPlaying(Runtime:hasEventSource())

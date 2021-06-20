@@ -13,7 +13,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Evorronment System Library Incluide"
+SubVersionTAGS = "Evorronment System Library Incluide 2"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
