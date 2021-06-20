@@ -4,11 +4,16 @@ import shutil
 
 globalEnv = getcwd()  
 
+menu = open(r"lib\menu.lib").read()
+setup = open(r"lib\setup.lib").read()
+system_lib = open(r"lib\system.lib").read()
+display = open(r"lib\display.lib").read()
+
 version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Forge Advanced Setup: Startup mensage"
+SubVersionTAGS = "Evorronment System Library Incluide"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -281,6 +286,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd.startswith("luarocks"):
                         system(fr"{globalEnv}\root\{cmd}")
                     
+                        
+                
                                                         
                     elif cmd == "help":
                         print("shutdown        changelog        version")
@@ -342,6 +349,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                 continue
     def clear():
         system('cls')
+
 
 try:
     if startShellKernelSetting == True:   
