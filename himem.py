@@ -25,8 +25,8 @@ def choice(msg):
 def beep():
     system(fr"root\beep.exe")
 def Progressbar():
-    for i in tqdm(range(1000)):
-        sleep(0.001)
+    for i in tqdm(range(120)):
+        sleep(0.010)
 def main_function():
     print("This is a main implemented function!")
     print("You cannot acess this function if you dont tell for kernel main password:")

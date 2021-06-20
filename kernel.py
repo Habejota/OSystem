@@ -8,7 +8,7 @@ version = "1.12.4"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Loading Advanced System"
+SubVersionTAGS = "Forge Advanced Setup: Startup mensage"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")
@@ -28,7 +28,7 @@ msys = mirror
 forge = None
 forge_installed = None
 try:
-    forge = open(r"Forge\version.txt").read()
+    forge = open(fr"{globalEnv}\Forge\version.txt").read()
 except FileNotFoundError:
     pass
 else:
@@ -46,6 +46,8 @@ class Tenaya:
         testExtendedMemory(disk_partition)
     def command():
         print("")
+        if forge_installed == True:
+            print(forge)
         print(fr"{command_line}{globalEnv}\smartdrv.py")
         while True:
             try:
@@ -184,6 +186,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         if cmd == "forge --install":
                             print("Searching last versions of forge. . ."), sleep(1.983)
                             print("\nDownload Started. . .")
+                            chdir(globalEnv)
                             system("git clone https://github.com/Habejota/Forge.git")
                             Progressbar()
                             print("\n\nForge installed with sucess!")
@@ -192,6 +195,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                             return True
                         elif cmd == "forge --update":
                             try:
+                                chdir(globalEnv)
                                 chdir("Forge")
                             except FileNotFoundError:
                                 print("Try first install Forge to update him!")
