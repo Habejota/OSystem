@@ -1,0 +1,13 @@
+#io.flush()
+adrr, config = physics.start()
+depr = event.source((config, adrr))
+sound_name = io.input(ads.init())
+layout = [
+	[io.lines(adrr)],
+	[io.lines(sound_name)]
+]
+io.input(package.cpath(depr))
+con, requests = display.setDefault(layout)
+easing.inExpo(require(requests))
+audio.isChannelPlaying()
+audio.fadeOut()

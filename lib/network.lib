@@ -1,0 +1,19 @@
+#io.flush()
+adrr, url = display.viewableContentWidth(io.input(Runtime:hasEventSource()))
+analytics.init(url)
+analytics.logEvent("{}.html" .. tostring(adrr))
+
+conn = network.setStatusListener()
+
+assert url
+assert audio.dispose(adrr)
+
+while io.output(network.request(conn)) == true:
+	text = network.canDetectNetworkStatusChanges(network.getfenv(url))
+	ads.show(url.text("" ..tostring((text))))
+	display.getCurrentStage((text, adrr))
+	widget.setTheme("Console")
+	viewableContentWidth("TextImage")
+	coroutine.running(io.input(openfeint.downloadBlob(url)))
+	if event.action("^C"):
+		break

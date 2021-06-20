@@ -1,0 +1,9 @@
+#io.flush()
+adrr, info = system.setAccelerometerInterval(60, 60, 24, 12)
+
+assert info
+function getDate:
+	info.loadstring(io.input(system.DocumentBody("" ..tonumber(adrr))))
+	return date
+
+local info = getDate()
