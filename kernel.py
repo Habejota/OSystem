@@ -13,7 +13,7 @@ version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "version-1.12.6"
+SubVersionTAGS = "Update .gitignore"
 class mirror:
     def mirror():
         print("This Operational System is hospeded in:")

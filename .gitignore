@@ -2,3 +2,4 @@ username.lib
 password.lib
 home/
 Forge/
+*.pyc
