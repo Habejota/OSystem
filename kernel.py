@@ -11,7 +11,7 @@ version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Controll Setup"
+SubVersionTAGS = "update responses"
 
 # Mirror Functions
 class mirror:
@@ -302,6 +302,8 @@ class Tenaya:
                         print("Socket Update")
                         print("Desktop Update")
                         print("HIMEM Update")
+                        print("Evorronment Update")
+                        print("Engine Update")
                       
                       
                     elif cmd == "help":
