@@ -11,7 +11,7 @@ version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "Device charge"
+SubVersionTAGS = "Controll Setup"
 
 # Mirror Functions
 class mirror:
@@ -292,8 +292,17 @@ class Tenaya:
                         print("")
                         print("Main kernel Library System")
                         print("iExecuter System Function Packages")
+                    elif cmd == "controll":
+                        system(r"python {}\controll.py")
+                    elif cmd == "supdate":
+                        print("All versions update:")
+                        print("")
+                        print("MIRROR Update")
+                        print("Kernel Update")
+                        print("Socket Update")
+                        print("Desktop Update")
+                        print("HIMEM Update")
                       
-
                       
                     elif cmd == "help":
                         print(f"OSystem v{version} - Command List:")
@@ -312,7 +321,7 @@ class Tenaya:
                         print("rmdir           dir              branch")
                         print("status          port             cpi")
                         print("lib             luarocks         display")
-                        print("")
+                        print("controll        supdate")
                         print("=============================================")
                     elif cmd == "":
                         print()

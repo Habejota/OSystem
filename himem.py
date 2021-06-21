@@ -5,6 +5,9 @@ from socket import gethostname, gethostbyname
 from random import randint
 import glob, socket
 from getpass import getpass
+
+from controll import *
+
 try:
     from tqdm import tqdm
 except ModuleNotFoundError:
