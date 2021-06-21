@@ -11,7 +11,7 @@ version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "ENGINE UPDATE"
+SubVersionTAGS = "ENGINE UPDATE: Desktop Increment"
 
 # Mirror Functions
 class mirror:
@@ -315,8 +315,11 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("")
                         print("Main kernel Library System")
                         print("iExecuter System Function Packages")
-                
-                                                        
+                    elif cmd == "desktop":
+                        startfile(fr"{globalEnv}\desktop\eXastum Desktop 2.0 Nova\index.html")
+                      
+
+                      
                     elif cmd == "help":
                         print(f"OSystem v{version} - Command List:")
                         print("=============================================")
@@ -334,7 +337,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("rmdir           dir              branch")
                         print("status          port             cpi")
                         print("lib             luarocks         display")
-                        print("engine")
+                        print("engine          desktop")
                         print("")
                         print("=============================================")
                     elif cmd == "":
