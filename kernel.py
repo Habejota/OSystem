@@ -11,7 +11,7 @@ version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "ENGINE UPDATE: Sublime text 3"
+SubVersionTAGS = "Device charge"
 
 # Mirror Functions
 class mirror:
@@ -92,7 +92,7 @@ class Tenaya:
                         system("cls")
                     elif cmd == "ifconfig":
                         print(f"""
-Software Loopback Interface 1
+ Software Loopback Interface 1
         Link encap: Local loopback
         inet addr:{ifconfig} Mask: 255.0.0.0
         MTU: 1500 Speed:1073,74 Mbps
@@ -100,7 +100,7 @@ Software Loopback Interface 1
         RX packets:0 dropped:0 errors:0 unkown:0
         TX packets:0 dropped:0 errors:0 txqueuelen:0
 
-Qualcomm Atheros QCA9377 Wireless Network Adapter
+ Qualcomm Atheros QCA9377 Wireless Network Adapter
         Link encap: IEEE 802.11 HWaddr: 5C-C9-D3-8D-23-9D
         inet addr:{ifconfig} Mask: 255.255.255.0
         MTU: 1500 Speed:108,30 Mbps
@@ -132,29 +132,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                     elif cmd == "command":
                         Tenaya.welcome()
                         Tenaya.command()
-                    elif cmd.startswith("mem"):
-                            print("Reading disk partitions. . ."), sleep(1.999)
-                            print("Writing strings in disk as 0x800-1x300. . .") 
-                            sleep(1.023)
-                            
-                            cmd = cmd.replace("mem ", "")
-                            cmd = cmd.replace("mem", "")
-                            system(f"rem {cmd}")
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
-                            beep()
                     elif cmd == "license":
                             print(__license__)
                     elif cmd.startswith("banner"):
@@ -315,8 +292,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("")
                         print("Main kernel Library System")
                         print("iExecuter System Function Packages")
-                    elif cmd == "sublime":
-                        startfile(fr"{globalEnv}\root\sublime.exe")
                       
 
                       
@@ -326,7 +301,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("shutdown        changelog        version")
                         print("source          disk             clear")
                         print("ifconfig        hostname         echo")
-                        print("mirror          command          mem")
+                        print("mirror          command          engine")
                         print("license         banner           winget")
                         print("far             edit             fdisk")
                         print("osav            roaming          forge")
@@ -337,7 +312,6 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("rmdir           dir              branch")
                         print("status          port             cpi")
                         print("lib             luarocks         display")
-                        print("engine          sublime")
                         print("")
                         print("=============================================")
                     elif cmd == "":
