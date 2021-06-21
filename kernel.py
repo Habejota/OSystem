@@ -316,7 +316,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("Main kernel Library System")
                         print("iExecuter System Function Packages")
                     elif cmd == "desktop":
-                        startfile(fr"{globalEnv}\desktop\eXastum Desktop 2.0 Nova\index.html")
+                        startfile(fr"{globalEnv}\bin\eXastum Desktop 2.0 Nova\index.html")
                       
 
                       
