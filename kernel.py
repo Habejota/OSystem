@@ -11,7 +11,7 @@ version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "C9-D3-8D-23-9D"
+SubVersionTAGS = "ENGINE UPDATE"
 
 # Mirror Functions
 class mirror:
@@ -305,8 +305,16 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("OSystem Display Configuration")
                         print("Hostpot: {192.168.1.1:0000}")
                         print("=============================")
-                    
-                    
+                    elif cmd == "engine":
+                        print("OSystem Engine Device")
+                        print("====================================")
+                        print("Engine System Controller:")
+                        print("SATA1: C9-D3-8D-23-9D")
+                        print("SATA2: {}".format(disk_partition))
+                        print("====================================")
+                        print("")
+                        print("Main kernel Library System")
+                        print("iExecuter System Function Packages")
                 
                                                         
                     elif cmd == "help":
@@ -326,6 +334,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("rmdir           dir              branch")
                         print("status          port             cpi")
                         print("lib             luarocks         display")
+                        print("engine")
                         print("")
                         print("=============================================")
                     elif cmd == "":
