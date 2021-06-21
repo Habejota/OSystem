@@ -11,7 +11,7 @@ version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "ENGINE UPDATE: Loading setup"
+SubVersionTAGS = "ENGINE UPDATE: Sublime text 3"
 
 # Mirror Functions
 class mirror:
@@ -315,10 +315,8 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("")
                         print("Main kernel Library System")
                         print("iExecuter System Function Packages")
-                    elif cmd == "desktop":
-                        chdir(globalEnv)
-                        chdir(r"desktop\setup")
-                        system('index.html')
+                    elif cmd == "sublime":
+                        startfile(fr"{globalEnv}\root\sublime.exe")
                       
 
                       
@@ -339,7 +337,7 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("rmdir           dir              branch")
                         print("status          port             cpi")
                         print("lib             luarocks         display")
-                        print("engine          desktop")
+                        print("engine          sublime")
                         print("")
                         print("=============================================")
                     elif cmd == "":
