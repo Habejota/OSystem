@@ -11,7 +11,7 @@ version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
 changelog = open("CHANGELOG.txt").read()
-SubVersionTAGS = "ENGINE UPDATE: Desktop Increment"
+SubVersionTAGS = "ENGINE UPDATE: Loading setup"
 
 # Mirror Functions
 class mirror:
@@ -316,7 +316,9 @@ Qualcomm Atheros QCA9377 Wireless Network Adapter
                         print("Main kernel Library System")
                         print("iExecuter System Function Packages")
                     elif cmd == "desktop":
-                        system(fr'start "{globalEnv}\bin\eXastum Desktop 2.0 Nova\index.html"')
+                        chdir(globalEnv)
+                        chdir(r"desktop\setup")
+                        system('index.html')
                       
 
                       
