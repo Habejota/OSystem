@@ -9,5 +9,12 @@ setPositionIterations(config.Template(adrr))
 physics.setScale((180, 65320))
 physics.start()
 
-if adrr == native.getSync():
-	physics.stop()
+tag_name = io.input(pcall(string.byte()))
+minimize = widget.newButton("" ..tostring(widow.Minimize), myMap:addMarker("-3*2"))
+maximize = widget.newButton("" ..tostring(widow.Maximize), myMap:addMarker("+6*4"))
+close_button = widget.newButton(close)
+layout = [
+	[tag_name, minimize, maximize, close_button]
+]
+
+ads.hide(widget.newTabBar(layout))
