@@ -3,13 +3,14 @@ from himem import *
 import shutil
 
 # Global Evorronment
+chdir("os")
 globalEnv = getcwd()  
 
 # Informations of Version
 version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
-SubVersionTAGS = "Socket Adapter code page" # SubVersion Tag
+SubVersionTAGS = "Compatibilit TenayaOS" # SubVersion Tag
 
 # Mirror Functions
 class mirror:
@@ -51,7 +52,9 @@ class Tenaya: # Main class
     
     # Kernel welcome mensage
     def welcome():
-        system("cls") # Clear display
+        print("Installed at PS/2 port!")
+        print("     Tasks: \033[37m/kernel.py /usr/bin/bash.exe ")
+        print("     Kernel Device controller SATA[1]")
         print(f"\033[1;37;40mStarting OSystem {version}. . ."), sleep(randint(2, 5))
         print("")
         print("")
