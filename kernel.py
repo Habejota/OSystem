@@ -9,7 +9,8 @@ globalEnv = getcwd()
 version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
-SubVersionTAGS = "New command: Date update"
+SubVersionTAGS = "Statment" # SubVersion Tag
+
 # Mirror Functions
 class mirror:
     def mirror():
@@ -41,7 +42,6 @@ except FileNotFoundError:
 else:
     forge_installed = True
 
-
 # Kernel Object
 class Tenaya: # Main class
     # Kenel Starter
@@ -51,12 +51,12 @@ class Tenaya: # Main class
     
     # Kernel welcome mensage
     def welcome():
-        system("cls")
+        system("cls") # Clear display
         print(f"\033[1;37;40mStarting OSystem {version}. . ."), sleep(randint(2, 5))
         print("")
         print("")
-        testExtendedMemory(disk_partition)
-    
+        testExtendedMemory(disk_partition) # Test himem
+        
     # Kernel Shell
     def command():
         print("") # Add a broken line
@@ -68,9 +68,9 @@ class Tenaya: # Main class
         command_line = f"\033[35m[\033[32m~\033[35m]\033[m " # Define Commandline
         print(fr"{command_line}{globalEnv}\bin\smartdrv.py") # Execute smart drive
         # Select Osystem Shell or UNIX Bash
-        try: 
-            sleep(3) # Wait three seconds to select shell/bash
-        except KeyboardInterrupt:
+        try: # Timeout setup
+            sleep(2) # Wait three seconds to select shell/bash
+        except KeyboardInterrupt: # Start in selected Main Bash
             system(fr"{globalEnv}\bin\bash.exe") # Starts with UNIX Bash
         else: # OSystem shell
             # Kernel Shell interpret
@@ -78,21 +78,27 @@ class Tenaya: # Main class
                 try:
                     cmd_input: str = input(command_line).strip()  
                     def cat_command(cmd):
+                        # Shutdown function
                         if cmd.startswith("shutdown"):
                             if cmd == "shutdown":
                                 Progressbar()
                                 return True 
                             elif cmd == "shutdown -c":
                                 system("shutdown -s")
+                        # Version installed
                         elif cmd == "version":
                             print(version)
                             print(SubVersionTAGS)
+                        # Git source repository
                         elif cmd == "source":
                             print(source)
+                        # Disk partition of room
                         elif cmd == "disk":
                             print(disk_partition)
+                        # Clear display comand
                         elif cmd == "clear" or cmd == "cls":
                             system("cls")
+                        # Print codec of network setting up
                         elif cmd == "ifconfig":
                             print(f"""
      Software Loopback Interface 1
@@ -111,8 +117,10 @@ class Tenaya: # Main class
             RX packets:154204 dropped:0 errors:0 unkown:0
             TX packets:106105 dropped:0 errors:0 txqueuelen:0
                                             """)
+                        # Print host name
                         elif cmd == "hostname":
                             print(f"Hostname: {hostname}")
+                        # Echo driver
                         elif cmd.startswith("echo"):
                             cmd = cmd.replace("echo ", "")
                             cmd = cmd.replace("echo",  "")
@@ -120,6 +128,7 @@ class Tenaya: # Main class
                                 print("Echo driver is loaded in memory {}".format(disk_partition))
                             else:
                                 print(cmd)
+                        # Mirror function
                         elif cmd.startswith("mirror"):
                                 if cmd == "mirror":
                                     msys.mirror()
@@ -132,52 +141,69 @@ class Tenaya: # Main class
                                     print("mirror:")
                                     print("  mirror -p: Pull and update code")
                                     print("  mirror -s: Print OSystem git status")
+                        # Command Function
                         elif cmd == "command":
                             Tenaya.welcome()
                             Tenaya.command()
+                        # Print license
                         elif cmd == "license":
                                 print(license__)
+                        # Banner
                         elif cmd.startswith("banner"):
                                 cmd = cmd.replace("banner",  "")
                                 cmd = cmd.replace("banner ", "")
                                 system(fr"{globalEnv}\usr\bin\banner.exe {cmd}")
+                        # Windows Package Manager "WINGET"
                         elif cmd.startswith("winget"):
                             if cmd == "winget install --update":
                                 startfile("usr\bin\winget.appxbundle")
                             else:
                                 system(cmd)
+                        # Far Commander
                         elif cmd == "far":
                              system(fr"{globalEnv}\usr\bin\Far\far.exe")
                              system("cls")
+                        # Edit-or Application
                         elif cmd.startswith("edit"):
                              system(fr"{globalEnv}\usr\bin\Far\{cmd}")
                              system("cls")
+                        # Disk partition Manager
                         elif cmd.startswith("fdisk"):
                             system("diskpart")
+                        # Label disk set up
                         elif cmd == "label":
                             system("label")
+                        # Assingments of disk Bootloader
                         elif cmd == "assing":
                             print("Drive:                  Assing:            Partition:")
                             print("-------------           ---------------    ---------------")
                             print("System Hard disk        C9-D3-8D-23-9D     0x800-1x300")
                             print("CD-Rom Drive            DS-K9-X7-11-3D     0x800-2x300")
+                        # Graphics function
                         elif cmd == "graphics":    
                             system(r"python {}\bin\graphics.py".format(globalEnv))    
+                        # Connect function
                         elif cmd == "connect":
                             system(r"python {}\bin\connect.py".format(globalEnv))
+                        # Reboot himem
                         elif cmd == "himem":   
                             himem(disk_partition, port_session)
+                        # Rename title window head
                         elif cmd == "prompt":
                             prompt_titleWindowBoard: str = input("Prompt wndows title name: ")
                             system(fr"title {prompt_titleWindowBoard}")
+                        # Verify disk
                         elif cmd == disk_partition:
                             print(fr"{disk_partition}: this is the disc signature!")
+                        # Open dirs pagination
                         elif cmd == "drivers":
                             chdir(globalEnv)
                             system(fr"{globalEnv}\usr\bin\Far\far.exe home")    
+                        # Update network driver
                         elif cmd == "roaming":
                             Progressbar()
                             print("Network driver is update!")
+                        # Forge function
                         elif cmd.startswith("forge"):
                             if cmd == "forge --install":
                                 print("Searching last versions of forge. . ."), sleep(1.983)
@@ -206,10 +232,13 @@ class Tenaya: # Main class
                                 else:
                                     print("OSystem Forge:")
                                     print(forge)
+                        # Path window diretory
                         elif cmd == "pwd":
                             print(getcwd())
+                        # Ping main function
                         elif cmd.startswith("ping"):
                             system(cmd)
+                        # Cingwin Drive
                         elif cmd.startswith("cd"):
                             cmd = cmd.replace("cd ", "")
                             cmd = cmd.replace("cd", "")
@@ -220,6 +249,7 @@ class Tenaya: # Main class
                                 print("bash: {}: Diretory not found".format(cmd))
                             else:
                                 pass
+                        # Make dirs
                         elif cmd.startswith("mkdir"):
                             cmd = cmd.replace("mkdir", "")
                             cmd = cmd.replace("mkdir ", "")
@@ -230,6 +260,7 @@ class Tenaya: # Main class
                                 print("Sorry! This diretory already exists!")
                             else:
                                 print("Diretory created with sucessfuly!")
+                        # Remove dirs
                         elif cmd.startswith("rmdir"):
                             cmd = cmd.replace("rmdir", "")
                             cmd = cmd.replace("rmdir ", "")
@@ -239,12 +270,15 @@ class Tenaya: # Main class
                                 print("Sorry! This diretory not exists to remove!")
                             else:
                                 print("Diretory removed with sucessfuly")
+                        # list dirs and objects
                         elif cmd == "ls" or cmd == "dir":
                             dirs = listdir()
                             for file in dirs:
                                 print(file)
+                        # Status of installed
                         elif cmd == "status":
                             system("git status")
+                        # Code Pages Informations
                         elif cmd == "branch" or cmd == "cpi":
                             print("OSystem {}".format(version))
                             print("Github Repository: https://github.com/Habejota/OSystem")
@@ -254,9 +288,11 @@ class Tenaya: # Main class
                             print("installed on your computer, but is loaded in Github, dont use")
                             print("mirror inside other git repositories or forge folder 'cause")
                             print("found OSError in OSystem git and others code!")
+                        # Port settings
                         elif cmd == "port":
                             print("  OSystem System Pagination format Disk Partition:")
                             print(fr"  {ifconfig}@{hostname}: {port_session}")
+                        # Executable Packages
                         elif cmd.endswith(".exe"):
                             try:
                                 startfile(cmd)
@@ -264,6 +300,7 @@ class Tenaya: # Main class
                                 print("Sorry! Cannot Execute this Executable Package")
                             else:
                                 print("It's Amazing! The {} Executable Package was started!".format(cmd))
+                        # Binary Packages
                         elif cmd.endswith(".lib"):
                             try:
                                 open(cmd)
@@ -271,15 +308,19 @@ class Tenaya: # Main class
                                 print("This System Package is invalid!")
                             else:
                                 system(fr"{globalEnv}\usr\bin\lua.exe {cmd}")
+                        # Lua module
                         elif cmd == "lib":
                             system(r"{}\usr\bin\lua.exe".format(globalEnv))
+                        # Binary Luarocks
                         elif cmd.startswith("luarocks"):
                             system(fr"{globalEnv}\usr\bin\{cmd}")
+                        # Print display setup
                         elif cmd == "display":
                             print("=============================")
                             print("OSystem Display Configuration")
                             print("Hostpot: {192.168.1.1:0000}")
                             print("=============================")
+                        # Print Engine Configuration
                         elif cmd == "engine":
                             print("OSystem Engine Device")
                             print("====================================")
@@ -290,6 +331,7 @@ class Tenaya: # Main class
                             print("")
                             print("Main kernel Library System")
                             print("iExecuter System Function Packages")
+                        # All updates managed
                         elif cmd == "supdate":
                             print("All versions update:")
                             print("")
@@ -301,17 +343,24 @@ class Tenaya: # Main class
                             print("Evorronment Update")
                             print("Engine Update")
                             print("Console Update")
+                        # Executer shell script
                         elif cmd.endswith(".sh") and cmd.startswith("./"):
                             cmd = cmd.replace("./", "")
                             system(rf"{globalEnv}\bin\bash.exe {cmd}")
+                        # Nano edit-or
                         elif cmd.startswith("nano"):
                             system(fr"{globalEnv}\usr\bin\{cmd}")
+                        # Bash
                         elif cmd == "bash":
                             system(fr"{globalEnv}\bin\bash.exe")
+                        # Print Date 
                         elif cmd == "date":
                             system(fr"{globalEnv}\usr\bin\date.exe")
                         
                         
+                        
+                        
+                        # Print help
                         elif cmd == "help":
                             print(f"OSystem v{version} - Command List:")
                             print("=============================================")
@@ -331,8 +380,10 @@ class Tenaya: # Main class
                             print("lib             luarocks         nano")
                             print("bash            date")
                             print("=============================================")
+                        # Broken up lines
                         elif cmd == "":
                             print()
+                        # Unknow command
                         else:
                             try:
                                 sxtp_fudido = open(fr"{globalEnv}\usr\bin\{cmd}", "rb")
@@ -343,6 +394,7 @@ class Tenaya: # Main class
                                     print("FORGE: {} Invalid Command or Package name!".format(cmd))                
                             else:
                                 system(fr"{globalEnv}\usr\bin\{cmd}")
+                    # If forge is installed
                     if forge_installed == True:
                         try:
                             scr_file = open(fr"Forge\packs\{cmd_input}.py")
@@ -360,6 +412,7 @@ class Tenaya: # Main class
                         else:
                             print(fr"{cmd_input}: Is starting. . .")
                             system(fr"python Forge\packs\{cmd_input}.py")
+                    # Else not installed
                     else:
                             s = cat_command(cmd_input)
                             if s == True:
@@ -370,11 +423,13 @@ class Tenaya: # Main class
                                 break
                             else:
                                 continue
+                # Except KeyboardInterrupt
                 except KeyboardInterrupt:
                     chdir(globalEnv)
                     chdir("..")
                     system("Executer.exe")
                     break
+                # Other exceptions
                 except TypeError:
                     print("Sorry! This is a internal error in main code!")
                 except EOFError:
