@@ -6,7 +6,6 @@ from random import randint
 import glob, socket
 from getpass import getpass
 
-from controll import *
 
 try:
     from tqdm import tqdm
@@ -19,7 +18,6 @@ else:
 version = "1.12.6"
 author = "Felipe Souza"
 license_ = open("LICENSE").read()
-changelog = open("CHANGELOG.txt").read()
 
 # Functions
 def choice(msg):
@@ -29,7 +27,7 @@ def choice(msg):
     elif responce == "N":
         return False
 def beep():
-    system(fr"root\beep.exe")
+    system(fr"usr\bin\beep.exe")
 def Progressbar():
     for i in tqdm(range(120)):
         sleep(0.010)

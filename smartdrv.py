@@ -1,3 +1,6 @@
-import himem
+from himem import *
+import socket
 
-command_line = "\033[32m[\033[37m~\033[32m]\033[m "
+host_User_name = socket.gethostname()
+ifconpadi  = socket.gethostbyname(host_User_name)
+
