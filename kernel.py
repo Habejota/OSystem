@@ -9,7 +9,7 @@ globalEnv = getcwd()
 version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
-SubVersionTAGS = "CONSOLE Update"
+SubVersionTAGS = "Bug fix: Updating kernel"
 # Mirror Functions
 class mirror:
     def mirror():
@@ -162,9 +162,9 @@ class Tenaya: # Main class
                             print("System Hard disk        C9-D3-8D-23-9D     0x800-1x300")
                             print("CD-Rom Drive            DS-K9-X7-11-3D     0x800-2x300")
                         elif cmd == "graphics":    
-                            system("python {}\bin\graphics.py".format(globalEnv))    
+                            system(r"python {}\bin\graphics.py".format(globalEnv))    
                         elif cmd == "connect":
-                            system("python {}\bin\connect.py".format(globalEnv))
+                            system(r"python {}\bin\connect.py".format(globalEnv))
                         elif cmd == "himem":   
                             himem(disk_partition, port_session)
                         elif cmd == "prompt":
@@ -328,7 +328,7 @@ class Tenaya: # Main class
                             print("rmdir           dir              branch")
                             print("status          port             cpi")
                             print("lib             luarocks         nano")
-                            print("bash")
+                            print("bash      ")
                             print("=============================================")
                         elif cmd == "":
                             print()
