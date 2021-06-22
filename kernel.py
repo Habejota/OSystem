@@ -9,7 +9,7 @@ globalEnv = getcwd()
 version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
-SubVersionTAGS = "Statment" # SubVersion Tag
+SubVersionTAGS = "Socket Adapter code page" # SubVersion Tag
 
 # Mirror Functions
 class mirror:
@@ -356,8 +356,7 @@ class Tenaya: # Main class
                         # Print Date 
                         elif cmd == "date":
                             system(fr"{globalEnv}\usr\bin\date.exe")
-                        
-                        
+                                                
                         
                         
                         # Print help
