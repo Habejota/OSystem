@@ -9,7 +9,7 @@ globalEnv = getcwd()
 version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
-SubVersionTAGS = "Bug fix: Updating kernel"
+SubVersionTAGS = "New command: Date update"
 # Mirror Functions
 class mirror:
     def mirror():
@@ -308,7 +308,8 @@ class Tenaya: # Main class
                             system(fr"{globalEnv}\usr\bin\{cmd}")
                         elif cmd == "bash":
                             system(fr"{globalEnv}\bin\bash.exe")
-                        
+                        elif cmd == "date":
+                            system(fr"{globalEnv}\usr\bin\date.exe")
                         
                         
                         elif cmd == "help":
@@ -328,7 +329,7 @@ class Tenaya: # Main class
                             print("rmdir           dir              branch")
                             print("status          port             cpi")
                             print("lib             luarocks         nano")
-                            print("bash      ")
+                            print("bash            date")
                             print("=============================================")
                         elif cmd == "":
                             print()
