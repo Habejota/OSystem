@@ -334,7 +334,7 @@ class Tenaya: # Main class
                             print()
                         else:
                             try:
-                                sxtp_fudido = open(fr"{globalEnv}\usr\bin\{cmd}")
+                                sxtp_fudido = open(fr"{globalEnv}\usr\bin\{cmd}", "rb")
                             except FileNotFoundError:
                                 if forge_installed == None:
                                     print("Sorry! Cannot execute this Command in shell!") 
