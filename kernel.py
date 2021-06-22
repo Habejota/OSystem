@@ -308,8 +308,8 @@ class Tenaya: # Main class
                             system(fr"{globalEnv}\usr\bin\{cmd}")
                         elif cmd == "bash":
                             system(fr"{globalEnv}\bin\bash.exe")
-                         
-
+                        
+                        
                         
                         elif cmd == "help":
                             print(f"OSystem v{version} - Command List:")
