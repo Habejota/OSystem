@@ -10,7 +10,7 @@ globalEnv = getcwd()
 version = "1.12.8"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
-SubVersionTAGS = "version-1.12.8" # SubVersion Tag
+SubVersionTAGS = "Kernel implements" # SubVersion Tag
 
 # Mirror Functions
 class mirror:
