@@ -10,7 +10,7 @@ globalEnv = getcwd()
 version = "1.12.8"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
-SubVersionTAGS = "Kernel Start Objective" # SubVersion Tag
+SubVersionTAGS = "Updating mirrors" # SubVersion Tag
 
 # Mirror Functions
 class mirror:
@@ -371,8 +371,8 @@ class Tenaya: # Main class
                         elif cmd == "date":
                             system(fr"{globalEnv}\usr\bin\date.exe")
                         
-                       
-                        
+                          
+                         
                         # Print help
                         elif cmd == "help":
                             print(f"OSystem v{version} - Command List:")
