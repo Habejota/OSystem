@@ -58,3 +58,4 @@ alias version="python /version.py"
 alias status="git status"
 alias mirror="python /mirror.py"
 alias update="git pull"
+cd\
