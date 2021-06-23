@@ -10,7 +10,7 @@ globalEnv = getcwd()
 version = "1.12.6"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
-SubVersionTAGS = "Compatibilit TenayaOS" # SubVersion Tag
+SubVersionTAGS = "Updating layout" # SubVersion Tag
 
 # Mirror Functions
 class mirror:
@@ -26,7 +26,6 @@ class mirror:
 
 # Start Definitions
 chdir("home")
-system("cls")
 system(fr"title OSystem {version}")
 system("color 07")
 
@@ -52,10 +51,10 @@ class Tenaya: # Main class
     
     # Kernel welcome mensage
     def welcome():
-        print("Installed at PS/2 port!")
+        print("\033[1;37;40mInstalled at PS/2 port!")
         print("     Tasks: \033[37m/kernel.py /usr/bin/bash.exe ")
         print("     Kernel Device controller SATA[1]")
-        print(f"\033[1;37;40mStarting OSystem {version}. . ."), sleep(randint(2, 5))
+        print(f"Starting OSystem {version}. . ."), sleep(randint(2, 5))
         print("")
         print("")
         testExtendedMemory(disk_partition) # Test himem
