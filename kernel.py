@@ -38,6 +38,8 @@ network_lib = open(r"lib\network.lib")
 date_lib = open(r"lib\date.lib")
 mainDriver = open(r"lib\main.lib")
 
+print()
+
 # local variables           
 msys = mirror
 forge = None
@@ -64,7 +66,6 @@ class Tenaya: # Main class
     # Kernel welcome mensage
     def welcome():
         print("\033[1;37;40mInstalled at PS/2 port!")
-        print("     Tasks: \033[37m/kernel.py /usr/bin/bash.exe ")
         print("     Kernel Device controller SATA[1]")
         
     # Kernel Shell

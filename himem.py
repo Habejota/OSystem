@@ -4,7 +4,7 @@ from time import sleep
 from socket import gethostname, gethostbyname
 from random import randint
 import glob, socket
- 
+from version import *
 
 
 try:
