@@ -48,3 +48,9 @@ then
 		. "$c"
 	done
 fi
+alias lua="/usr/bin/lua.exe"
+alias far="/usr/bin/far/far.exe"
+alias beep="/usr/bin/beep.exe"
+alias graphics="python /bin/graphics.py"
+alias connect="python /bin/connect.py"
+alias edit="/usr/bin/far/edit.exe"

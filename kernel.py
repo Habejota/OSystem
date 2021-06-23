@@ -66,27 +66,19 @@ class Tenaya: # Main class
         print("\033[1;37;40mInstalled at PS/2 port!")
         print("     Tasks: \033[37m/kernel.py /usr/bin/bash.exe ")
         print("     Kernel Device controller SATA[1]")
-        print(f"Starting OSystem {version}. . ."), sleep(randint(2, 5))
-        print("")
-        print("")
-        testExtendedMemory(disk_partition) # Test himem
         
     # Kernel Shell
-    def command():
-        print("") # Add a broken line
-        
+    def command():       
         # Start forge if be installed
         if forge_installed == True:
             print(forge)
         
         command_line = f"\033[35m[\033[32m~\033[35m]\033[m " # Define Commandline
-        print(fr"{command_line}{globalEnv}\bin\smartdrv.py") # Execute smart drive
+        #print(fr"{command_line}{globalEnv}\bin\smartdrv.py") # Execute smart drive
         # Select Osystem Shell or UNIX Bash
         try: # Timeout setup
-            sleep(2) # Wait three seconds to select shell/bash
-        except KeyboardInterrupt: # Start in selected Main Bash
-            system(fr"{globalEnv}\bin\bash.exe") # Starts with UNIX Bash
-        else: # OSystem shell
+            sleep(1) # Wait three seconds to select shell/bash
+        except KeyboardInterrupt: # OSystem shell 
             # Kernel Shell interpret
             while True:
                 try:
@@ -431,7 +423,7 @@ class Tenaya: # Main class
                                 break
                             else:
                                 continue
-                # Except KeyboardInterrupt
+                # Except KeybolmardInterrupt
                 except KeyboardInterrupt:
                     chdir(globalEnv)
                     chdir("..")
@@ -442,7 +434,15 @@ class Tenaya: # Main class
                     print("Sorry! This is a internal error in main code!")
                 except EOFError:
                     continue
-        
+        else:
+            try:
+                system(fr'{globalEnv}\bin\bash.exe') # Starts with UNIX Bash
+                # system(fr'{globalEnv}\bin\bash.exe')
+            except KeyboardInterrupt:
+                    chdir(globalEnv)
+                    chdir("..")
+                    system("Executer.exe")
+                    exit()
 # Startup Kernel
 try:
         if startShellKernelSetting == True:   
