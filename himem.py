@@ -4,7 +4,7 @@ from time import sleep
 from socket import gethostname, gethostbyname
 from random import randint
 import glob, socket
-from getpass import getpass
+ 
 
 
 try:
@@ -15,7 +15,7 @@ else:
     startShellKernelSetting = True
 
 # Informations
-version = "1.12.6"
+version = "1.12.8"
 author = "Felipe Souza"
 license_ = open("LICENSE").read()
 

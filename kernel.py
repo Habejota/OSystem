@@ -10,7 +10,7 @@ globalEnv = getcwd()
 version = "1.12.8"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
-SubVersionTAGS = "Kernel implements" # SubVersion Tag
+SubVersionTAGS = "Kernel Start Objective" # SubVersion Tag
 
 # Mirror Functions
 class mirror:
@@ -372,7 +372,6 @@ class Tenaya: # Main class
                             system(fr"{globalEnv}\usr\bin\date.exe")
                         
                        
-                        
                         
                         # Print help
                         elif cmd == "help":
