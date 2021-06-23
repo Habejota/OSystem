@@ -62,12 +62,13 @@ class Tenaya: # Main class
     def __init__(self):
         Tenaya.welcome() # Execute initial mensage
         Tenaya.command() # Start Kernel shell
-    
-    # Kernel welcome mensage
     def welcome():
-        print("\033[1;37;40mInstalled at PS/2 port!")
-        print("     Kernel Device controller SATA[1]")
-        
+        print("===================================================")
+        print("Welcome to OSystem v{}".format(version))
+        print("OSystem: https://github.com/Habejota/OSystem.git")
+        print("")
+        print("==================[OSystem Bash]===================")
+        pass
     # Kernel Shell
     def command():       
         # Start forge if be installed
@@ -75,14 +76,14 @@ class Tenaya: # Main class
             print(forge)
         
         command_line = f"\033[35m[\033[32m~\033[35m]\033[m " # Define Commandline
-        #print(fr"{command_line}{globalEnv}\bin\smartdrv.py") # Execute smart drive
         # Select Osystem Shell or UNIX Bash
         try: # Timeout setup
             sleep(1) # Wait three seconds to select shell/bash
-        except KeyboardInterrupt: # OSystem shell 
+        except KeyboardInterrupt: # OSystem shell
             # Kernel Shell interpret
             while True:
                 try:
+                    print(fr"{command_line}{globalEnv}\bin\smartdrv.py") # Execute smart drive
                     cmd_input: str = input(command_line).strip()  
                     def cat_command(cmd):
                         # Shutdown function
@@ -438,7 +439,6 @@ class Tenaya: # Main class
         else:
             try:
                 system(fr'{globalEnv}\bin\bash.exe') # Starts with UNIX Bash
-                # system(fr'{globalEnv}\bin\bash.exe')
             except KeyboardInterrupt:
                     chdir(globalEnv)
                     chdir("..")

@@ -54,8 +54,6 @@ alias beep="/usr/bin/beep.exe"
 alias graphics="python /bin/graphics.py"
 alias connect="python /bin/connect.py"
 alias edit="/usr/bin/far/edit.exe"
-alias version="python /version.py"
 alias status="git status"
 alias mirror="python /mirror.py"
 alias update="git pull"
-cd\
