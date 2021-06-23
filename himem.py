@@ -41,16 +41,7 @@ def main_function():
         print("Acess diened!")
         return False
 
-"""
-#Kernel Modules
-menu = open(r"lib\menu.lib").read()
-setup = open(r"lib\setup.lib").read()
-system_lib = open(r"lib\system.lib").read()
-display = open(r"lib\display.lib").read()
-sound_driver = open(r"lib\sound.lib")
-network_lib = open(r"lib\network.lib")
-date_lib = open(r"lib\date.lib")
-mainDriver = open(r"lib\main.lib")"""
+
 
 # Global WMEMORY
 hostname = gethostname()

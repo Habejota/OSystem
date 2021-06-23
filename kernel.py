@@ -7,10 +7,10 @@ chdir("os")
 globalEnv = getcwd()  
 
 # Informations of Version
-version = "1.12.6"
+version = "1.12.8"
 author = "Felipe Souza"
 license__ = open("LICENSE").read()
-SubVersionTAGS = "Kernel Software" # SubVersion Tag
+SubVersionTAGS = "version-1.12.8" # SubVersion Tag
 
 # Mirror Functions
 class mirror:
@@ -25,14 +25,26 @@ class mirror:
         system(f"{globalEnv}\bin\git pull")
 
 # Start Definitions
-chdir("home")
-system(fr"title OSystem {version}")
+system(fr"title OSystem {version} - {SubVersionTAGS}")
 system("color 07")
+
+#Kernel Modules
+menu = open(r"lib\menu.lib").read()
+setup = open(r"lib\setup.lib").read()
+system_lib = open(r"lib\system.lib").read()
+display = open(r"lib\display.lib").read()
+sound_driver = open(r"lib\sound.lib")
+network_lib = open(r"lib\network.lib")
+date_lib = open(r"lib\date.lib")
+mainDriver = open(r"lib\main.lib")
 
 # local variables           
 msys = mirror
 forge = None
 forge_installed = None
+
+# Login in System userFolder
+chdir("home")
 
 # Verify if FORGE is installed
 try:
@@ -387,15 +399,10 @@ class Tenaya: # Main class
                             print()
                         # Unknow command
                         else:
-                            try:
-                                sxtp_fudido = open(fr"{globalEnv}\usr\bin\{cmd}", "rb")
-                            except FileNotFoundError:
                                 if forge_installed == None:
                                     print("Sorry! Cannot execute this Command in shell!") 
                                 elif forge_installed == True:
                                     print("FORGE: {} Invalid Command or Package name!".format(cmd))                
-                            else:
-                                system(fr"{globalEnv}\usr\bin\{cmd}")
                     # If forge is installed
                     if forge_installed == True:
                         try:
