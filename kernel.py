@@ -6,11 +6,7 @@ import shutil
 chdir("os")
 globalEnv = getcwd()  
 
-# Informations of Version
-version = "1.12.8"
-author = "Felipe Souza"
-license__ = open("LICENSE").read()
-SubVersionTAGS = "Updating mirrors" # SubVersion Tag
+
 
 # Mirror Functions
 class mirror:
@@ -48,6 +44,7 @@ forge_installed = None
 # Login in System userFolder
 chdir("home")
 
+
 # Verify if FORGE is installed
 try:
     forge = open(fr"{globalEnv}\Forge\version.txt").read()
@@ -64,7 +61,7 @@ class Tenaya: # Main class
         Tenaya.command() # Start Kernel shell
     def welcome():
         print("===================================================")
-        print("Welcome to OSystem v{}".format(version))
+        print("Welcome to OSystem v{} - {}".format(version, SubVersionTAGS))
         print("OSystem: https://github.com/Habejota/OSystem.git")
         print("")
         print("==================[OSystem Bash]===================")
@@ -81,9 +78,10 @@ class Tenaya: # Main class
             sleep(1) # Wait three seconds to select shell/bash
         except KeyboardInterrupt: # OSystem shell
             # Kernel Shell interpret
+            print(fr"{command_line}{globalEnv}\bin\smartdrv.py") # Execute smart drive        
+            print(fr"{command_line}{globalEnv}\bin\smartdrv.py") # Execute smart drive        
             while True:
                 try:
-                    print(fr"{command_line}{globalEnv}\bin\smartdrv.py") # Execute smart drive
                     cmd_input: str = input(command_line).strip()  
                     def cat_command(cmd):
                         # Shutdown function
