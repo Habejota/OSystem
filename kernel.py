@@ -3,9 +3,9 @@ from os import system, getcwd, chdir, makedirs, startfile, removedirs, listdir, 
 from time import sleep
 from socket import gethostname, gethostbyname
 from random import randint
-import glob, socket
+import glob, socket, wmemory
 
-# Define PATH and evorronment:
+# define PATH and evorronment:
 path = getcwd()
 
 # Cyngwin Drivers
@@ -16,13 +16,13 @@ except:
 else:
     pass
 
-# Global WMEMORY
-hostname = gethostname()
-ifconfig = gethostbyname(hostname)                                      
-port_session = randint(500, 65535)
-disk_partition = "0x800-1x300"
-version = "1.12.8" # OSystem version
-SubVersionTAGS = "Found Systems" # SubVersion Tag
+# Machine network informations
+hostname = gethostname() # Get host name
+ifconfig = gethostbyname(hostname) # Get machine Ip
+
+# Disk patition on OSystem being installed
+disk_partition = "0x800-1x300" # Disk Partition
+port_session = randint(500, 65535) # Session Port
 
 # Path go to user folder
 chdir("home")
@@ -30,7 +30,7 @@ chdir("home")
 # Terminal Bash
 print("") # A broken line
 print("┌────────────────────────────────────────────────────────────────────┐") # Terminal desainer
-print("│Welcome to OSystem v1.12.8 - Encoding Machines                      │") # Version Informations
+print("│Welcome to OSystem v1.12.8 - Building System Objects                │") # Version Informations
 print("│OSystem: https://github.com/Habejota/OSystem.git                    │") # Source code
 print("│                                                                    │")
 print("└───────────────────────────[OSystem Bash]───────────────────────────┘") # Terminal desaine
