@@ -5,7 +5,7 @@ from socket import gethostname, gethostbyname
 from random import randint
 import glob, socket
 
-# Define PATH and evorronmenttry:
+# Define PATH and evorronment:
 path = getcwd()
 
 # Cyngwin Drivers
@@ -22,7 +22,7 @@ ifconfig = gethostbyname(hostname)
 port_session = randint(500, 65535)
 disk_partition = "0x800-1x300"
 version = "1.12.8" # OSYstem version
-SubVersionTAGS = "Mirror Prompt" # SubVersion Tag
+SubVersionTAGS = "Mount Point Configuration" # SubVersion Tag
 
 # Path go to user folder
 chdir("home")
