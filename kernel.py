@@ -22,7 +22,7 @@ ifconfig = gethostbyname(hostname)
 port_session = randint(500, 65535)
 disk_partition = "0x800-1x300"
 version = "1.12.8" # OSYstem version
-SubVersionTAGS = "Arithimetic Pagination Terminal" # SubVersion Tag
+SubVersionTAGS = "Found Systems" # SubVersion Tag
 
 # Path go to user folder
 chdir("home")
