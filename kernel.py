@@ -26,19 +26,12 @@ SubVersionTAGS = "Found Systems" # SubVersion Tag
 
 # Path go to user folder
 chdir("home")
- 
+
 # Terminal Bash
 print("") # A broken line
-print("===================================================") # Terminal desainer
-print("Welcome to OSystem v{} - {}".format(version, SubVersionTAGS)) # Version Informations
-print("OSystem: https://github.com/Habejota/OSystem.git") # Source code
-print("")
-print("==================[OSystem Bash]===================") # Terminal desaine
-try:
-    system(fr"{path}\os\bin\bash.exe")
-except KeyboardInterrupt:
-    chdir(path)
-    chdir("..")
-    system("Executer.exe")
-    exit()
-# End of code kernel
+print("┌────────────────────────────────────────────────────────────────────┐") # Terminal desainer
+print("│Welcome to OSystem v1.12.8 - Encoding Machines                      │") # Version Informations
+print("│OSystem: https://github.com/Habejota/OSystem.git                    │") # Source code
+print("│                                                                    │")
+print("└───────────────────────────[OSystem Bash]───────────────────────────┘") # Terminal desaine
+system(fr"{path}\os\bin\bash.exe")
