@@ -37,9 +37,9 @@ elif parameter == "install":
         else:  
             installed = True
         if installed == True:
-            with open("git-prompt.sh")
-            init.write(f'alias {pkg_name}="/etc/profile.d/{pkg_name}/main.py"')
-            print("Package installed with sucessfuly!")
+            with open("git-prompt.sh") as init:
+                init.write(f'alias {pkg_name}="/etc/profile.d/{pkg_name}/main.py"')
+                print("Package installed with sucessfuly!")
         else:
             print("Cannot install this package!")
     else:

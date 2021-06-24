@@ -1,7 +1,7 @@
 from socket import gethostname, gethostbyname
 a = gethostname()
 ifconfig = gethostbyname(a)
-print(f"""Software Loopback Interface 1
+print(rf"""Software Loopback Interface 1
     Link encap: Local loopback
     inet addr:{ifconfig} Mask: 255.0.0.0
     MTU: 1500 Speed:1073,74 Mbps
