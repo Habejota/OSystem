@@ -3,7 +3,7 @@ from os import system, getcwd, chdir, makedirs, startfile, removedirs, listdir, 
 from time import sleep
 from socket import gethostname, gethostbyname
 from random import randint
-import glob, socket, wmemory
+import glob, socket
 
 # define PATH and evorronment:
 path = getcwd()
@@ -30,7 +30,7 @@ chdir("home")
 # Terminal Bash
 print("") # A broken line
 print("┌────────────────────────────────────────────────────────────────────┐") # Terminal desainer
-print("│Welcome to OSystem v1.12.8 - Building System Objects                │") # Version Informations
+print("│Welcome to OSystem v1.12.8 - Command Update: Bug fix                │") # Version Informations
 print("│OSystem: https://github.com/Habejota/OSystem.git                    │") # Source code
 print("│                                                                    │")
 print("└───────────────────────────[OSystem Bash]───────────────────────────┘") # Terminal desaine
