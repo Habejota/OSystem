@@ -21,7 +21,7 @@ hostname = gethostname()
 ifconfig = gethostbyname(hostname)                                      
 port_session = randint(500, 65535)
 disk_partition = "0x800-1x300"
-version = "1.12.8" # OSYstem version
+version = "1.12.8" # OSystem version
 SubVersionTAGS = "Found Systems" # SubVersion Tag
 
 # Path go to user folder
@@ -32,6 +32,6 @@ print("") # A broken line
 print("===================================================") # Terminal desainer
 print("Welcome to OSystem v{} - {}".format(version, SubVersionTAGS)) # Version Informations
 print("OSystem: https://github.com/Habejota/OSystem.git") # Source code
-print("") # A broken line
+print("")
 print("==================[OSystem Bash]===================") # Terminal desaine
 system(fr"{path}\os\bin\bash.exe")

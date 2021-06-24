@@ -58,6 +58,6 @@ alias status="git status"
 alias commit='git commit -a -m '
 alias mirror="git push origin main"
 alias update="git pull"
-alias cls="clear"
 alias ifconfig="python /usr/bin/ifconfig.py"
 alias apt="python /etc/profile.d/apt.py"
+alias assing="python /usr/bin/assing.py"
