@@ -34,4 +34,11 @@ print("Welcome to OSystem v{} - {}".format(version, SubVersionTAGS)) # Version I
 print("OSystem: https://github.com/Habejota/OSystem.git") # Source code
 print("")
 print("==================[OSystem Bash]===================") # Terminal desaine
-system(fr"{path}\os\bin\bash.exe")
+try:
+    system(fr"{path}\os\bin\bash.exe")
+except KeyboardInterrupt:
+    chdir(path)
+    chdir("..")
+    system("Executer.exe")
+    exit()
+# End of code kernel
