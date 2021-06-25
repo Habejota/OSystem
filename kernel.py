@@ -16,11 +16,9 @@ ifconfig = gethostbyname(hostname) # Get machine Ip
 # Disk patition on OSystem being installed
 disk_partition = "0x800-1x300" # Disk Partition
 port_session = randint(500, 65535) # Session Port
-
-# Terminal Bash
-print("") # A broken line
+ 
 print("┌────────────────────────────────────────────────────────────────────┐")
-print("│Welcome to OSystem v1.12.8 - New Commands and tools                 │")
+print("│Welcome to OSystem v1.12.8 - Add Bash Library                       │")
 print("│OSystem: https://github.com/Habejota/OSystem.git                    │")
 print("│                                                                    │")
 print("└───────────────────────────[OSystem Bash]───────────────────────────┘")
