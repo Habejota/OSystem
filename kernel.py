@@ -18,7 +18,7 @@ disk_partition = "0x800-1x300" # Disk Partition
 port_session = randint(500, 65535) # Session Port
  
 print("┌────────────────────────────────────────────────────────────────────┐")
-print("│Welcome to OSystem v1.13 - version-1.13                             │")
+print("│Welcome to OSystem v1.13 - Source dists                             │")
 print("│OSystem: https://github.com/Habejota/OSystem.git                    │")
 print("│                                                                    │")
 print("└───────────────────────────[OSystem Bash]───────────────────────────┘")
