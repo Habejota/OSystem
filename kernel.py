@@ -20,7 +20,7 @@ port_session = randint(500, 65535) # Session Port
 # Terminal Bash
 print("") # A broken line
 print("┌────────────────────────────────────────────────────────────────────┐")
-print("│Welcome to OSystem v1.12.8 - Restoring codes                        │")
+print("│Welcome to OSystem v1.12.8 - New Commands and tools                 │")
 print("│OSystem: https://github.com/Habejota/OSystem.git                    │")
 print("│                                                                    │")
 print("└───────────────────────────[OSystem Bash]───────────────────────────┘")
