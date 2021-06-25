@@ -19,13 +19,15 @@ class Kernel:
         self.execBash()
     def __init_mensage(self):
         print("┌────────────────────────────────────────────────────────────────────┐")
-        print("│Welcome to OSystem v1.13 - Update kernel.py                         │")
+        print("│Welcome to OSystem v1.13 - Opossite Position Texts                  │")
         print("│OSystem: https://github.com/Habejota/OSystem.git                    │")
         print("│                                                                    │")
+        print("│                 GNU\Bash OSystem Free Source Code                  │")
+        print("│        Source library free code Firmware Apache License 2.0        │")
+        print("│            Binary Systems auto-compiled in scr/builtdin            │")
         print("└───────────────────────────[OSystem Bash]───────────────────────────┘")
     def execBash(self):
         system(fr"{path}\bin\bash.exe")
-    def execShell(self):
-        system(fr"{path}\bin\sh.exe")
+
 
 Kernel()
