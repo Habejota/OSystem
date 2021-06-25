@@ -1,1 +1,6 @@
-/boot
+drivers=["/usr/bin/bash.exe --loadDrivers"]
+library=['/lib/Main.lib -r "username@hostname"']
+
+scr("/boot/grub/efi.exe")
+exec(drivers == library, scr)
+
