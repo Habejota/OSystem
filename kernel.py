@@ -18,8 +18,10 @@ class Kernel:
         self.__init_mensage()
         self.execBash()
     def __init_mensage(self):
+        print("")
+        print("Configurations firmware ({}:80)".format(self.ifconfig))
         print("┌────────────────────────────────────────────────────────────────────┐")
-        print("│Welcome to OSystem v1.13 - Firmware addon                           │")
+        print("│Welcome to OSystem v1.13 - Firmware UPDATE                          │")
         print("│OSystem: https://github.com/Habejota/OSystem.git                    │")
         print("│                                                                    │")
         print("│                 GNU\Bash OSystem Free Source Code                  │")
