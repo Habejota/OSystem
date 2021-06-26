@@ -13,7 +13,7 @@ class Kernel:
         self.hostname = gethostname()
         self.host = gethostbyname(self.hostname)
         self.disk_partition = "0x800-1x300"
-        self.version = "Update connections"
+        self.version = "Command Objectives"
 
         self.FetchUpdates()
         self.PrintFirmwareSettings()
@@ -21,7 +21,7 @@ class Kernel:
         system(r"{}\bin\bash.exe".format(path))
     def _init__mensage(self):
         print("┌────────────────────────────────────────────────────────────────────┐")
-        print("│Welcome to OSystem v1.13 - Update connections                       │")
+        print("│Welcome to OSystem v1.13 - Command Objectives Setup                 │")
         print("│OSystem: https://github.com/Habejota/OSystem.git                    │")
         print("│                                                                    │")
         print("│                 GNU\Bash OSystem Free Source Code                  │")
