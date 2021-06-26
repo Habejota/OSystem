@@ -28,7 +28,7 @@ def client():
     if connectadospraku == True:
         while True:
             try:
-                msg = input("")
+                msg = input("> ")
                 s.sendall(msg.encode())
             except KeyboardInterrupt:
                 s.close()  
