@@ -19,7 +19,7 @@ class Kernel:
         self.execBash()
     def __init_mensage(self):
         print("┌────────────────────────────────────────────────────────────────────┐")
-        print("│Welcome to OSystem v1.13 - Source Compliations                      │")
+        print("│Welcome to OSystem v1.13 - Firmware addon                           │")
         print("│OSystem: https://github.com/Habejota/OSystem.git                    │")
         print("│                                                                    │")
         print("│                 GNU\Bash OSystem Free Source Code                  │")
