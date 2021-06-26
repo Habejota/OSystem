@@ -13,17 +13,15 @@ class Kernel:
         self.hostname = gethostname()
         self.host = gethostbyname(self.hostname)
         self.disk_partition = "0x800-1x300"
-        try:
-            self.PrintFirmwareSettings(), sleep(1.999)
-        except KeyboardInterrupt:
-            self._init__mensage()
-            system(r"{}\bin\sh.exe".format(path))
-        else:
-            self._init__mensage()  
-            system(r"{}\bin\bash.exe".format(path))
+        self.version = "Assertation Firmware"
+
+        self.FetchUpdates()
+        self.PrintFirmwareSettings()
+        self._init__mensage()  
+        system(r"{}\bin\bash.exe".format(path))
     def _init__mensage(self):
         print("┌────────────────────────────────────────────────────────────────────┐")
-        print("│Welcome to OSystem v1.13 - Firmware Shell                           │")
+        print("│Welcome to OSystem v1.13 - Assertation Firmware                     │")
         print("│OSystem: https://github.com/Habejota/OSystem.git                    │")
         print("│                                                                    │")
         print("│                 GNU\Bash OSystem Free Source Code                  │")
@@ -33,5 +31,6 @@ class Kernel:
     def PrintFirmwareSettings(self):
         print("")
         system("echo Configurations firmware (%username%@{}) ({}:80)".format(self.hostname, self.host))
-
+    def FetchUpdates(self):
+        system(fr"{path}\bin\git.exe pull")
 Kernel()

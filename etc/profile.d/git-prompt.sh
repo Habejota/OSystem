@@ -58,7 +58,6 @@ alias edit="/usr/bin/far/edit.exe"
 alias status="git status"
 alias commit='git commit -a -m '
 alias mirror="git push origin main"
-alias update="git pull"
 alias ifconfig="python /usr/bin/ifconfig.py"
 alias apt="python /etc/profile.d/apt.py"
 alias kb="/bin/kb.exe"

@@ -4,7 +4,7 @@ from random import randint
 import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-port = randint(500, 65535)
+port = randint(500, 65535
 hostname = socket.gethostname()
 host = socket.gethostbyname(hostname)
 
