@@ -3,3 +3,4 @@ password.lib
 home/
 Forge/
 *.pyc
+.vscode/
