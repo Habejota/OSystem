@@ -16,11 +16,15 @@ class Kernel:
 
         self.FetchUpdates()
         self.PrintFirmwareSettings()
-        self._init__mensage()  
-        system(r"{}\bin\bash.exe".format(path))
+        try:
+            self._init__mensage() 
+        except KeyboardInterrupt:
+            system("python Firmware.py")
+        else:
+            system(r"{}\bin\bash.exe".format(path))
     def _init__mensage(self):
         print("┌────────────────────────────────────────────────────────────────────┐"), sleep(0.111)
-        print("│Welcome to OSystem v1.13 - Kernel Object Assertation                │"), sleep(0.111)
+        print("│Welcome to OSystem v1.13 - Firmware Pagination Codes                │"), sleep(0.111)
         print("│OSystem: https://github.com/Habejota/OSystem.git                    │"), sleep(0.111)
         print("│                                                                    │"), sleep(0.111)
         print("│                 GNU\Bash OSystem Free Source Code                  │"), sleep(0.111)
@@ -34,4 +38,10 @@ class Kernel:
         system(fr"{path}\bin\git.exe pull")
 
 
-Kernel()
+try:
+    Kernel()
+except KeyboardInterrupt:
+    chdir(path)
+    chdir("..")
+    system("python netwrk.py")
+    exit()
