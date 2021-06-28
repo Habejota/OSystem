@@ -21,7 +21,7 @@ class Kernel:
         system(r"{}\bin\bash.exe".format(path))
     def _init__mensage(self):
         print("┌────────────────────────────────────────────────────────────────────┐")
-        print("│Welcome to OSystem v1.13 - Command Objectives Setup                 │")
+        print("│Welcome to OSystem v1.13 - QuickBasic Update                        │")
         print("│OSystem: https://github.com/Habejota/OSystem.git                    │")
         print("│                                                                    │")
         print("│                 GNU\Bash OSystem Free Source Code                  │")
