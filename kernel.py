@@ -24,12 +24,13 @@ class Kernel:
             system(r"{}\bin\bash.exe".format(path))
     def _init__mensage(self):
         print("┌────────────────────────────────────────────────────────────────────┐"), sleep(0.111)
-        print("│Welcome to OSystem v1.13 - Firmware Pagination Codes                │"), sleep(0.111)
+        print("│Welcome to OSystem v1.13 - New mensage                              │"), sleep(0.111)
         print("│OSystem: https://github.com/Habejota/OSystem.git                    │"), sleep(0.111)
         print("│                                                                    │"), sleep(0.111)
         print("│                 GNU\Bash OSystem Free Source Code                  │"), sleep(0.111)
         print("│        Source library free code Firmware Apache License 2.0        │"), sleep(0.111)
         print("│            Binary Systems auto-compiled in scr/builtdin            │"), sleep(0.111)
+        print("│               Advanced Compiled Buffer Pagination                  │")
         print("└───────────────────────────[OSystem Bash]───────────────────────────┘"), sleep(0.111)
     def PrintFirmwareSettings(self):
         print("")
