@@ -35,7 +35,7 @@ class Firmware:
     TX packets:0 dropped:0 errors:0 txqueuelen:0
 
 Qualcomm Atheros QCA9377 Wireless Network Adapter
-    Link encap: IEEE 802.11 HWaddr: 5C-C9-D3-8D-23-9D
+    Link encap: IEEE 802.11 HWaddr: 5C-C9-D3-8D-23-9E
     inet addr:{ifconfig} Mask: 255.255.255.0
     MTU: 1500 Speed:108,30 Mbps
     Admin status:UP Oper status:OPERATIONAL
