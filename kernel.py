@@ -17,21 +17,21 @@ class Kernel:
         self.FetchUpdates()
         self.PrintFirmwareSettings()
         try:
-            self._init__mensage() 
+            self.changelog() 
         except KeyboardInterrupt:
             system("python Firmware.py")
         else:
             system(r"{}\bin\bash.exe".format(path))
-    def _init__mensage(self):
+    def changelog(self):
         print("┌────────────────────────────────────────────────────────────────────┐"), sleep(0.111)
-        print("│Welcome to OSystem v1.13 - Bug fix                                  │"), sleep(0.111)
+        print("│Welcome to OSystem v1.13 - version-1.13.2-beta                      │"), sleep(0.111)
         print("│OSystem: https://github.com/Habejota/OSystem.git                    │"), sleep(0.111)
         print("│                                                                    │"), sleep(0.111)
         print("│                 GNU\Bash OSystem Free Source Code                  │"), sleep(0.111)
         print("│        Source library free code Firmware Apache License 2.0        │"), sleep(0.111)
         print("│            Binary Systems auto-compiled in scr/builtdin            │"), sleep(0.111)
         print("│               Advanced Compiled Buffer Pagination                  │")
-        print("└───────────────────────────[OSystem Bash]───────────────────────────┘"), sleep(0.111)
+        print("└───────────────────────────[OSystem Bash]─────(beta)────────────────┘"), sleep(0.111)
     def PrintFirmwareSettings(self):
         print("")
         system("echo Configurations firmware (%username%@{}) ({}:80)".format(self.hostname, self.host))
