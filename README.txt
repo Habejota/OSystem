@@ -1,3 +1,3 @@
-OSystem Bash
+OSystem v1.13.2
 
-The Operational Kernel to TenayaOS: "LINUX ON WINDOWS"
+Project stoped!
