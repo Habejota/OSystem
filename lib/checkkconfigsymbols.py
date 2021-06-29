@@ -6,7 +6,7 @@
 # (c) 2014-2017 Valentin Rothberg <valentinrothberg@gmail.com>
 # (c) 2014 Stefan Hengelein <stefan.hengelein@fau.de>
 #
-# Terminal Update
+
 
 import argparse
 import difflib

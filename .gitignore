@@ -1,7 +1,6 @@
 username.lib
 password.lib
 home/
-root/
 Forge/
 *.pyc
 .vscode/

@@ -29,7 +29,19 @@ def client():
         while True:
             try:
                 msg = input("User Mensage: ")
-                s.sendall(msg.encode())
+                if msg == "sendfile":
+                    s.sendall(msg.encode())
+                    namefile = input("Filename: ")
+                    s.sendall(namefile.encode())
+                    try:
+                        with open(namefile, 'rb') as file:
+                            for data in file.readlines():
+                                s.sendall(data)
+                        print("File text sended!")
+                    except:
+                        print("This file not founded in system!")
+                else:
+                    s.sendall(msg.encode())
             except KeyboardInterrupt:
                 s.close()  
                 break

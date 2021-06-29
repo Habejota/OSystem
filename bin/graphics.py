@@ -25,6 +25,17 @@ print("Waiting a mensage. . .")
 while True:
     try:
         recebe = con.recv(1024) 
-        print("User Mensage: ", recebe.decode())
+        if recebe.decode() == "sendfile":
+            namefile = con.recv(1024)
+            print("=" * 70)
+            while True:
+                filetext = con.recv(1024)
+                if filetext.decode() == ":::>>>stop<<<:::":
+                    break
+                else:
+                    print(filetext.decode())
+            print("=" * 70)
+        else:
+            print("User Mensage: ", recebe.decode())
     except KeyboardInterrupt:
         break
