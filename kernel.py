@@ -24,7 +24,7 @@ class Kernel:
             system(r"{}\bin\bash.exe".format(path))
     def _init__mensage(self):
         print("┌────────────────────────────────────────────────────────────────────┐"), sleep(0.111)
-        print("│Welcome to OSystem v1.13 - Bug fix                              │"), sleep(0.111)
+        print("│Welcome to OSystem v1.13 - Bug fix                                  │"), sleep(0.111)
         print("│OSystem: https://github.com/Habejota/OSystem.git                    │"), sleep(0.111)
         print("│                                                                    │"), sleep(0.111)
         print("│                 GNU\Bash OSystem Free Source Code                  │"), sleep(0.111)
