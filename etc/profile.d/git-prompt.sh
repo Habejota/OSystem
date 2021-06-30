@@ -52,8 +52,8 @@ fi
 alias lua="/usr/bin/lua.exe"
 alias far="/usr/bin/far/far.exe"
 alias beep="/usr/bin/beep.exe"
-alias graphics="/sample/IronPython/ipy.exe /bin/graphics.py"
-alias connect="/sample/IronPython/ipy.exe /bin/connect.py"
+alias graphics="python /bin/graphics.py"
+alias connect="python /bin/connect.py"
 alias edit="/usr/bin/far/edit.exe"
 alias status="git status"
 alias commit='git commit -a -m '
