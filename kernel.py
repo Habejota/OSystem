@@ -24,7 +24,7 @@ class Kernel:
             system(r"{}\bin\bash.exe".format(path))
     def changelog(self):
         print("┌────────────────────────────────────────────────────────────────────┐"), sleep(0.111)
-        print("│Welcome to OSystem v1.13 - Terminal Update                          │"), sleep(0.111)
+        print("│Welcome to OSystem v1.13 - Terminal Update: IronPython Language     │"), sleep(0.111)
         print("│OSystem: https://github.com/Habejota/OSystem.git                    │"), sleep(0.111)
         print("│                                                                    │"), sleep(0.111)
         print("│                 GNU\Bash OSystem Free Source Code                  │"), sleep(0.111)
