@@ -41,7 +41,6 @@ alias beep="/usr/bin/beep.exe"
 alias graphics="python /bin/graphics.py"
 alias connect="python /bin/connect.py"
 alias edit="/usr/bin/far/edit.exe"
-alias status="git status"
 alias commit='git commit -a -m '
 alias mirror="git push origin main"
 alias ifconfig="python /usr/bin/ifconfig.py"

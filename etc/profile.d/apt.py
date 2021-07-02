@@ -45,8 +45,9 @@ class Package:
         else:
             system(fr"move {a}\{a}.exe ")
             bache = open("git-prompt.sh",  "a+")
-            bache.write(f'alias {a}="/etc/profile.d/{a}.exe"')
+            bache.write(f'\nalias {a}="/etc/profile.d/{a}.exe"')
             print("Shell: Package installed with sucessfuly!")
+            print("To apply the new package restart the bash")
         print(a)
     def search(self, pack_name):
         print("Package Name:                    Tag:")
