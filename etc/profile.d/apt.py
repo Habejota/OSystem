@@ -4,43 +4,58 @@ import sys
 chdir(fr"..")
 chdir(fr"etc/profile.d")
 
-try:
-    program = sys.argv[0]
-except:
-    program = None
-else:
-    pass
-try:
-    parameter = sys.argv[1]
-except:
-    parameter = None
-else:
-    pass
-try:
-    pkg_name = sys.argv[2]
-except:
-    parameter = None
-else:
-    pass
-
-if parameter == None or pkg_name == None:
-    print("BASH: apt [parameters](packageName)")
-    print("    install     Install packages")
-    print("    ")
-elif parameter == "install":
-    if pkg_name is not None:
-        system("git clone https://github.com/Habejota/{}.git".format(pkg_name))
+class Package:
+    def __init__(self, cmd):
         try:
-            a = open(f"{pkg_name}\main.py")
-        except FileNotFoundError:
-            installed = False
-        else:  
-            installed = True
-        if installed == True:
-            with open("git-prompt.sh") as init:
-                init.write(f'alias {pkg_name}="/etc/profile.d/{pkg_name}/main.py"')
-                print("Package installed with sucessfuly!")
+            command = cmd[0]
+            arguments = cmd[1]
+        except:
+            print("""                         
+            Usage: apt [options] command
+
+            list - list packages based on package names
+            search - search in package descriptions
+            install - install packages
+            """) 
         else:
-            print("Cannot install this package!")
-    else:
-        print("INSERT PACKAGE NAME!")
+            if arguments == "install":
+                try:
+                    package = cmd[2]
+                except:
+                    print("Shell: Insert package name!")
+                else:
+                    self.install(package.lower())
+            elif arguments == "search":
+                try:
+                    package = cmd[2]
+                except:
+                    print("Shell: Insert package name!")
+                else:
+                    self.search(package)
+
+    def install(self, pack_name):
+        system("git clone https://github.com/Habejota/{}.git".format(pack_name))
+        a = pack_name.replace("habejota/", "")
+        try:
+            bache = open(fr"{a}\{a}.exe", "rb")
+            bache.close()
+        except Exception as e:
+            print("Shell: Fail to install Packages!")
+            print(e)
+        else:
+            system(fr"move {a}\{a}.exe ")
+            bache = open("git-prompt.sh",  "a+")
+            bache.write(f'alias {a}="/etc/profile.d/{a}.exe"')
+            print("Shell: Package installed with sucessfuly!")
+        print(a)
+    def search(self, pack_name):
+        print("Package Name:                    Tag:")
+        print("──────────────────────────────────────────────────────────────")
+        if pack_name == "kernel":
+            print("Kernel Source                    Kernel")    
+        elif pack_name == "Console" or pack_name == "Application" or pack_name == "Tardis":
+            print("Tardis Console Application        TardisProject")
+
+        else:
+            print("Nothink Packages match with {}".format(pack_name))
+Package(sys.argv)
