@@ -4,7 +4,6 @@ from socket import gethostname, gethostbyname
 from time import sleep
 
 # Directory definitions
-chdir("os")
 path = getcwd()
 chdir("home")
 
@@ -31,7 +30,7 @@ class Kernel:
         print("│        Source library free code Firmware Apache License 2.0        │"), sleep(0.111)
         print("│            Binary Systems auto-compiled in scr/builtdin            │"), sleep(0.111)
         print("│               Advanced Compiled Buffer Pagination                  │")
-        print("└───────────────────────────[OSystem Bash]───────────────────────────┘"), sleep(0.111)
+        print("└───────────────────────────[OSystem Bash]───────────────────────────┘\n"), sleep(0.111)
     def PrintFirmwareSettings(self):
         print("")
         system("echo Configurations firmware (%username%@{}) ({}:80)".format(self.hostname, self.host))
