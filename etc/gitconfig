@@ -7,7 +7,7 @@
 	required = true
 [http]
 	sslBackend = openssl
-	sslCAInfo = C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+	sslCAInfo = /ssl/certs/ca-bundle.crt
 [core]
 	autocrlf = true
 	fscache = true

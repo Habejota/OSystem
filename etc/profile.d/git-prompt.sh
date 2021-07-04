@@ -38,11 +38,9 @@ then
 	done
 fi
 alias lua="/usr/bin/lua.exe"
-alias far="/usr/bin/far/far.exe"
 alias beep="/usr/bin/beep.exe"
 alias graphics="python /bin/graphics.py"
 alias connect="python /bin/connect.py"
-alias edit="/usr/bin/far/edit.exe"
 alias commit='git commit -a -m '
 alias mirror="git push origin main"
 alias ifconfig="python /usr/bin/ifconfig.py"
@@ -52,3 +50,4 @@ alias kb="/bin/kb.exe"
 alias log="git log"
 alias ipy="/sample/IronPython/ipy.exe"
 alias pip="/sample/IronPython/Scripts/pip.exe"
+alias wget="/usr/wget.exe"
