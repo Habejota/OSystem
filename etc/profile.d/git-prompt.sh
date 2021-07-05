@@ -26,6 +26,14 @@ else
 fi
 
 MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
+# Bash completion
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
 # Evaluate all user-specific Bash completion scripts (if any)
 if test -z "$WINELOADERNOEXEC"
@@ -37,6 +45,11 @@ then
 		. "$c"
 	done
 fi
+
+alias shutdown="exit"
+alias ls="ls --color=auto -CF"
+alias dir='dir --color=auto'
+alias ll='vdir --color=auto'
 alias lua="/usr/bin/lua.exe"
 alias beep="/usr/bin/beep.exe"
 alias graphics="python /bin/graphics.py"
@@ -52,3 +65,4 @@ alias ipy="/sample/IronPython/ipy.exe"
 alias pip="/sample/IronPython/Scripts/pip.exe"
 alias wget="/usr/wget.exe"
 alias ntpad="/cmd/notepad2.exe"
+alias sudo="/usr/bin/sudo"
