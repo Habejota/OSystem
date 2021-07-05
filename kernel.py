@@ -5,15 +5,12 @@ from time import sleep
 
 # Directory definitions
 path = getcwd()
-chdir("home")
-
 class Kernel:
     def __init__(self):
         self.hostname = gethostname()
         self.host = gethostbyname(self.hostname)
         self.disk_partition = "0x800-1x300"
 
-        self.FetchUpdates()
         self.PrintFirmwareSettings()
         try:
             self.changelog() 
@@ -34,14 +31,16 @@ class Kernel:
     def PrintFirmwareSettings(self):
         print("")
         system("echo Configurations firmware (%username%@{}) ({}:80)".format(self.hostname, self.host))
-    def FetchUpdates(self):
-        system(fr"{path}\bin\git.exe pull")
 
-
-try:
-    Kernel()
-except KeyboardInterrupt:
-    chdir(path)
-    chdir("..")
-    system("python network.py")
-    exit()
+try:    
+    chdir("home")
+except FileNotFoundError:
+    pass
+else:
+    try:
+        Kernel()
+    except KeyboardInterrupt:
+        chdir(path)
+        chdir("..")
+        system("python network.py")
+        exit()
