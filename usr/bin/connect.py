@@ -1,38 +1,58 @@
-from os import system, chdir
-from time import sleep
-from random import randint
-import socket
-from threading import Thread
+from os import system, chdir, getcwd, startfile
+from time import sleep as wait
+from random import randint as randomic
+import socket, sys
+from getpass import getpass
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = str(input("Host: "))
-try:
-    port = int(input("Port: "))
-except:
-    print("PORT must be a number!")
-def client():
 
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    while True:
+
+class Putty:
+    def __init__(self):
+        self.hostname = socket.gethostname()
+        self.host = socket.gethostbyname(self.hostname)
+
+        self.getInformationToConnect()
+        self.Secure_SHell()
+
+    def getInformationToConnect(self):
+        self.host_connect = str(input("Please, Insert a host to connect: "))
+        self.port_connect = int(input('Please, Insert a port to connect to "{}": '.format(self.host_connect)))
+    def Secure_SHell(self):
         try:
-            s.connect((host, port))
-            connectadospraku = True
-            break
-        except KeyboardInterrupt:
-            connectadospraku = False
-            break
+            s.connect((self.host_connect, self.port_connect))
         except:
-            print(fr"Fail to Connect with {host}:{port}")
-            connectadospraku = False
-            break
-    if connectadospraku == True:
-        while True:
-            try:
-                msg = input("> ")
-                s.sendall(msg.encode())
-            except KeyboardInterrupt:
-                s.close()  
-                break
-    else:
-        print("You arent connected to server!")
-client()
+            print("Fail to connect to {}:{}".format(self.host_connect, self.port_connect)) 
+        else:     
+            system("cls")
+            self.user = str(input("login as: "))
+            self.password = getpass(f"{self.user}@{self.host_connect}'s password: ").strip()
+            while True:
+                try:
+                    cmd = input(">>> ").strip().lower()
+                    if cmd == "exit":
+                        print("Closing Internal connection. . ."), wait(3.834)
+                        s.close()
+                        break
+                    elif cmd == "passwd":
+                        self.umhfnyv = getpass("Old Password: ")
+                        if self.umhfnyv == self.password:
+                            self.password = getpass("New Password: ").strip()
+                            passwdcu = getpass("Repeat new password: ").strip()
+                            if self.password == passwdcu:
+                                print("Password was charged with sucessfuly!")
+                    elif cmd.startswith("echo"):
+                        cmd = cmd.replace("echo")
+                        s.send(cmd.encode())
+                        print("The mensage was sended to server!")
+
+
+                    else:
+                        print("SSH: {}: Unknow CommandError!".format(cmd))
+                except KeyboardInterrupt:
+                    print("")
+                except Exception as e:
+                    print(e)
+                    break
+
+Putty()

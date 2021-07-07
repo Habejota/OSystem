@@ -10,13 +10,13 @@ if test -f ~/.config/git/git-prompt.sh
 then
 	. ~/.config/git/git-prompt.sh
 else
-	PS1='\[\033]0;$MSYSTEM:$PWD\007\]' # set window titleif test -z "$WINELOADERNOEXEC"
-	PS1="$PS1"'\[\033[36m\]'       # change to green
-	PS1="$PS1"'($MSYSTEM) '             # user@host<space>
+	PS1='\[\033]0;$MSYSTEM:$PWD\007\]' # Set Window title
+	PS1="$PS1"'\[\033[36m\]'       # change to Bubble blue
+	PS1="$PS1"'($MSYSTEM) '        # Print protocol
 	PS1="$PS1"'\[\033[32m\]'       # change to green
-	PS1="$PS1"'\u@\h'             # user@host<space>
+	PS1="$PS1"'\u@\h'             # user@host <space>
 	PS1="$PS1"'\[\033[0m\]'        # change color
-	PS1="$PS1"':'             # user@host<space>
+	PS1="$PS1"':'             # Set diretory division :
 	PS1="$PS1"'\[\033[34m\]'       # change to brownish yellow
 	PS1="$PS1"'\w'                 # current working directory
 
@@ -45,6 +45,8 @@ then
 		. "$c"
 	done
 fi
+SYSTEM="osystem"
+
 
 alias shutdown="exit"
 alias ls="ls --color=auto -CF"
@@ -66,3 +68,8 @@ alias pip="/sample/IronPython/Scripts/pip.exe"
 alias wget="/usr/wget.exe"
 alias ntpad="/cmd/notepad2.exe"
 alias sudo="/usr/bin/sudo"
+alias nano="/usr/bin/nano.exe"
+alias rnano="/usr/bin/rnano.exe"
+alias vim="/usr/bin/vim.exe"
+alias vi="/usr/bin/vi.exe"
+alias device="/etc/device.sh"
