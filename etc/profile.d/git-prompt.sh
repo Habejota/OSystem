@@ -1,28 +1,28 @@
 #!/usr/bin/env bash
 if test -f /etc/profile.d/git-sdk.sh
 then
-	TITLEPREFIX=SDK-${MSYSTEM#MINGW}
+    TITLEPREFIX=SDK-${MSYSTEM#MINGW}
 else
-	TITLEPREFIX=$MSYSTEM
+    TITLEPREFIX=$MSYSTEM
 fi
 
 if test -f ~/.config/git/git-prompt.sh
 then
-	. ~/.config/git/git-prompt.sh
+    . ~/.config/git/git-prompt.sh
 else
-	PS1='\[\033]0;$MSYSTEM:$PWD\007\]' # Set Window title
-	PS1="$PS1"'\[\033[36m\]'       # change to Bubble blue
-	PS1="$PS1"'($MSYSTEM) '        # Print protocol
-	PS1="$PS1"'\[\033[32m\]'       # change to green
-	PS1="$PS1"'\u@\h'             # user@host <space>
-	PS1="$PS1"'\[\033[0m\]'        # change color
-	PS1="$PS1"':'             # Set diretory division :
-	PS1="$PS1"'\[\033[34m\]'       # change to brownish yellow
-	PS1="$PS1"'\w'                 # current working directory
-
-	PS1="$PS1"'\[\033[0m\]'        # change color
-	PS1="$PS1"''                 # new line
-	PS1="$PS1"'$ '                 # prompt: always $
+    # Configure BASH Prompt 
+    PS1='\[\033]0;$MSYSTEM:$PWD\007\]' 	# Set Window title
+    PS1="$PS1"'\[\033[36m\]'       		  # change to Bubble blue
+    PS1="$PS1"'($MSYSTEM) '        		  # Print protocol
+    PS1="$PS1"'\[\033[32m\]'       		  # change to green
+    PS1="$PS1"'\u@\h'             		  # user@host <space>
+    PS1="$PS1"'\[\033[0m\]'        		  # change color
+    PS1="$PS1"':'             		      # Set diretory division :
+    PS1="$PS1"'\[\033[34m\]'       		  # change to brownish yellow
+    PS1="$PS1"'\w'                 		  # current working directory
+    PS1="$PS1"'\[\033[0m\]'        		  # change color
+    PS1="$PS1"''                	 	    # new line
+    PS1="$PS1"'$ '                 		  # prompt: always $
 fi
 
 MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
@@ -45,31 +45,34 @@ then
 		. "$c"
 	done
 fi
+# Global variables
 SYSTEM="osystem"
+HOME="/home"
 
-
-alias shutdown="exit"
-alias ls="ls --color=auto -CF"
+cd $HOME
+# OSystem Commands
+alias shutdown="exit" # Shutdown System
+alias ls="ls --color=auto -CF" 
 alias dir='dir --color=auto'
 alias ll='vdir --color=auto'
-alias lua="/usr/bin/lua.exe"
-alias beep="/usr/bin/beep.exe"
-alias graphics="python /bin/graphics.py"
-alias connect="python /bin/connect.py"
-alias commit='git commit -a -m '
-alias mirror="git push origin main"
-alias ifconfig="python /usr/bin/ifconfig.py"
-alias apt="python /apt.py"
-alias apt-get="python /apt.py"
-alias kb="/bin/kb.exe"
-alias log="git log"
-alias ipy="/sample/IronPython/ipy.exe"
-alias pip="/sample/IronPython/Scripts/pip.exe"
-alias wget="/usr/wget.exe"
-alias ntpad="/cmd/notepad2.exe"
-alias sudo="/usr/bin/sudo"
-alias nano="/usr/bin/nano.exe"
-alias rnano="/usr/bin/rnano.exe"
-alias vim="/usr/bin/vim.exe"
-alias vi="/usr/bin/vi.exe"
-alias device="/etc/device.sh"
+alias lua="/usr/bin/lua.exe" # Lua Binary Compiler
+alias beep="/usr/bin/beep.exe" # Beep Application
+alias graphics="python /bin/graphics.py" # Graphics Server Interface
+alias connect="python /bin/connect.py" # Connect to Servers and Graphics Interfaces
+alias commit='git commit -a -m ' # Git Commit
+alias mirror="git push origin main" # Git push
+alias ifconfig="python /usr/bin/ifconfig.py" # Print Ethernet Settings
+alias apt="python /apt.py" # Package manager
+alias apt-get="python /apt.py" # Package Manager --nouser
+alias kb="/bin/kb.exe" # kb Application
+alias log="git log" # Git log
+alias ipy="/sample/IronPython/ipy.exe" # IronPython 3
+alias pip="/sample/IronPython/Scripts/pip.exe" # Pip IronPython 3
+alias wget="/usr/wget.exe" # WGET
+alias ntpad="/cmd/notepad2.exe" # Notepad System
+alias sudo="/usr/bin/sudo" # Sudo's
+alias nano="/usr/bin/nano.exe" # Nano e-ditor
+alias rnano="/usr/bin/rnano.exe" # Nano private
+alias vim="/usr/bin/vim.exe" # Vim E-ditor
+alias vi="/usr/bin/vi.exe" # Vi Improvied
+alias device="/etc/device.sh" # Device PS/2 port!
