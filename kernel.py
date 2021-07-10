@@ -10,6 +10,8 @@ class Kernel:
         self.hostname = gethostname()
         self.host = gethostbyname(self.hostname)
         self.disk_partition = "0x800-1x300"
+        self.version = "1.13"
+        self.subversion = "Terminal Update: Linux is near of me"
 
         self.PrintFirmwareSettings()
         try:
@@ -19,15 +21,19 @@ class Kernel:
         else:
             system(r"{}\bin\bash.exe".format(path))
     def changelog(self):
-        print("┌────────────────────────────────────────────────────────────────────┐"), sleep(0.111)
-        print("│Welcome to OSystem v1.13 - Terminal Update: All is Posible in Code  │"), sleep(0.111)
-        print("│OSystem: https://github.com/Habejota/OSystem.git                    │"), sleep(0.111)
-        print("│                                                                    │"), sleep(0.111)
-        print("│                 GNU\Bash OSystem Free Source Code                  │"), sleep(0.111)
-        print("│        Source library free code Firmware Apache License 2.0        │"), sleep(0.111)
-        print("│            Binary Systems auto-compiled in scr/builtdin            │"), sleep(0.111)
-        print("│               Advanced Compiled Buffer Pagination                  │")
-        print("└───────────────────────────[OSystem Bash]───────────────────────────┘\n"), sleep(0.111)
+        print(rf"""==================================================================
+Welcome to OSystem {self.version} (GNU\Linux - {self.subversion})
+
+ * Documentation:  https://github.com/Habejota/OSystem/blob/main/docs.txt
+ * Management:     https://github.com/Habejota/OSystem
+ * Support:        https://github.com/Felipe-Souza-Pereira-Lima (mailto:kiudokima@gmail.com)
+  
+  Ethernet WebSocket Setting:
+  IPv6 address for eth4:  2001:0:2877:7aa:14d1:e090:7cff:c309
+  IPv4 address for wifi0: {self.host}: {self.hostname}
+
+""")
+        system(rf"{path}\bin\git.exe status")
     def PrintFirmwareSettings(self):
         print("")
         system("echo Configurations firmware (%username%@{}) ({}:80)".format(self.hostname, self.host))
