@@ -1,6 +1,5 @@
 from os import system, chdir
 import sys
-from kernel import path
 
 chdir("..")
 
@@ -18,6 +17,7 @@ class Package:
             install - install packages
             update - update list of packages
             upgrade - update OSystem
+            uninstall - Uninstall Packages Of System
             """) 
         else:
             if arguments == "install":

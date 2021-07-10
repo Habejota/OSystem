@@ -19,4 +19,4 @@
 	process = git-lfs filter-process
 	required = true
 [credential]
-	helper = helper-selector
+	helper = !\"C:/Users/eplim/Tenaya/os/mingw64/libexec/git-core/git-credential-manager-core.exe\"
