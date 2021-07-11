@@ -11,7 +11,7 @@ class Kernel:
         self.host = gethostbyname(self.hostname)
         self.disk_partition = "0x800-1x300"
         self.version = "1.13"
-        self.subversion = "Terminal Update: Linux is near of me"
+        self.subversion = "Terminal Update: Linux be near... I can hear You"
 
         self.PrintFirmwareSettings()
         try:
@@ -21,7 +21,7 @@ class Kernel:
         else:
             system(r"{}\bin\bash.exe".format(path))
     def changelog(self):
-        print(rf"""==================================================================
+        print(f"""==================================================================
 Welcome to OSystem {self.version} (GNU\Linux - {self.subversion})
 
  * Documentation:  https://github.com/Habejota/OSystem/blob/main/docs.txt
@@ -32,6 +32,11 @@ Welcome to OSystem {self.version} (GNU\Linux - {self.subversion})
   IPv6 address for eth4:  2001:0:2877:7aa:14d1:e090:7cff:c309
   IPv4 address for wifi0: {self.host}: {self.hostname}
 
+OS Installed at PS/1: \033[33mWindows NT\033[m
+Disks Firmware devices status:
+    PS/1:  \033[33mWindows NT\033[m
+    PS/2:  \033[32mOSystem {self.version}\033[m
+    PS/3:  \033[36mOSystem Resources\033[m
 """)
         system(rf"{path}\bin\git.exe status")
     def PrintFirmwareSettings(self):

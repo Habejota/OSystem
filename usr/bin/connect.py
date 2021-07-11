@@ -31,7 +31,7 @@ class Putty:
             self.password = getpass(f"{self.user}@{self.host_connect}'s password: ").strip()
             while True:
                 try:
-                    cmd = input(">>> ").strip().lower()
+                    cmd = input(rf"{self.user}@{self.host_connect}:/network# ").strip().lower()
                     if cmd == "exit":
                         print("Closing Internal connection. . ."), wait(3.834)
                         s.close()
@@ -64,28 +64,65 @@ class Putty:
                             a = open(cmd)
                         except FileNotFoundError:
                             print("[FAILED] FileNotFoundError!")
+                        except Exception as ex:
+                            print("[FAILED] {}".format(ex))
                         else:
                             with open(cmd, "rt") as fileText:
                                 s.sendfile(fileText.read())
                             print("[  OK  ] File Sended with sucessfuly!")
-
+                    elif cmd.startswith("login"):
+                        if cmd == "login start":
+                            try:
+                                a = open(".socket", "rt")
+                            except FileNotFoundError:
+                                print("[FAILED] Cannot open history log file.")
+                                spd = open(".socket", "wt+")
+                                print("[  OK  ] All right in System registration.")
+                                print("[  OK  ] SSH loged to Addon Resource File.")
+                            else:
+                                spd = open(".socket", "wt")
+                                print("[  OK  ] All right in System registration.")
+                                print("[  OK  ] SSH loged to Addon Resource File.")
+                        elif cmd == "login stop":
+                            try:
+                                spd.close()
+                            except:
+                                print("[FAILED] Sorry: May you start a connection first!")
+                            else:
+                                print("[  OK  ] SSH: The connection was closed with Sources.")
+                            
+                        else:
+                            print("SSH: login: Specific the argument")
+                            print(" start - Start a connection with Resource Packs")
+                            print(" stop - Stop the connection with Packs")
+                    
                     elif cmd.startswith("echo"):
                         cmd = cmd.replace("echo", "")
-                        s.send(cmd.encode())
-                        print("The mensage was sended to server!")
+                        try:
+                            spd.write(cmd)
+                        except:
+                            print("[FAILED] Cannot Read the Resources Packages")
+                        else:
+                            s.send(cmd.encode())
+                            print("[  OK  ] The mensage was sended to server!")
                     elif cmd == "clear":
                         system("cls")
                     elif cmd == "pwd":
                         print(getcwd())
-
-
+                    elif cmd == "sended":
+                        try:
+                            with open(".socket", "rt") as socketFile:
+                                print(socketFile.read())
+                        except FileNotFoundError:
+                            print("[FAILED] You dont have installed any Package!")
+                    
 
                     else:
                         print("SSH: {}: Unknow CommandError!".format(cmd))
                 except KeyboardInterrupt:
                     print("")
                 except Exception as e:
-                    print(e)
+                    print("[FAILED] {}".format(e))
                     break
 
 Putty()
