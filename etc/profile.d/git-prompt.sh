@@ -51,7 +51,6 @@ HOME="/home"
 
 cd $HOME
 # OSystem Commands
-alias shutdown="exit" # Shutdown System
 alias ls="ls --color=auto -CF" 
 alias dir='dir --color=auto'
 alias ll='vdir --color=auto'
@@ -62,7 +61,7 @@ alias connect="python /bin/connect.py" # Connect to Servers and Graphics Interfa
 alias commit='git commit -a -m ' # Git Commit
 alias mirror="git push origin main" # Git push
 alias ifconfig="python /usr/bin/ifconfig.py" # Print Ethernet Settings
-alias apt="bash /etc/setup/aptin.sh" # Package manager
+alias apt="cd $HOME | python /apt.py" # Package manager
 alias apt-get="cd $HOME | python /apt.py" # Package Manager --nouser
 alias kb="/bin/kb.exe" # kb Application
 alias log="git log" # Git log

@@ -12,13 +12,12 @@ class Kernel:
         self.disk_partition = "0x800-1x300"
         self.version = "1.13"
         self.subversion = "Terminal Update: Linux be near... I can hear You"
-
-        self.PrintFirmwareSettings()
+        
+        system("cls")
         self.changelog()
         system(rf"{path}\bin\git.exe status")
         system(r"{}\bin\bash.exe".format(path))
     def changelog(self):
-        system("cls")
         print(f"Welcome to \033[32mOSystem {self.version}\033[m (GNU\Linux - {self.subversion})")
         print("")
         print(" * Documentation:  \033[4mhttps://github.com/Habejota/OSystem/blob/main/docs.txt\033[m")
@@ -35,8 +34,4 @@ class Kernel:
         print(f"     PS/2:  \033[32mOSystem {self.version}\033[m")
         print(f"     PS/3:  \033[36mOSystem Resources\033[m")
     
-    def PrintFirmwareSettings(self):
-        print("")
-        system("echo Configurations firmware (%username%@{}) ({}:80)".format(self.hostname, self.host))
-
 Kernel()
