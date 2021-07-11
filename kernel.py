@@ -14,44 +14,29 @@ class Kernel:
         self.subversion = "Terminal Update: Linux be near... I can hear You"
 
         self.PrintFirmwareSettings()
-        try:
-            self.changelog() 
-        except KeyboardInterrupt:
-            system("python Firmware.py")
-        else:
-            system(r"{}\bin\bash.exe".format(path))
-    def changelog(self):
-        print(f"""==================================================================
-Welcome to OSystem {self.version} (GNU\Linux - {self.subversion})
-
- * Documentation:  https://github.com/Habejota/OSystem/blob/main/docs.txt
- * Management:     https://github.com/Habejota/OSystem
- * Support:        https://github.com/Felipe-Souza-Pereira-Lima (mailto:kiudokima@gmail.com)
-  
-  Ethernet WebSocket Setting:
-  IPv6 address for eth4:  2001:0:2877:7aa:14d1:e090:7cff:c309
-  IPv4 address for wifi0: {self.host}: {self.hostname}
-
-OS Installed at PS/1: \033[33mWindows NT\033[m
-Disks Firmware devices status:
-    PS/1:  \033[33mWindows NT\033[m
-    PS/2:  \033[32mOSystem {self.version}\033[m
-    PS/3:  \033[36mOSystem Resources\033[m
-""")
+        self.changelog()
         system(rf"{path}\bin\git.exe status")
+        system(r"{}\bin\bash.exe".format(path))
+    def changelog(self):
+        system("cls")
+        print(f"Welcome to \033[32mOSystem {self.version}\033[m (GNU\Linux - {self.subversion})")
+        print("")
+        print(" * Documentation:  \033[4mhttps://github.com/Habejota/OSystem/blob/main/docs.txt\033[m")
+        print(" * Support:        (\033[4mmailto:kiudokima@gmail.com\033[m)")
+        print(" * Management:     \033[4mhttps://github.com/Habejota/OSystem\033[m")
+        print("")
+        print("  Ethernet WebSocket Setting:")
+        print("   IPv6 address for eth4:  2001:0:2877:7aa:14d1:e090:7cff:c309")
+        print(f"   IPv4 address for wifi0: \033[31m{self.host}\033[m: \033[35m{self.hostname}\033[m")
+        print("")
+        print(f"Operational System: \033[33mWindows NT\033[m")
+        print("Disks Firmware Devices Status on:")
+        print(f"     PS/1:  \033[33mWindows NT\033[m")
+        print(f"     PS/2:  \033[32mOSystem {self.version}\033[m")
+        print(f"     PS/3:  \033[36mOSystem Resources\033[m")
+    
     def PrintFirmwareSettings(self):
         print("")
         system("echo Configurations firmware (%username%@{}) ({}:80)".format(self.hostname, self.host))
 
-try:    
-    chdir("home")
-except FileNotFoundError:
-    pass
-else:
-    try:
-        Kernel()
-    except KeyboardInterrupt:
-        chdir(path)
-        chdir("..")
-        system("python network.py")
-        exit()
+Kernel()
