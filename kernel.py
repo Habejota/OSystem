@@ -15,7 +15,6 @@ class Kernel:
         
         system("cls")
         self.changelog()
-        system(rf"{path}\bin\git.exe status")
         system(r"{}\bin\bash.exe".format(path))
     def changelog(self):
         print(f"Welcome to \033[32mOSystem {self.version}\033[m (GNU\Linux - {self.subversion})")
@@ -33,5 +32,6 @@ class Kernel:
         print(f"     PS/1:  \033[33mWindows NT\033[m")
         print(f"     PS/2:  \033[32mOSystem {self.version}\033[m")
         print(f"     PS/3:  \033[36mOSystem Resources\033[m")
+        print("\033[39m=======================================\033[38m[\033[34mOSystem Bash\033[m\033[39m]=================================\033[m")
     
 Kernel()
