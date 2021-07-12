@@ -1,3 +1,0 @@
-shopt -s expand_aliases
-alias wi="winpty" #Usage : wi [command] / sudo wi [command]
-alias swi="sudo winpty" #Usage : swi [command]
