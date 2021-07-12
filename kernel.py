@@ -10,8 +10,8 @@ class Kernel:
         self.hostname = gethostname()
         self.host = gethostbyname(self.hostname)
         self.disk_partition = "0x800-1x300"
-        self.version = "1.13"
-        self.subversion = "Terminal Update: It's the end?"
+        self.version = ""
+        self.subversion = "Terminal Update: It's a new start!"
         
         system("cls")
         self.changelog()
