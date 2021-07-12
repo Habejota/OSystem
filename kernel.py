@@ -10,7 +10,7 @@ class Kernel:
         self.hostname = gethostname()
         self.host = gethostbyname(self.hostname)
         self.disk_partition = "0x800-1x300"
-        self.version = ""
+        self.version = "2.0"
         self.subversion = "OSystem Distribuition: version-2.0"
         
         system("cls")
