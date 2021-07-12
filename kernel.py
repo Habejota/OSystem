@@ -11,7 +11,7 @@ class Kernel:
         self.host = gethostbyname(self.hostname)
         self.disk_partition = "0x800-1x300"
         self.version = ""
-        self.subversion = "Terminal Update: It's a new start!"
+        self.subversion = "OSystem Distribuition: version-2.0"
         
         system("cls")
         self.changelog()
