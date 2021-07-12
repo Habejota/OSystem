@@ -1,0 +1,721 @@
+#!/bin/bash
+# vim: set ts=2 sw=2 tw=0 et :
+#
+# apt-cyg: install tool for cygwin similar to debian apt-get
+# 
+# Copyright (C) 2005-9, Stephen Jungels
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# (http://www.fsf.org/licensing/licenses/gpl.html)
+
+
+if [ -z "$WINXPMODE" ]; then
+  WINXPMODE="0"
+fi
+if [ "`/bin/busybox.exe uname -r | /bin/busybox.exe awk -F'(' '{print $1}'`" == "2.5.2" ]; then
+  WINXPMODE="1"
+fi
+
+if [ ! -e "/etc/setup/installed.db" ]; then
+  mkdir /etc/setup 2>/dev/null
+  touch "/etc/setup/installed.db"
+  [ -e "/etc/setup/installed.db-save" ] && cp "/etc/setup/installed.db-save" "/etc/setup/installed.db"
+fi
+
+# this script requires some packages
+if [ "$WGET" == "" ]; then
+  WGET="/bin/wget -T 6 -t 2 -q "
+fi
+BZIP2="/bin/busybox.exe bzip2"
+TAR="/bin/busybox.exe tar"
+GAWK="/bin/busybox.exe awk"
+XZ="/bin/busybox.exe xz"
+CYGPORTS=""
+NEEDREBASE=""
+
+
+
+ARCH='x86'
+
+function usage()
+{
+  echo apt-cyg: Installs and removes Cygwin packages.
+  echo "  \"apt-get install <package names>\" to install packages"
+  echo "  \"apt-get remove <package names>\" to remove packages"
+  echo "  \"apt-get update\" to update setup.ini"
+  echo "  \"apt-get show\" to show installed packages"
+  echo "  \"apt-get find <patterns>\" to find packages matching patterns"
+  echo "  \"apt-get describe <patterns>\" to describe packages matching patterns"
+  echo "  \"apt-get packageof <commands or files>\" to locate parent packages"
+  echo "  \"apt-get rebase to rebase installed libraries"
+  echo "Options:"
+  echo "  --localrepo, -l <folder_path> : set local cygwin repository"
+  echo "  --mirror, -m <url>            : set mirror"
+  echo "  --file, -f <file>             : read package names from file"
+  echo "  --noupdate, -u                : don't update setup.ini from mirror"
+  echo "  --legacy                      : try to download old stable packages"
+  echo "  --help"
+  echo "  --version"
+}
+
+
+
+function version()
+{
+  echo "OSystem Package Manager"
+  echo "This tool is based on apt-cyg version 0.59"
+  echo "apt-cyg is initially written by Stephen Jungels"
+  echo ""
+  echo "Released under the GPL."
+}
+
+
+function findworkspace()
+{
+  # default working directory and mirror
+  mirror0=""
+  mirror1=""
+  mirror2=""
+  mirror3=""
+  mirror4=""
+  mirror5=""
+  mirror6=""
+  mirror7=""
+  mirror8=""
+  mirror9=""
+  mirror10=""
+  if [ "$LASTMIRROR" != "" ]; then
+    mirror0="$LASTMIRROR"
+  elif [ "$APTLOCALREPO" != "" ]; then
+    mirror0="$APTLOCALREPO"
+  else
+    mirror0="http://mirrors.kernel.org/sourceware/cygwin/"
+    mirror1="http://ftp.eq.uc.pt/software/pc/prog/cygwin/"
+    mirror2="http://ctm.crouchingtigerhiddenfruitbat.org/pub/cygwin/circa/2019/03/17/171438/"
+  fi
+  
+  cache="/home/.aptcyg"
+  mirrordir="."
+  
+#  echo Working directory is $cache
+  mkdir -p "$cache/$mirrordir"
+  cd "$cache/$mirrordir"
+}
+
+
+function getsetup() 
+{
+  if test "$noupdate" == "0"
+  then
+    if [ -e "setup.ini" ] && [ "`du -sk setup.ini | $GAWK '{print $1}'`" != "0" ]; then
+      cp "setup.ini" "setup.ini-save"
+    fi
+    if [ ! -e "setup.ini" ] || [ "`du -sk setup.ini | $GAWK '{print $1}'`" == "0" ] || [ "`date +%D -r setup.ini`" != "`date +%D`" ]; then 
+      rm -f "mobasetup.32.2.ini" 2>/dev/null
+      echo "Trying to download file setup.ini"
+      if [ "$WINXPMODE" == "1" ]; then
+        $WGET http://mobaxterm.mobatek.net/setup.legacy.ini && mv setup.legacy.ini setup.ini
+      else
+        $WGET http://download.mobatek.net/mobasetup.32.2.ini && mv mobasetup.32.2.ini setup.ini
+      fi
+      if [ "$?" == "0" ] && [ -e "setup.ini" ] && [ "`du -sk "setup.ini" 2>/dev/null | $GAWK '{print $1}'`" != "0" ]; then
+        echo Updated setup.ini
+        touch setup.ini
+      else
+        rm -f "setup.ini" 2>/dev/null
+        if [ "$WGET" == "/bin/mobawget" ]; then
+          echo Error updating setup.ini, reverting
+          if [ -e "setup.ini-save" ]; then
+            cp "setup.ini-save" "setup.ini"
+          fi
+        else
+          export WGET="/usr/wget.exe"
+          getsetup
+        fi
+      fi
+    fi
+  fi
+  # Update mirrors list
+  i=0
+  head -12 setup.ini > /tmp/listsrvs.txt
+  while read ligne; do
+    if builtin echo "$ligne" | grep -q "#### Mirror${i}|"; then
+      [ "$i" == "0" ] && mirror0="${ligne#*|}"
+      [ "$i" == "1" ] && mirror1="${ligne#*|}"
+      [ "$i" == "2" ] && mirror2="${ligne#*|}"
+      [ "$i" == "3" ] && mirror3="${ligne#*|}"
+      [ "$i" == "4" ] && mirror4="${ligne#*|}"
+      [ "$i" == "5" ] && mirror5="${ligne#*|}"
+      [ "$i" == "6" ] && mirror6="${ligne#*|}"
+      [ "$i" == "7" ] && mirror7="${ligne#*|}"
+      [ "$i" == "8" ] && mirror8="${ligne#*|}"
+      [ "$i" == "9" ] && mirror9="${ligne#*|}"
+      [ "$i" == "10" ] && mirror10="${ligne#*|}"
+    fi
+    i=$[i+1]
+  done < /tmp/listsrvs.txt
+  rm -f /tmp/listsrvs.txt
+}
+
+
+function checkpackages()
+{
+  if test "-$packages-" = "--"
+  then
+    echo "Nothing to do, exiting"
+    exit 0
+  fi
+}
+
+
+# process options
+noscripts=0
+noupdate=0
+file=""
+dofile=0
+command=""
+filepackages=""
+packages=""
+
+while test $# -gt 0
+do
+  case "$1" in
+
+    --mirror|-m)
+      unset CYGPORTS
+      export LASTMIRROR="$2"
+      shift ; shift
+    ;;
+
+    --legacy)
+      export WINXPMODE="1"
+      shift
+    ;;
+
+    --usewinproxy|-w)
+      export WGET="/bin/mobawget"
+      shift
+    ;;
+
+    --localrepo|-l)
+      export WGET="/bin/mobawget -l"
+      export APTLOCALREPO="$2"
+      shift ; shift
+    ;;
+
+    --cygports|-p)
+      export CYGPORTS="yes"
+      shift
+    ;;
+
+    --noscripts)
+      noscripts=1
+      shift
+    ;;
+
+    --noupdate|-u)
+      noupdate=1
+      shift
+    ;;
+
+    --help)
+      usage
+      exit 0
+    ;;
+
+    --version)
+      version
+      exit 0
+    ;;
+
+    --file|-f)
+      if ! test "-$2-" = "--"
+      then
+        file="$2"
+        dofile=1
+        shift
+      else
+        echo 1>&2 No file name provided, ignoring $1
+      fi
+      shift
+    ;;
+
+    update|show|find|describe|packageof|install|remove|rebase)
+      if test "-$command-" = "--"
+      then
+        command=$1
+      else
+        packages="$packages $1"
+      fi
+      shift
+
+    ;;
+
+    *)
+      packages="$packages $1"
+      shift
+
+    ;;
+
+  esac
+done
+
+
+if test $dofile = 1
+then
+  if test -f "$file"
+  then
+    filepackages="$filepackages `cat "$file" | $GAWK '{printf "%s ", $0}'`"
+  else
+    echo File $file not found, skipping
+  fi
+  packages="$packages $filepackages"
+fi
+
+
+case "$command" in
+
+  update)
+
+    findworkspace
+    getsetup
+
+  ;;
+
+
+  show)
+
+    echo 1>&2 The following packages are installed:
+    cat /etc/setup/installed.db | $GAWK '/[^ ]+ [^ ]+ 0/ {print $1}'
+
+  ;;
+
+
+  find)
+
+    checkpackages
+    findworkspace
+    getsetup
+
+    for pkg in $packages
+    do
+      echo ""
+      echo Searching for installed packages matching $pkg:
+      $GAWK '/[^ ]+ [^ ]+ 0/ {if ($1 ~ query) print $1}' query="$pkg" /etc/setup/installed.db
+      echo ""
+      echo Searching for installable packages matching $pkg:
+      cat setup.ini | $GAWK -v query="$pkg" \
+        'BEGIN{RS="\n@ "; FS="\n"; ORS="\n"} {if ($1 ~ query) {print $1}}'
+    done
+
+  ;;
+
+
+  describe)
+
+    checkpackages
+    findworkspace
+    getsetup
+    for pkg in $packages
+    do
+      echo ""
+      cat setup.ini | $GAWK -v query="$pkg" \
+        'BEGIN{RS="\n@ "; FS="\n"; ORS="\n"} {if ($1 ~ query) {print $2 "\n"}}'
+    done
+
+  ;;
+
+
+  packageof)
+
+    checkpackages
+    for pkg in $packages
+    do
+      key=`which "$pkg" 2>/dev/null | sed "s:^/::"`
+      if test "-$key-" = "--"
+      then
+        key="$pkg"
+      fi
+      for manifest in /etc/setup/*.lst.gz
+      do
+        found=`cat $manifest | gzip -d | grep -c "$key"`
+        if test $found -gt 0
+        then
+          package=`echo "$manifest" | sed -e "s:/etc/setup/::" -e "s:.lst.gz::"`
+          package=`/bin/busybox.exe grep "$package" /etc/setup/installed.db | /bin/busybox.exe awk '{print $1}'`
+          echo Found $key in the package $package
+        fi
+      done
+    done
+
+  ;;
+
+
+  install)
+
+    checkpackages
+    findworkspace
+    getsetup
+    
+    # Show disclaimer
+    
+    if [ ! -e "DisclaimerAccepted" ]; then
+      echo -n "
+DISCLAIMER:
+This will download and install third-party software packages, distributed by
+the Cygwin Project, from online Cygwin repositories.
+These software packages are distributed under their own terms available here:
+$mirror0$ARCH/release
+Third-party software packages are neither developed nor distributed by Mobatek.
+In no event shall Mobatek be liable for any direct, indirect, incidental,
+special, exemplary, or consequential damages (including, but not limited to,
+procurement of substitute goods or services, loss of data or profits, computer
+virus infection, or business interruption) however caused and on any theory of
+liability, whether in contract, strict liability, or tort (including negligence
+or otherwise) arising in any way out of the use of these third-party software
+packages, even if advised of the possibility of such damage.
+By typing \"y\", you agree to use these third-party programs at your own risks.
+
+Type \"y\" to continue: "
+      read discanswer
+      echo
+      if [ "$discanswer" == "y" ] || [ "$discanswer" == "yes" ] || [ "$discanswer" == "Y" ] || [ "$discanswer" == "Yes" ] || [ "$discanswer" == "YES" ]; then
+        touch "DisclaimerAccepted"
+      else
+        echo "Disclaimer has been refused. Exiting..."
+        exit 1
+      fi
+    fi   
+
+    for pkg in $packages
+    do
+
+    # look for package and save desc file
+
+    mkdir -p "release/$pkg"
+    cat setup.ini | $GAWK > "release/$pkg/desc" -v package="$pkg" \
+      'BEGIN{RS="\n@ "; FS="\n"} {if ($1 == package) {desc = $0; px++}} \
+       END {if (px == 1 && desc != "") print desc; else print "Package not found"}' 
+    
+    # Try to find pkg in setup.ini
+
+    desc=`cat "release/$pkg/desc"`
+    if test "-$desc-" = "-Package not found-"
+    then
+      rm -r "release/$pkg"
+        echo
+        builtin echo -e "\033[35mPackage $pkg not found, exiting...\033[0m"
+        echo
+      exit 1
+    fi
+    echo Found package $pkg
+
+    # pick the latest version, which comes first
+    install=`cat "release/$pkg/desc" | /bin/busybox.exe head -5 | /bin/busybox.exe tail -1 | $GAWK '{print $1}'` 
+    if test "-$install-" = "--"
+    then
+      echo "Could not find \"install\" in package description: obsolete package?"
+      exit 1
+    fi
+    file=`basename $install`
+
+    # verify that the pkg is not already installed
+
+    already=0
+    if grep -q "^$pkg " /etc/setup/installed.db 2>/dev/null; then
+      already=1
+    fi
+    if grep -q "^$pkg $file 0" /etc/setup/installed.db 2>/dev/null; then
+      already=2
+    elif grep -q "^$pkg " /etc/setup/mobainstalled.db 2>/dev/null; then
+      already=2
+    elif grep -q "^$pkg " /etc/setup/mobainstalled2.db 2>/dev/null; then
+      already=3
+    fi
+    if test $already -ge 3
+    then
+      if [ "$noscripts" == "1" ]; then
+        builtin echo -e "Package \033[36m$pkg\033[0m is already included, skipping"
+        continue
+      fi
+    elif test $already -ge 2
+    then
+      builtin echo -e "Package \033[36m$pkg\033[0m is already installed, skipping"
+      continue
+    elif test $already -ge 1
+    then
+      echo
+      echo An older version of $pkg is installed, updating package...
+      apt-cyg remove $pkg
+    else
+      echo
+      builtin echo -e "\033[33mInstalling $pkg\033[0m"
+    fi
+
+    # pre-check the checksum
+    cd "release/$pkg"
+    if [ -e "$file" ]; then
+      filesize=`cat "desc" | /bin/busybox.exe head -5 | /bin/busybox.exe tail -1 | $GAWK '{print $2}'`
+      digest=`cat "desc" | /bin/busybox.exe head -5 | /bin/busybox.exe tail -1 | $GAWK '{print $3}'`
+      fsactual=`/bin/busybox.exe wc -c < $file`
+      if [ "$digest" != "" ]; then
+        digactual=`/bin/busybox.exe sha512sum $file | $GAWK '{print $1}'`
+      fi
+      if [ "$digest" != "" ] && [ "$digest" != "$digactual" ]; then
+        if [ "$filesize" != "$fsactual" ]; then
+          rm -f "$file" 2>/dev/null
+        fi
+      fi
+    fi
+
+    # download and unpack the bz2 or xz file
+    if [ ! -e "$file" ]; then
+      builtin echo -e "Downloading \033[35m$file\033[0m..."
+      $WGET $mirror0$install
+      [ -e "$file" ] || $WGET $mirror1$install
+      [ -e "$file" ] || $WGET $mirror2$install
+      [ -e "$file" ] || $WGET $mirror3$install
+      [ -e "$file" ] || $WGET $mirror4$install
+      [ -e "$file" ] || $WGET $mirror5$install
+      [ -e "$file" ] || $WGET $mirror6$install
+      [ -e "$file" ] || $WGET $mirror7$install
+      [ -e "$file" ] || $WGET $mirror8$install
+      [ -e "$file" ] || $WGET $mirror9$install
+      [ -e "$file" ] || $WGET $mirror10$install
+      if [ -e "$file" ] && [ "`du -sk "$file" | $GAWK '{print $1}'`" == "0" ]; then
+        rm -f "$file"
+      fi
+      if [ ! -e "$file" ]; then
+        if [ "$WGET" == "/bin/mobawget" ]; then
+          echo "Could not retrieve $mirror0$install, exiting..."
+          exit 1
+        else
+          export WGET="/bin/mobawget"
+          $WGET $mirror0$install
+          [ -e "$file" ] || $WGET $mirror1$install
+          [ -e "$file" ] || $WGET $mirror2$install
+          [ -e "$file" ] || $WGET $mirror3$install
+          [ -e "$file" ] || $WGET $mirror4$install
+          [ -e "$file" ] || $WGET $mirror5$install
+          [ -e "$file" ] || $WGET $mirror6$install
+          [ -e "$file" ] || $WGET $mirror7$install
+          [ -e "$file" ] || $WGET $mirror8$install
+          [ -e "$file" ] || $WGET $mirror9$install
+          [ -e "$file" ] || $WGET $mirror10$install
+        fi
+      fi
+    fi
+    
+    # check the checksum
+    filesize=`cat "desc" | /bin/busybox.exe head -5 | /bin/busybox.exe tail -1 | $GAWK '{print $2}'`
+    digest=`cat "desc" | /bin/busybox.exe head -5 | /bin/busybox.exe tail -1 | $GAWK '{print $3}'`
+    fsactual=`/bin/busybox.exe wc -c < $file`
+    if [ "$digest" != "" ]; then
+      digactual=`/bin/busybox.exe sha512sum $file | $GAWK '{print $1}'`
+    fi
+    if [ "$digest" != "" ] && [ "$digest" != "$digactual" ]; then
+      if [ "$filesize" != "$fsactual" ]; then
+        echo Checksum did not match, exiting
+        exit 1
+      fi
+    fi
+    
+    builtin echo -e "Unpacking \033[35m$file\033[0m..."
+    for repertoire in /usr /usr/lib /usr/bin /usr/lib/perl5 /usr/lib/perl5/site_perl /usr/lib/perl5/vendor_perl; do
+      ls -al "$repertoire" >/dev/null 2>&1
+    done
+    #determine file type
+    if [ "${file##*.}" == "xz" ]; then
+      MyOpt="J"
+    else
+      MyOpt="j"
+    fi
+    (MyDir="$PWD"; cd /; /bin/busybox.exe ls `busybox.exe tar -t${MyOpt}f "$MyDir/$file" | (while read fichier; do echo "${fichier%/*}"; echo "${fichier}"; done) | sort -u` 2>/dev/null >/dev/null)
+    /bin/busybox.exe tar --overwrite -xv${MyOpt}f $file -C / > "/etc/setup/$file.lst"
+    if [ "$?" != "0" ]; then
+      echo -e "\ntar decompression failed. Retrying (#1)...\n"
+      /bin/busybox.exe tar --overwrite -xv${MyOpt}f $file -C / > "/etc/setup/$file.lst"
+      if [ "$?" != "0" ]; then
+        echo -e "\ntar decompression failed. Retrying (#2)...\n"
+        /bin/busybox.exe tar --overwrite -xv${MyOpt}f $file -C / > "/etc/setup/$file.lst"
+      fi
+    fi
+    (
+      cd /
+      grep -E "\.exe$|\.dll$|\.so$" "/etc/setup/$file.lst" | (while read i; do builtin echo -e "Extracting dependencies for \033[35m$i\033[0m..."; /bin/MobaSendMsg.exe MobaXterm "-extractdeps|`cygpath -a -w $i`"; done)
+    )
+    gzip -f "/etc/setup/$file.lst"
+    cd ../..
+    NEEDREBASE="1"
+    
+    
+    # update the package database
+    
+    cat /etc/setup/installed.db | $GAWK > /tmp/awk.$$ -v pkg="$pkg" -v bz=$file \
+      '{if (ins != 1 && pkg < $1) {print pkg " " bz " 0"; ins=1}; print $0} \
+       END{if (ins != 1) print pkg " " bz " 0"}'
+    mv /etc/setup/installed.db /etc/setup/installed.db-save
+    mv /tmp/awk.$$ /etc/setup/installed.db
+    
+    
+    # recursively install required packages
+    
+    requires=`cat "release/$pkg/desc" | /bin/busybox.exe head -3 | /bin/busybox.exe tail -1`
+    
+    warn=0
+    if ! test "-$requires-" = "--"
+    then
+      builtin echo -e -n "Package \033[35m$pkg\033[0m requires the following packages, installing "
+      builtin echo -e "\033[36m$requires\033[0m"
+      for package in $requires
+      do
+        already=0
+        if grep -q "^$package " /etc/setup/mobainstalled.db 2>/dev/null; then
+          already=1
+        fi
+        if test $already -ge 1
+        then
+          builtin echo -e "Package \033[36m$package\033[0m is already installed, skipping"
+          continue
+        fi
+        apt-cyg --noscripts install $package
+        if [ "$?" != "0" ] && [ "$CYGPORTS" != "" ]; then
+          apt-cyg -p --noscripts install $package
+        fi
+        if ! test $? = 0 ; then warn=1; fi
+      done
+    fi
+    if ! test $warn = 0
+    then
+      builtin echo -e "\033[31mWarning: some required packages did not install, continuing\033[0m"
+    fi
+    
+    # run all postinstall scripts
+    
+    pis=`ls /etc/postinstall/*.sh 2>/dev/null | wc -l`
+    if test $pis -gt 0 && ! test $noscripts -eq 1
+    then
+      echo
+      if ! grep -q -E "^findutils " /etc/setup/installed.db; then
+        apt-cyg --noscripts install findutils
+      fi
+      if [ ! -e "/bin/find.exe" ]; then
+        apt-cyg --noscripts install findutils
+      fi
+      if [ -e "/bin/find.exe" ] && [ -e "/bin/find" ]; then
+        mv "/bin/find.exe" "/bin/find.exe.BAK"
+        rm -f "/bin/find" >/dev/null 2>/dev/null
+        cp "/bin/find.exe.BAK" "/bin/find.exe"
+      fi
+      echo
+      builtin echo -e "\033[33mRunning postinstall scripts\033[0m"
+      for script in /etc/postinstall/*.sh
+      do
+        $script
+        mv $script $script.done
+      done
+    fi
+    
+
+    builtin echo -e "\033[32mPackage $pkg installed.\033[0m"
+
+    done
+
+    if [ "$noscripts" != "1" ] && [ "$NEEDREBASE" == "1" ]; then
+      apt-cyg rebase
+    fi
+
+
+  ;;
+
+
+  rebase)
+
+    echo
+    builtin echo -e "\033[33mRebasing new libraries\033[0m"
+    echo
+    [ -e "/bin/ash.exe" ] || cp /bin/bash.exe /bin/ash.exe 2>/dev/null
+    if ! grep -q -E "^rebase " /etc/setup/installed.db; then
+      apt-cyg --noscripts install rebase
+    fi
+    /bin/rebaseall -p -b 0x4e000000 2>/dev/null
+
+  ;;
+
+
+  remove)
+
+    checkpackages
+    for pkg in $packages
+    do
+
+    already=`grep -c "^$pkg " /etc/setup/mobainstalled.db`
+    if [ "$already" != "0" ]; then
+      echo Package $pkg is a MobaXterm core tool, skipping uninstall...
+      exit 1
+    fi
+
+    already=`grep -c "^$pkg " /etc/setup/installed.db`
+    if test $already = 0
+    then
+      echo "Package $pkg is not installed, skipping"
+      continue
+    fi
+
+
+    dontremove="cygwin coreutils gawk bzip2 tar wget bash"
+    for req in $dontremove
+    do
+      if test "-$pkg-" = "-$req-"
+      then
+        echo apt-cyg cannot remove package $pkg, exiting
+        exit 1
+      fi
+    done
+
+    pkgfile=`/bin/busybox.exe grep "$pkg" /etc/setup/installed.db | /bin/busybox.exe awk '{print $2}'`
+
+    if ! test -e "/etc/setup/$pkgfile.lst.gz"
+    then
+      echo Package manifest missing, cannot remove $pkg.  Exiting
+      exit 1
+    fi
+    builtin echo -e "\033[35mRemoving $pkg\033[0m"
+
+    # run preremove scripts
+
+    if test -e "/etc/preremove/$pkg.sh"
+    then
+      "/etc/preremove/$pkg.sh"
+      rm "/etc/preremove/$pkg.sh"
+    fi
+
+    cat "/etc/setup/$pkgfile.lst.gz" | gzip -d | $GAWK '/[^\/]$/ {print "rm -f \"/" $0 "\""}' | sh
+    rm "/etc/setup/$pkgfile.lst.gz"
+    rm -f /etc/postinstall/$pkg.sh.done
+    cat /etc/setup/installed.db | $GAWK > /tmp/awk.$$ -v pkg="$pkg" '{if (pkg != $1) print $0}'
+    mv /etc/setup/installed.db /etc/setup/installed.db-save
+    mv /tmp/awk.$$ /etc/setup/installed.db
+    builtin echo -e "\033[32mPackage $pkg removed\033[0m"
+
+    done
+
+  ;;
+
+  *)
+
+    usage
+
+  ;;
+
+esac
+
